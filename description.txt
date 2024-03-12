@@ -1,0 +1,16 @@
+-This mod allows you to choose various world gen features usually only found in secret seeds.
+
+-Currently you can:
+Spawn Both Evils
+Spawn Both Ore Sets
+Invert the Underworld
+Guarantee Ocean Caves
+Spawn More Surface Living Trees
+Big Bee Hives
+Guarantee Pyramid Entrance to the Underground Desert
+Starting spawn point at the Ocean
+Huge Jungle Temple
+Extra Spider Caves
+
+NEW UPDATE - V0.3
+-Updated to latest tmod 1.4.4
