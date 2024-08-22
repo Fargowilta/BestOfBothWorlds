@@ -217,35 +217,5 @@ namespace FargoSeeds
 		{
 			WorldGen.getGoodWorldGen = false;
 		}
-
-
-		// Fix for incorrect Shadow Orb types
-		/*
-		public static bool PlacingCrimson = false;
-        public override void Load()
-        {
-			On_WorldGen.CrimPlaceHearts += CrimPlaceHearts_Detour;
-			On_WorldGen.AddShadowOrb += AddShadowOrb_Detour;
-        }
-        public override void Unload()
-        {
-            On_WorldGen.CrimPlaceHearts -= CrimPlaceHearts_Detour;
-            On_WorldGen.AddShadowOrb -= AddShadowOrb_Detour;
-        }
-		private static void CrimPlaceHearts_Detour(On_WorldGen.orig_CrimPlaceHearts orig)
-		{
-			PlacingCrimson = true;
-			orig();
-			PlacingCrimson = false;
-		}
-		private static void AddShadowOrb_Detour(On_WorldGen.orig_AddShadowOrb orig, int x, int y)
-		{
-			bool crimson = WorldGen.crimson;
-			WorldGen.crimson = PlacingCrimson;
-			orig(x, y);
-			Main.tile[x - 1, y - 1].TileFrameX = (short)(PlacingCrimson ? 36 : 0);
-			WorldGen.crimson = crimson;
-		}
-		*/
     }
 }
