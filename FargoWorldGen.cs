@@ -56,13 +56,21 @@ namespace FargoSeeds
 
 			int corruptionIndex = tasks.FindIndex(genPass => genPass.Name.Equals("Corruption"));
 
-			if (WorldConfig.Instance.BothEvils)
+            if (WorldConfig.Instance.BothEvils)
 			{
 				tasks.Insert(corruptionIndex, new PassLegacy("Toggle", ToggleDrunkSeedOn));
 				tasks.Insert(corruptionIndex + 2, new PassLegacy("Toggle", ToggleDrunkSeedOff));
-			}
+            }
 
-			int oceanCavesIndex = tasks.FindIndex(genPass => genPass.Name.Equals("Create Ocean Caves"));
+            int cleanupIndex = tasks.FindIndex(genPass => genPass.Name.Equals("Tile Cleanup"));
+
+            if (WorldConfig.Instance.BothEvils)
+            {
+                tasks.Insert(cleanupIndex, new PassLegacy("Toggle", ToggleDrunkSeedOn));
+				tasks.Insert(cleanupIndex + 2, new PassLegacy("Toggle", ToggleDrunkSeedOff));
+            }
+
+            int oceanCavesIndex = tasks.FindIndex(genPass => genPass.Name.Equals("Create Ocean Caves"));
 
 			if (WorldConfig.Instance.OceanCaves)
 			{
@@ -119,54 +127,54 @@ namespace FargoSeeds
 			}
 
 
-			//drunk seed
-			//more living mahigany trees
-			//marble and granite swap generation
-			//desert floating island
-			//snow floating island
-			//dead tree dungeon entrnce
+            //drunk seed
+            //more living mahigany trees
+            //marble and granite swap generation
+            //desert floating island
+            //snow floating island
+            //dead tree dungeon entrnce
 
-			//not the bees
-			//all water becomes honey
+            //not the bees
+            //all water becomes honey
 
-			//for the worthy
-			//more lava pools
-			//more granite/marble
-			//more glowing mushroom
-			//evil floating island
-			//spiky dungeon
-			//big glowing moss biome
-			//underworld houses are hellstone
-			//more lava underworld
-			//some chests have a chance to have an angel statue in the first slot instead of a good thing
+            //for the worthy
+            //more lava pools
+            //more granite/marble
+            //more glowing mushroom
+            //evil floating island
+            //spiky dungeon
+            //big glowing moss biome
+            //underworld houses are hellstone
+            //more lava underworld
+            //some chests have a chance to have an angel statue in the first slot instead of a good thing
 
-			//celebration
-			//even more living trees
-			//painted dungeon
-			//rainbow undeground cabins
-			//hallow floating island
+            //celebration
+            //even more living trees
+            //painted dungeon
+            //rainbow undeground cabins
+            //hallow floating island
 
-			//private static void FinishTenthAnniversaryWorld()
-			//{
-			//	WorldGen.ConvertSkyIslands(2, true);
-			//	WorldGen.PaintTheDungeon(24, 24);
-			//	WorldGen.PaintTheLivingTrees(12, 12);
-			//	WorldGen.PaintTheTemple(10, 5);
-			//	WorldGen.PaintTheClouds(12, 12);
-			//	WorldGen.PaintTheSand(7, 7);
-			//	WorldGen.PaintThePyramids(12, 12);
-			//	WorldGen.PaintThePurityGrass(7, 7);
-			//	WorldGen.ImproveAllChestContents();
-			//}
+            //private static void FinishTenthAnniversaryWorld()
+            //{
+            //	WorldGen.ConvertSkyIslands(2, true);
+            //	WorldGen.PaintTheDungeon(24, 24);
+            //	WorldGen.PaintTheLivingTrees(12, 12);
+            //	WorldGen.PaintTheTemple(10, 5);
+            //	WorldGen.PaintTheClouds(12, 12);
+            //	WorldGen.PaintTheSand(7, 7);
+            //	WorldGen.PaintThePyramids(12, 12);
+            //	WorldGen.PaintThePurityGrass(7, 7);
+            //	WorldGen.ImproveAllChestContents();
+            //}
 
-			//the constant
-			//surface spider biomes
-			//surface marble biomes
-			//wavy caves
+            //the constant
+            //surface spider biomes
+            //surface marble biomes
+            //wavy caves
 
 
 
-			/*ideas
+            /*ideas
 			 * 
 			// double chest spawns
 			// start in hardmode
@@ -177,7 +185,7 @@ namespace FargoSeeds
 
 
 
-			base.ModifyWorldGenTasks(tasks, ref totalWeight);
+            base.ModifyWorldGenTasks(tasks, ref totalWeight);
 		}
 
 		private void ToggleDrunkSeedOn(GenerationProgress progress, GameConfiguration configuration)
@@ -209,5 +217,5 @@ namespace FargoSeeds
 		{
 			WorldGen.getGoodWorldGen = false;
 		}
-	}
+    }
 }
