@@ -1,4 +1,4 @@
-This mod allows you to choose various world gen options. Several are usually found in secret seeds and some totally unique ones.
+﻿This mod allows you to choose various world gen options. Several are usually found in secret seeds and some totally unique ones.
 Several pieces of world gen can also be multiplied or toggled off completely.
 
 Currently you can:
@@ -65,10 +65,3 @@ Completely new world gen options:
 -HardMode ore generated
 -Surface Mushroom Biomes
 -Random Spawn Location
-
-
-**NEW UPDATE - V0.5.2**
--Most effects are off by default now
--If using a secret seed already, the mod will no longer deactivate it at any point
--Changed Replace all Liquids to a slider in the config
--Added Starting NPC option
