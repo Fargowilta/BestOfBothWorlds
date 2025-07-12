@@ -66,9 +66,5 @@ Completely new world gen options:
 -Surface Mushroom Biomes
 -Random Spawn Location
 
-
-**NEW UPDATE - V0.5.2**
--Most effects are off by default now
--If using a secret seed already, the mod will no longer deactivate it at any point
--Changed Replace all Liquids to a slider in the config
--Added Starting NPC option
+**NEW UPDATE - V0.5.3**
+-Added Russian translations
