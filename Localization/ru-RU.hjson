@@ -124,7 +124,7 @@ Mods: {
 				}
 
 				GemMultiplier: {
-					Label: "[i:182] Множ. драгоценных камней"
+					Label: "[i:182] Множ. самоцветов"
 					Tooltip: ""
 				}
 
@@ -144,7 +144,7 @@ Mods: {
 				}
 
 				FloatingIslandMultiplier: {
-					Label: "[i:838] Множ. небесных островов"
+					Label: "[i:838] Множ. парящих островов"
 					Tooltip: ""
 				}
 
@@ -289,7 +289,7 @@ Mods: {
 					Tooltip: ""
 				}
 
-				HeaderTraps: Сид «Без ловушек»
+				HeaderTraps: Сид «без ловушек»
 
 				NoTraps: {
 					Label: "[i:5384] «Отключить» все ловушки"
