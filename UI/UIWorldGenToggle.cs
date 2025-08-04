@@ -11,11 +11,12 @@ using Terraria.Audio;
 using Terraria.GameContent.UI.Elements;
 using Terraria.ID;
 using Terraria.Localization;
+using Terraria.ModLoader;
 using Terraria.UI;
 
 namespace FargoSeeds.UI
 {
-    public class UIWorldGenToggle : UIElement // should be UIButton?
+    public class UIWorldGenToggle : UIElement
     {
         private bool _enabled;
 
@@ -75,12 +76,12 @@ namespace FargoSeeds.UI
             Description = description;
             Width = StyleDimension.FromPixels(44f);
             Height = StyleDimension.FromPixels(34f);
-            _BasePanelTexture = Main.Assets.Request<Texture2D>("Images/UI/CharCreation/PanelGrayscale", (AssetRequestMode)1);
-            _selectedBorderTexture = Main.Assets.Request<Texture2D>("Images/UI/CharCreation/CategoryPanelHighlight", (AssetRequestMode)1);
-            _hoveredBorderTexture = Main.Assets.Request<Texture2D>("Images/UI/CharCreation/CategoryPanelBorder", (AssetRequestMode)1);
+            _BasePanelTexture = ModContent.Request<Texture2D>("Terraria/Images/UI/CharCreation/PanelGrayscale", (AssetRequestMode)1);
+            _selectedBorderTexture = ModContent.Request<Texture2D>("Terraria/Images/UI/CharCreation/CategoryPanelHighlight", (AssetRequestMode)1);
+            _hoveredBorderTexture = ModContent.Request<Texture2D>("Terraria/Images/UI/CharCreation/CategoryPanelBorder", (AssetRequestMode)1);
             if (iconTexturePath != null)
             {
-                _iconTexture = Main.Assets.Request<Texture2D>(iconTexturePath, (AssetRequestMode)1);
+                _iconTexture = ModContent.Request<Texture2D>(iconTexturePath, (AssetRequestMode)1);
             }
             _color = Colors.InventoryDefaultColor;
             if (title != null)
