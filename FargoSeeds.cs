@@ -68,6 +68,23 @@ namespace FargoSeeds
                 },
                 this
                 ));
+
+            for (int i = 5; i < 30; i++)
+            {
+                WorldGenUIManager.Toggles.Add(new WorldGenToggle(
+                WorldConfig.Instance.BothEvils, // default value
+                Language.GetText("Example Toggle " + i), // toggle title
+                Language.GetText("Whether both Corruption and Crimson should be generated."), // toggle description
+                Color.MediumPurple, // toggle title text color
+                "Terraria/Images/UI/WorldCreation/IconEvilCorruption", // toggle icon texture path
+                (bool value) => // toggle action
+                {
+                    WorldConfig.Instance.BothEvils = value;
+                    WorldConfig.Instance.SaveChanges();
+                },
+                this
+                ));
+            }
         }
         public override object Call(params object[] args)
         {

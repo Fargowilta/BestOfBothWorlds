@@ -74,7 +74,7 @@ namespace FargoSeeds.UI
             _enabled = enabledByDefault;
             _borderColor = Color.White;
             Description = description;
-            Width = StyleDimension.FromPixels(44f);
+            Width = StyleDimension.FromPixels(236);
             Height = StyleDimension.FromPixels(34f);
             _BasePanelTexture = ModContent.Request<Texture2D>("Terraria/Images/UI/CharCreation/PanelGrayscale", (AssetRequestMode)1);
             _selectedBorderTexture = ModContent.Request<Texture2D>("Terraria/Images/UI/CharCreation/CategoryPanelHighlight", (AssetRequestMode)1);

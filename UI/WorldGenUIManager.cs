@@ -13,6 +13,7 @@ using Terraria.Audio;
 using Terraria.GameContent;
 using Terraria.GameContent.UI.Elements;
 using Terraria.GameContent.UI.States;
+using Terraria.GameInput;
 using Terraria.ID;
 using Terraria.IO;
 using Terraria.Localization;
@@ -125,13 +126,37 @@ namespace FargoSeeds.UI
         }
         public void AddOptions(UIElement uiPanel)
         {
-            int toggleWidth = 236;
+            int toggleWidth = 222;
             int toggleHeight = 34;
             int toggleSeparation = 8;
 
-            int currentX = 0;
-            int currentY = 0;
             int toggleCount = 0;
+
+            var scrollBar = new UIScrollbar();
+            scrollBar.SetView(200f, 1000f);
+            scrollBar.Width.Set(20, 0);
+            scrollBar.Height.Set(0, 0.8f);
+            scrollBar.OverflowHidden = true;
+            scrollBar.OnScrollWheel += HotbarScrollFix;
+            scrollBar.HAlign = 1;
+
+            UIToggleList toggleList1 = [];
+            toggleList1.Width.Set(0, 0.5f);
+            toggleList1.Height.Set(0, 0.8f);
+            toggleList1.SetScrollbar(scrollBar);
+            toggleList1.OnScrollWheel += HotbarScrollFix;
+
+            UIToggleList toggleList2 = [];
+            toggleList2.Left.Set(toggleWidth + 8, 0);
+            toggleList2.Width.Set(0, 0.5f);
+            toggleList2.Height.Set(0, 0.8f);
+            toggleList2.SetScrollbar(scrollBar);
+            toggleList2.OnScrollWheel += HotbarScrollFix;
+
+            uiPanel.Append(scrollBar);
+            uiPanel.Append(toggleList1);
+            uiPanel.Append(toggleList2);
+
 
             foreach (WorldGenToggle toggle in Toggles)
             {
@@ -139,23 +164,26 @@ namespace FargoSeeds.UI
                 {
                     Width = StyleDimension.FromPixels(toggleWidth),
                     Height = StyleDimension.FromPixels(toggleHeight),
-                    VAlign = 0f,
-                    HAlign = toggleCount % TogglesPerRow == 0 ? 0 : 1,
-                    Top = StyleDimension.FromPixels(currentY),
-                    Left = StyleDimension.FromPixels(currentX)
+                    //VAlign = 0f,
+                    //HAlign = toggleCount % TogglesPerRow == 0 ? 0 : 1,
+                    //Top = StyleDimension.FromPixels(currentY),
+                    //Left = StyleDimension.FromPixels(currentX)
                 };
                 //uiToggle.OnLeftMouseDown += Click_SetToggle;
                 uiToggle.OnMouseOver += ShowToggleDescription;
                 uiToggle.OnMouseOut += ClearToggleDescription;
                 uiToggle.SetSnapPoint("WorldGenToggle" + toggleCount, 0);
-                uiPanel.Append(uiToggle);
+                
                 
                 toggleCount++;
                 //currentX += toggleWidth + toggleSeparation;
                 if (toggleCount % TogglesPerRow == 0)
                 {
-                    currentX = 0;
-                    currentY += toggleHeight + toggleSeparation;
+                    toggleList2.Add(uiToggle);
+                }
+                else
+                {
+                    toggleList1.Add(uiToggle);
                 }
             }
 
@@ -225,6 +253,8 @@ namespace FargoSeeds.UI
             }
             orig(self);
         }
+
+        private void HotbarScrollFix(UIScrollWheelEvent evt, UIElement listeningElement) => Main.LocalPlayer.ScrollHotbar(PlayerInput.ScrollWheelDelta / 120);
 
         #region UIElement Detours
         // This exists to make the Info Menu dissappear when the modded tab is selected
