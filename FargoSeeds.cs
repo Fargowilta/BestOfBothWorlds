@@ -13,6 +13,59 @@ namespace FargoSeeds
         public override void Load()
         {
             base.Load();
+
+            void AddToggleFromConfig(LocalizedText category, string config, Color textColor, string iconTexturePath, bool defaultValue, Action<bool> action)
+            {
+                string path = "Mods.FargoSeeds.Configs.WorldConfig.";
+                WorldGenUIManager.AddToggle(
+                    this,
+                    category,
+                    Language.GetText(path + config + ".Label"),
+                    Language.GetText(path + config + ".Tooltip"),
+                    textColor,
+                    iconTexturePath,
+                    defaultValue,
+                    action
+                    );
+            }
+            void AddSliderFromConfig(LocalizedText category, string config, Color textColor, string iconTexturePath, float defaultValue, Action<float> action, bool intSlider, List<float> sliderRange)
+            {
+                string path = "Mods.FargoSeeds.Configs.WorldConfig.";
+                WorldGenUIManager.AddSlider(
+                    this,
+                    category,
+                    Language.GetText(path + config + ".Label"),
+                    Language.GetText(path + config + ".Tooltip"),
+                    textColor,
+                    iconTexturePath,
+                    defaultValue,
+                    action,
+                    intSlider,
+                    sliderRange
+                    );
+            }
+            string headerPath = "Mods.FargoSeeds.WorldGen.Headers.";
+            LocalizedText generalHeader = Language.GetText(headerPath + "General");
+            Color color = Color.MediumPurple;
+
+
+            AddToggleFromConfig(generalHeader, "BothEvils", color, null, 
+                WorldConfig.Instance.BothEvils, value =>
+                {
+                    WorldConfig.Instance.BothEvils = value;
+                    WorldConfig.Instance.SaveChanges();
+                }
+            );
+            AddToggleFromConfig(generalHeader, "WavyCaves", color, null,
+                WorldConfig.Instance.WavyCaves, value =>
+                {
+                    WorldConfig.Instance.WavyCaves = value;
+                    WorldConfig.Instance.SaveChanges();
+                }
+            );
+
+
+            /*
             WorldGenUIManager.AddToggle(
                 this,
                 Language.GetText("World Generation"),
@@ -44,62 +97,7 @@ namespace FargoSeeds
                 true,
                 [0, 5]
                 );
-
-            for (int i = 1; i < 10; i++)
-            {
-                WorldGenUIManager.AddToggle(
-                    this,
-                    Language.GetText("World Generation 2"),
-                    Language.GetText("Example Toggle " + i),
-                    Language.GetText("Whether both Corruption and Crimson should be generated."),
-                    Color.MediumPurple,
-                    "Terraria/Images/UI/WorldCreation/IconEvilCorruption",
-                    WorldConfig.Instance.BothEvils,
-                    value =>
-                    {
-                        WorldConfig.Instance.BothEvils = value;
-                        WorldConfig.Instance.SaveChanges();
-                    }
-                    );
-            }
-
-            for (int i = 1; i < 1; i++)
-            {
-                WorldGenUIManager.AddToggle(
-                    this,
-                    Language.GetText("World Generation 3"),
-                    Language.GetText("Example Toggle " + i),
-                    Language.GetText("Whether both Corruption and Crimson should be generated."),
-                    Color.MediumPurple,
-                    "Terraria/Images/UI/WorldCreation/IconEvilCorruption",
-                    WorldConfig.Instance.BothEvils,
-                    value =>
-                    {
-                        WorldConfig.Instance.BothEvils = value;
-                        WorldConfig.Instance.SaveChanges();
-                    }
-                    );
-            }
-
-            for (int i = 1; i < 29; i++)
-            {
-                WorldGenUIManager.AddSlider(
-                    this,
-                    Language.GetText("Multipliers"),
-                    Language.GetText("Cave Multiplier" + i),
-                    Language.GetText("Cave multiplier"),
-                    Color.MediumPurple,
-                    "Terraria/Images/UI/WorldCreation/IconEvilCorruption",
-                    WorldConfig.Instance.CaveMultiplier,
-                    value =>
-                    {
-                        WorldConfig.Instance.CaveMultiplier = (int)(value * 5);
-                        WorldConfig.Instance.SaveChanges();
-                    },
-                    true,
-                    [0, 5]
-                    );
-        }
+            */
         }
         public override object Call(params object[] args)
         {

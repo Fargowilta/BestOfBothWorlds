@@ -1,5 +1,7 @@
 Mods: {
 	FargoSeeds: {
+		WorldGen.Headers.General: General
+
 		Configs: {
 			WorldConfig: {
 				MoreSpiders: {
