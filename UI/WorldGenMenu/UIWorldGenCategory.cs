@@ -36,7 +36,7 @@ namespace FargoSeeds.UI.WorldGenMenu
                 _titleText = title;
                 UIText uIText = new(title, 1f)
                 {
-                    HAlign = 0.5f,
+                    HAlign = 0f,
                     VAlign = 0.5f,
                     Width = StyleDimension.FromPixelsAndPercent(0f - 10f, 1f),
                     Top = StyleDimension.FromPixels(0f),
@@ -44,11 +44,19 @@ namespace FargoSeeds.UI.WorldGenMenu
                 };
                 Append(uIText);
                 _title = uIText;
+
+                UIHorizontalSeparator separator = new()
+                {
+                    Width = StyleDimension.FromPercent(1f),
+                    Top = StyleDimension.FromPercent(0.9f),
+                    Color = Color.Lerp(Color.White, new Color(63, 65, 151, 255), 0.85f) * 0.9f
+                };
+                Append(separator);
             }
         }
         protected override void DrawSelf(SpriteBatch spriteBatch)
         {
-            
+
         }
 
     }

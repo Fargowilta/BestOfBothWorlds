@@ -74,12 +74,13 @@ namespace FargoSeeds.UI.WorldGenMenu
             _color = Colors.InventoryDefaultColor;
             if (title != null)
             {
-                UIText uIText = new(title, 1f)
+                UIText uIText = new(title, 0.9f)
                 {
-                    HAlign = 0.5f,
+                    HAlign = 0f,
                     VAlign = 0.5f,
                     Width = StyleDimension.FromPixelsAndPercent(0f - 10f, 1f),
                     Top = StyleDimension.FromPixels(0f),
+                    Left = StyleDimension.FromPixelsAndPercent(0, 0.05f),
                     TextColor = textColor
                 };
                 Append(uIText);
@@ -117,12 +118,10 @@ namespace FargoSeeds.UI.WorldGenMenu
             }
             if (_iconTexture != null)
             {
+                var referenceTexture = ModContent.Request<Texture2D>("Terraria/Images/UI/WorldCreation/IconEvilCorruption").Value;
                 Color color2 = Color.White;
-                if (!_hovered && !isSelected)
-                {
-                    color2 = Color.Lerp(color, Color.White, _whiteLerp) * num;
-                }
-                spriteBatch.Draw(_iconTexture.Value, new Vector2(dimensions.X + 1f, dimensions.Y + 1f), color2);
+                Vector2 offset = (referenceTexture.Size() - _iconTexture.Value.Size()) / 2;
+                spriteBatch.Draw(_iconTexture.Value, offset + new Vector2(dimensions.X + 1f, dimensions.Y + 1f), color2);
             }
         }
 

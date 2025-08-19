@@ -1,0 +1,17 @@
+// HeaderGeneral: General
+
+BothEvils: {
+	// Title: Both Evils
+	// Description: Generates both the Corruption and Crimson in the same world, on opposite sides.
+}
+
+BothOres: {
+	// Title: Both Ores
+	// Description: Generates all mineral and ore variations in the same world.
+}
+
+// HeaderUnderground: Underground
+// HeaderSurface: Surface
+// HeaderStructure: Structure
+// HeaderFrequency: Frequency
+// HeaderMiscellaneous: Miscellaneous

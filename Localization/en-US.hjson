@@ -11,7 +11,7 @@ Mods: {
 
 				HugeTemple: {
 					Tooltip: ""
-					Label: "[i:1153] Huge Jungle Temple"
+					Label: Huge Jungle Temple
 				}
 
 				OceanSpawn: {
@@ -21,22 +21,22 @@ Mods: {
 
 				PyramidEntrance: {
 					Tooltip: ""
-					Label: "[i:848] Guarantee Pyramid Entrance to Underground Desert"
+					Label: Guarantee Pyramid
 				}
 
 				BigHives: {
 					Tooltip: ""
-					Label: "[i:5066] Big Bee Hives"
+					Label: Big Bee Hives
 				}
 
 				LivingTrees: {
 					Tooltip: ""
-					Label: "[i:832] More Surface Living Trees"
+					Label: More Living Trees
 				}
 
 				OceanCaves: {
 					Tooltip: ""
-					Label: "[i:275] Guarantee Ocean Caves"
+					Label: Guarantee Ocean Caves
 				}
 
 				InvertedHell: {
@@ -46,72 +46,72 @@ Mods: {
 
 				BothOres: {
 					Tooltip: ""
-					Label: "[i:12][i:699] Spawn Both Ore Sets"
+					Label: Both Ore Sets
 				}
 
 				BothEvils: {
 					Tooltip: ""
-					Label: "[i:68][i:1330] Both Evils"
+					Label: Both Evils
 				}
 
 				DisplayName: Best of Both Worlds Config
-				Header0: Multipliers
+				Header0: s
 				Header1: Drunk Seed
 				Header2: Celebration Seed
 				Header3: For the Worthy Seed
 
 				MarbleMultiplier: {
-					Label: "[i:3157] Marble Multiplier"
+					Label: Marble
 					Tooltip: ""
 				}
 
 				GraniteMultiplier: {
-					Label: "[i:3086] Granite Multiplier"
+					Label: Granite
 					Tooltip: ""
 				}
 
 				MarbleGraniteSwapped: {
-					Label: "[i:3157][i:3086] Marble and Granite Swapped"
+					Label: Marble/Granite Swapped
 					Tooltip: ""
 				}
 
 				GlowingMushroomMultiplier: {
-					Label: "[i:183] Glowing Mushroom Multiplier"
+					Label: "[i:183] Glowing Mushroom"
 					Tooltip: ""
 				}
 
 				LarvaMultiplier: {
-					Label: "[i:1133] Bee Larva Multiplier"
+					Label: "[i:1133] Bee Larva"
 					Tooltip: ""
 				}
 
 				LifeCrystalMultiplier: {
-					Label: "[i:29] Life Crystal Multiplier"
+					Label: Life Crystals
 					Tooltip: ""
 				}
 
 				StatueMultiplier: {
-					Label: "[i:52] Statue Multiplier"
+					Label: Statue
 					Tooltip: ""
 				}
 
 				ChestMultiplier: {
-					Label: "[i:306] Chest Multiplier"
+					Label: Chests
 					Tooltip: ""
 				}
 
 				SpiderMultiplier: {
-					Label: "[i:952] Spider Cave Multiplier"
+					Label: Spider Caves
 					Tooltip: ""
 				}
 
 				PotMultiplier: {
-					Label: "[i:345] Pot Multiplier"
+					Label: Pots
 					Tooltip: ""
 				}
 
 				TrapMultiplier: {
-					Label: "[i:539] Trap Multiplier"
+					Label: Trap
 					Tooltip: ""
 				}
 
@@ -121,22 +121,22 @@ Mods: {
 				}
 
 				CaveMultiplier: {
-					Label: "[i:4761] Cave Multiplier"
+					Label: Caves
 					Tooltip: ""
 				}
 
 				GemMultiplier: {
-					Label: "[i:182] Gem Multiplier"
+					Label: Gems
 					Tooltip: ""
 				}
 
 				AltarMultiplier: {
-					Label: "[i:86] Altar Multiplier"
+					Label: "[i:86] Altar"
 					Tooltip: ""
 				}
 
 				HiveMultiplier: {
-					Label: "[i:1126] Hive Multiplier"
+					Label: Hives
 					Tooltip: ""
 				}
 
@@ -146,17 +146,17 @@ Mods: {
 				}
 
 				FloatingIslandMultiplier: {
-					Label: "[i:838] Floating Island Multiplier"
+					Label: Floating Islands
 					Tooltip: ""
 				}
 
 				OreMultiplier: {
-					Label: "[i:13] Ore Multiplier"
+					Label: Ores
 					Tooltip: ""
 				}
 
 				LakeMultiplier: {
-					Label: "[i:3086] Lake Multiplier"
+					Label: "[i:3086] Lake"
 					Tooltip: ""
 				}
 
@@ -168,7 +168,7 @@ Mods: {
 				}
 
 				EvilToggle: {
-					Label: "[i:86][i:1329] World Evil Toggle"
+					Label: "[i:86] World Evil Toggle"
 					Tooltip: ""
 				}
 
@@ -188,7 +188,7 @@ Mods: {
 				}
 
 				ShimmerMultiplier: {
-					Label: "[i:5357] Aether Multiplier"
+					Label: "[i:5357] Aether"
 					Tooltip: ""
 				}
 
@@ -203,12 +203,12 @@ Mods: {
 				}
 
 				TreeMultiplier: {
-					Label: "[i:4765] Tree Multiplier"
+					Label: Trees
 					Tooltip: ""
 				}
 
 				LivingTreeMultiplier: {
-					Label: "[i:832] Living Tree Multiplier"
+					Label: "[i:832] Living Trees"
 					Tooltip: ""
 				}
 
@@ -255,12 +255,12 @@ Mods: {
 				}
 
 				UndergroundDungeon: {
-					Label: "[i:1274] Underground Dungeon"
+					Label: Underground Dungeon
 					Tooltip: ""
 				}
 
 				RainbowCabins: {
-					Label: "[i:662] Rainbow Underground Cabins"
+					Label: Rainbow Cabins
 					Tooltip: ""
 				}
 
@@ -272,41 +272,41 @@ Mods: {
 				HeaderConstant: Constant Seed
 
 				SurfaceSpiders: {
-					Label: "[i:2607] Surface Spider Caves"
+					Label: Surface Spider
 					Tooltip: ""
 				}
 
 				SurfaceMarble: {
-					Label: "[i:3157] Surface Marble"
+					Label: Surface Marble
 					Tooltip: ""
 				}
 
 				WavyCaves: {
-					Label: "[i:4524] Wavy Caves"
+					Label: More Open Caves
 					Tooltip: ""
 				}
 
 				PaintEverything: {
-					Label: "[i:1073] Paint Everything"
+					Label: Paint Everything
 					Tooltip: ""
 				}
 
 				HeaderTraps: No Traps Seed
 
 				NoTraps: {
-					Label: '''[i:5384] "No" Traps'''
+					Label: '''"No" Traps'''
 					Tooltip: ""
 				}
 
 				HeaderRemix: Remix Seed
 
 				EvilSurface: {
-					Label: "[i:59][i:2171] Evil Surface"
+					Label: Evil Surface
 					Tooltip: ""
 				}
 
 				SurfaceTemple: {
-					Label: "[i:1153] Surface Temple"
+					Label: Surface Temple
 					Tooltip: ""
 				}
 
@@ -316,7 +316,7 @@ Mods: {
 				}
 
 				MushroomLayer: {
-					Label: "[i:183] Mushroom Layer"
+					Label: Mushroom Layer
 					Tooltip: ""
 				}
 
@@ -326,7 +326,7 @@ Mods: {
 				}
 
 				SurfaceMushroom: {
-					Label: "[i:183] Surface Mushroom Biome"
+					Label: Surface Mushroom
 					Tooltip: ""
 				}
 
@@ -336,17 +336,17 @@ Mods: {
 				}
 
 				MinecartMultiplier: {
-					Label: "[i:2340] Minecart Track Multiplier"
+					Label: "[i:2340] Minecart Track"
 					Tooltip: ""
 				}
 
 				SecondShimmer: {
-					Label: "[i:5340] Two Shimmers"
+					Label: Two Shimmers
 					Tooltip: ""
 				}
 
 				MicroMultiplier: {
-					Label: "[i:2340][i:989] Microbiome Multiplier"
+					Label: Microbiomes
 					Tooltip: ""
 				}
 
@@ -363,7 +363,7 @@ Mods: {
 				}
 
 				RemixUnderworld: {
-					Label: "[i:207] Remix Underworld"
+					Label: Remix Underworld
 					Tooltip: ""
 				}
 
@@ -373,7 +373,7 @@ Mods: {
 				}
 
 				MahoganyTrees: {
-					Label: "[i:3360] Mahogany Trees Everywhere"
+					Label: Mahogany Anywhere
 					Tooltip: ""
 				}
 

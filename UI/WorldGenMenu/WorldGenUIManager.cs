@@ -195,10 +195,11 @@ namespace FargoSeeds.UI.WorldGenMenu
             var elements = new List<UIElement>();
             foreach (UIWorldGenCategory category in ToggleCategories.Keys)
             {
+                category.Width = StyleDimension.FromPercent(1f);
                 if (elements.Count % 2 == 1)
-                    elements.Add(new UIWorldGenCategory(Language.GetText(""))); // empty space
+                    elements.Add(new UIElement() { Height = StyleDimension.FromPixels(ToggleHeight) }); // empty space
                 elements.Add(category);
-                elements.Add(new UIWorldGenCategory(Language.GetText(""))); // empty space
+                elements.Add(new UIElement() { Height = StyleDimension.FromPixels(ToggleHeight)}); // empty space
 
                 foreach (var categToggle in ToggleCategories[category])
                     elements.Add(categToggle);

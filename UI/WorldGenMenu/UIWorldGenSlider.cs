@@ -62,7 +62,7 @@ namespace FargoSeeds.UI.WorldGenMenu
         private readonly float _sliderMin;
         private readonly float _sliderMax;
 
-        public UIWorldGenSlider(Mod mod, LocalizedText title, LocalizedText description, Color textColor, string iconTexturePath,float defaultValue, Action<float> action, bool intSlider, List<float> sliderRange)
+        public UIWorldGenSlider(Mod mod, LocalizedText title, LocalizedText description, Color textColor, string iconTexturePath, float defaultValue, Action<float> action, bool intSlider, List<float> sliderRange)
         {
             Mod = mod;
             _borderColor = Color.White;
@@ -78,7 +78,7 @@ namespace FargoSeeds.UI.WorldGenMenu
             if (title != null)
             {
                 Title = title;
-                UIText uIText = new(title, 1f)
+                UIText uIText = new(title, 0.9f)
                 {
                     HAlign = 0f,
                     VAlign = 0.5f,
@@ -90,11 +90,13 @@ namespace FargoSeeds.UI.WorldGenMenu
                 Append(uIText);
                 _title = uIText;
             }
-            _sliderValue = defaultValue;
             _action = action;
             _intSlider = intSlider;
             _sliderMin = sliderRange[0];
             _sliderMax = sliderRange[1];
+
+            _sliderValue = (defaultValue - _sliderMin) / (_sliderMax - _sliderMin);
+            _sliderValue = MathHelper.Clamp(_sliderValue, 0, 1);
         }
         protected override void DrawSelf(SpriteBatch spriteBatch)
         {
@@ -125,12 +127,10 @@ namespace FargoSeeds.UI.WorldGenMenu
 
             if (_iconTexture != null)
             {
+                var referenceTexture = ModContent.Request<Texture2D>("Terraria/Images/UI/WorldCreation/IconEvilCorruption").Value;
                 Color color2 = Color.White;
-                if (!_hovered)
-                {
-                    color2 = Color.Lerp(color, Color.White, _whiteLerp) * _opacity;
-                }
-                spriteBatch.Draw(_iconTexture.Value, new Vector2(dimensions.X + 1f, dimensions.Y + 1f), color2);
+                Vector2 offset = (referenceTexture.Size() - _iconTexture.Value.Size()) / 2;
+                spriteBatch.Draw(_iconTexture.Value, offset + new Vector2(dimensions.X + 1f, dimensions.Y + 1f), color2);
             }
 
             float num3 = dimensions.Width + 1f;
@@ -278,7 +278,7 @@ namespace FargoSeeds.UI.WorldGenMenu
 
         public void InvokeAction()
         {
-            _action.Invoke(_sliderValue);
+            _action.Invoke(MathHelper.Lerp(_sliderMin, _sliderMax, _sliderValue));
         }
     }
 

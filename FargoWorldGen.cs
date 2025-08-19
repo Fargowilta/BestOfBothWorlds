@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FargoSeeds.UI.WorldGenMenu;
+using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Chat;
@@ -68,7 +69,7 @@ namespace FargoSeeds
             //EXTRAS
             int finalCleanupIndex = getStepIndex(tasks, "Final Cleanup");
 
-            if (WorldConfig.Instance.SecondShimmer)
+            if (WorldGenOptions.SecondShimmer)
             {
                 tasks.Insert(finalCleanupIndex, new PassLegacy("Second Shimmer", secondShimmer));
                 finalCleanupIndex = getStepIndex(tasks, "Final Cleanup");
@@ -107,7 +108,7 @@ namespace FargoSeeds
                 finalCleanupIndex = getStepIndex(tasks, "Final Cleanup");
             }
 
-            if (WorldConfig.Instance.EvilSurface && WorldConfig.Instance.EvilToggle)
+            if (WorldGenOptions.EvilSurface && WorldConfig.Instance.EvilToggle)
             {
                 tasks.Insert(finalCleanupIndex, new PassLegacy("Toggle", ToggleRemixSeedOn));
                 tasks.Insert(finalCleanupIndex + 2, new PassLegacy("Toggle", ToggleRemixSeedOff));
@@ -124,7 +125,7 @@ namespace FargoSeeds
             }
 
             //should be last final index one
-            if (WorldConfig.Instance.PaintEverything)
+            if (WorldGenOptions.PaintEverything)
             {
                 tasks.Insert(finalCleanupIndex, new PassLegacy("Toggle", ToggleCelebrationSeedOn));
                 tasks.Insert(finalCleanupIndex + 2, new PassLegacy("Toggle", ToggleCelebrationSeedOff));
@@ -134,7 +135,7 @@ namespace FargoSeeds
 
             int microIndex = tasks.FindIndex(genPass => genPass.Name.Equals("Micro Biomes"));
 
-            if (WorldConfig.Instance.MahoganyTrees)
+            if (WorldGenOptions.MahoganyTrees)
             {
                 tasks.Insert(microIndex, new PassLegacy("Toggle", ToggleDrunkSeedOn));
                 tasks.Insert(microIndex + 2, new PassLegacy("Toggle", ToggleDrunkSeedOff));
@@ -142,18 +143,18 @@ namespace FargoSeeds
                 microIndex = tasks.FindIndex(genPass => genPass.Name.Equals("Micro Biomes"));
             }
 
-            multiplyStep(tasks, microIndex, WorldConfig.Instance.MicroMultiplier);
+            multiplyStep(tasks, microIndex, WorldGenOptions.MicroMultiplier);
 
             int cleanupIndex = tasks.FindIndex(genPass => genPass.Name.Equals("Tile Cleanup"));
 
-            if (WorldConfig.Instance.BothEvils)
+            if (WorldGenOptions.BothEvils)
             {
                 tasks.Insert(cleanupIndex, new PassLegacy("Toggle", ToggleDrunkSeedOn));
                 tasks.Insert(cleanupIndex + 2, new PassLegacy("Toggle", ToggleDrunkSeedOff));
             }
 
             int treeIndex = getStepIndex(tasks, "Planting Trees");
-            multiplyStep(tasks, treeIndex, WorldConfig.Instance.TreeMultiplier);
+            multiplyStep(tasks, treeIndex, WorldGenOptions.TreeMultiplier);
 
             int guideIndex = getStepIndex(tasks, "Guide");
 
@@ -171,13 +172,13 @@ namespace FargoSeeds
 
             int grassWallIndex = getStepIndex(tasks, "Grass Wall");
 
-            if (WorldConfig.Instance.SurfaceSpiders)
+            if (WorldGenOptions.SurfaceSpiders)
             {
                 tasks.Insert(grassWallIndex, new PassLegacy("Toggle", ToggleConstantSeedOn));
                 tasks.Insert(grassWallIndex + 2, new PassLegacy("Toggle", ToggleConstantSeedOff));
 
                 grassWallIndex = getStepIndex(tasks, "Grass Wall");
-                multiplyStep(tasks, grassWallIndex, WorldConfig.Instance.SpiderMultiplier);
+                multiplyStep(tasks, grassWallIndex, WorldGenOptions.SpiderMultiplier);
             }
 
             int spawnIndex = tasks.FindIndex(genPass => genPass.Name.Equals("Spawn Point"));
@@ -205,7 +206,7 @@ namespace FargoSeeds
 
             int trapIndex = getStepIndex(tasks, "Traps");
 
-            if (WorldConfig.Instance.NoTraps)
+            if (WorldGenOptions.NoTraps)
             {
                 tasks.Insert(trapIndex, new PassLegacy("Toggle", ToggleTrapSeedOn));
                 tasks.Insert(trapIndex + 2, new PassLegacy("Toggle", ToggleTrapSeedOff));
@@ -213,13 +214,13 @@ namespace FargoSeeds
                 trapIndex = getStepIndex(tasks, "Traps");
             }
 
-			multiplyStep(tasks, trapIndex, WorldConfig.Instance.TrapMultiplier);
+			multiplyStep(tasks, trapIndex, WorldGenOptions.TrapMultiplier);
 
 			int potIndex = getStepIndex(tasks, "Pots");
-			multiplyStep(tasks, potIndex, WorldConfig.Instance.PotMultiplier);
+			multiplyStep(tasks, potIndex, WorldGenOptions.PotMultiplier);
 
             int jungleTreeIndex = getStepIndex(tasks, "Jungle Trees");
-            multiplyStep(tasks, jungleTreeIndex, WorldConfig.Instance.TreeMultiplier);
+            multiplyStep(tasks, jungleTreeIndex, WorldGenOptions.TreeMultiplier);
             
 
             int spiderIndex = getStepIndex(tasks, "Spider Caves");
@@ -231,54 +232,54 @@ namespace FargoSeeds
             //    spiderIndex = getStepIndex(tasks, "Spider Caves");
             //}
 
-            multiplyStep(tasks, spiderIndex, WorldConfig.Instance.SpiderMultiplier);
+            multiplyStep(tasks, spiderIndex, WorldGenOptions.SpiderMultiplier);
 
 			//CHESTS
 			int waterChestIndex = getStepIndex(tasks, "Water Chests");
-			multiplyStep(tasks, waterChestIndex, WorldConfig.Instance.ChestMultiplier);
+			multiplyStep(tasks, waterChestIndex, WorldGenOptions.ChestMultiplier);
             int jungleChestIndex = getStepIndex(tasks, "Jungle Chests Placement");
-            multiplyStep(tasks, jungleChestIndex, WorldConfig.Instance.ChestMultiplier);
+            multiplyStep(tasks, jungleChestIndex, WorldGenOptions.ChestMultiplier);
             int surfaceChestIndex = getStepIndex(tasks, "Surface Chests");
-            multiplyStep(tasks, surfaceChestIndex, WorldConfig.Instance.ChestMultiplier);
+            multiplyStep(tasks, surfaceChestIndex, WorldGenOptions.ChestMultiplier);
             int goldChestIndex = getStepIndex(tasks, "Buried Chests");
 
-            if (WorldConfig.Instance.RainbowCabins)
+            if (WorldGenOptions.RainbowCabins)
             {
                 tasks.Insert(goldChestIndex, new PassLegacy("Toggle", ToggleCelebrationSeedOn));
                 tasks.Insert(goldChestIndex + 2, new PassLegacy("Toggle", ToggleCelebrationSeedOff));
                 goldChestIndex = getStepIndex(tasks, "Buried Chests");
             }
 
-            multiplyStep(tasks, goldChestIndex, WorldConfig.Instance.ChestMultiplier);
+            multiplyStep(tasks, goldChestIndex, WorldGenOptions.ChestMultiplier);
 
             int statueIndex = getStepIndex(tasks, "Statues");
-            multiplyStep(tasks, statueIndex, WorldConfig.Instance.StatueMultiplier);
+            multiplyStep(tasks, statueIndex, WorldGenOptions.StatueMultiplier);
 
             int lifeCrystalIndex = getStepIndex(tasks, "Life Crystals");
-            multiplyStep(tasks, lifeCrystalIndex, WorldConfig.Instance.LifeCrystalMultiplier);
+            multiplyStep(tasks, lifeCrystalIndex, WorldGenOptions.LifeCrystalMultiplier);
 
             int hiveIndex = getStepIndex(tasks, "Hives");
 
-            if (WorldConfig.Instance.BigHives)
+            if (WorldGenOptions.BigHives)
             {
                 tasks.Insert(hiveIndex, new PassLegacy("Toggle", ToggleDrunkSeedOn));
                 tasks.Insert(hiveIndex + 2, new PassLegacy("Toggle", ToggleDrunkSeedOff));
                 hiveIndex = getStepIndex(tasks, "Hives");
             }
 
-            multiplyStep(tasks, hiveIndex, WorldConfig.Instance.HiveMultiplier);
+            multiplyStep(tasks, hiveIndex, WorldGenOptions.HiveMultiplier);
 
             int templeIndex = tasks.FindIndex(genPass => genPass.Name.Equals("Jungle Temple"));
             multiplyStep(tasks, templeIndex, WorldConfig.Instance.JungleToggle ? 1 : 0); //no tmple if no jungle..
 
-            if (WorldConfig.Instance.HugeTemple && WorldConfig.Instance.JungleToggle)
+            if (WorldGenOptions.HugeTemple && WorldConfig.Instance.JungleToggle)
             {
                 tasks.Insert(templeIndex, new PassLegacy("Toggle", ToggleWorthySeedOn));
                 tasks.Insert(templeIndex + 2, new PassLegacy("Toggle", ToggleWorthySeedOff));
                 templeIndex = tasks.FindIndex(genPass => genPass.Name.Equals("Jungle Temple"));
             }
 
-            if (WorldConfig.Instance.SurfaceTemple && WorldConfig.Instance.JungleToggle)
+            if (WorldGenOptions.SurfaceTemple && WorldConfig.Instance.JungleToggle)
             {
                 tasks.Insert(templeIndex, new PassLegacy("Toggle", ToggleRemixSeedOn));
                 tasks.Insert(templeIndex + 2, new PassLegacy("Toggle", ToggleRemixSeedOff));
@@ -286,18 +287,18 @@ namespace FargoSeeds
 
             int livingTreeIndex = getStepIndex(tasks, "Living Trees");
 
-            if (WorldConfig.Instance.LivingTrees)
+            if (WorldGenOptions.LivingTrees)
             {
                 tasks.Insert(livingTreeIndex, new PassLegacy("Toggle", ToggleDrunkSeedOn));
                 tasks.Insert(livingTreeIndex + 2, new PassLegacy("Toggle", ToggleDrunkSeedOff));
                 livingTreeIndex = getStepIndex(tasks, "Living Trees");
             }
 
-            multiplyStep(tasks, livingTreeIndex, WorldConfig.Instance.LivingTreeMultiplier);
+            //multiplyStep(tasks, livingTreeIndex, WorldGenOptions.LivingTreeMultiplier);
 
             int pyramidIndex =  getStepIndex(tasks, "Pyramids");
 
-            if (WorldConfig.Instance.PyramidEntrance)
+            if (WorldGenOptions.PyramidEntrance)
             {
                 tasks.Insert(pyramidIndex, new PassLegacy("Toggle", ToggleCelebrationSeedOn));
                 tasks.Insert(pyramidIndex + 2, new PassLegacy("Toggle", ToggleCelebrationSeedOff));
@@ -310,20 +311,20 @@ namespace FargoSeeds
             int oceanCavesIndex = getStepIndex(tasks, "Create Ocean Caves");
             multiplyStep(tasks, oceanCavesIndex, WorldConfig.Instance.OceanToggle ? 1 : 0);
 
-            if (WorldConfig.Instance.OceanCaves && WorldConfig.Instance.OceanToggle)
+            if (WorldGenOptions.OceanCaves && WorldConfig.Instance.OceanToggle)
             {
                 tasks.Insert(oceanCavesIndex, new PassLegacy("Toggle", ToggleDrunkSeedOn));
                 tasks.Insert(oceanCavesIndex + 2, new PassLegacy("Toggle", ToggleDrunkSeedOff));
             }
 
             int gemIndex = getStepIndex(tasks, "Gems");
-            multiplyStep(tasks, gemIndex, WorldConfig.Instance.GemMultiplier);
+            multiplyStep(tasks, gemIndex, WorldGenOptions.GemMultiplier);
 
             int beachIndex = getStepIndex(tasks, "Beaches");
             multiplyStep(tasks, beachIndex, WorldConfig.Instance.OceanToggle ? 1 : 0);
             int shellIndex = getStepIndex(tasks, "Shell Piles"); //must also be skipped if ocean is
 
-            if (WorldConfig.Instance.SurfaceMarble && WorldConfig.Instance.OceanToggle)
+            if (WorldGenOptions.SurfaceMarble && WorldConfig.Instance.OceanToggle)
             {
                 tasks.Insert(shellIndex, new PassLegacy("Toggle", ToggleConstantSeedOn));
                 tasks.Insert(shellIndex + 2, new PassLegacy("Toggle", ToggleConstantSeedOff));
@@ -336,7 +337,7 @@ namespace FargoSeeds
 
             int dungeonIndex = getStepIndex(tasks, "Dungeon");
 
-            if (WorldConfig.Instance.UndergroundDungeon)
+            if (WorldGenOptions.UndergroundDungeon)
             {
                 tasks.Insert(dungeonIndex, new PassLegacy("Toggle", ToggleDrunkSeedOn));
                 tasks.Insert(dungeonIndex + 2, new PassLegacy("Toggle", ToggleDrunkSeedOff));
@@ -358,7 +359,7 @@ namespace FargoSeeds
             int corruptionIndex = getStepIndex(tasks, "Corruption");
             multiplyStep(tasks, corruptionIndex, WorldConfig.Instance.EvilToggle ? 1 : 0);
 
-            if (WorldConfig.Instance.BothEvils && WorldConfig.Instance.EvilToggle)
+            if (WorldGenOptions.BothEvils && WorldConfig.Instance.EvilToggle)
             {
                 tasks.Insert(corruptionIndex, new PassLegacy("Toggle", ToggleDrunkSeedOn));
                 tasks.Insert(corruptionIndex + 2, new PassLegacy("Toggle", ToggleDrunkSeedOff));
@@ -370,14 +371,15 @@ namespace FargoSeeds
             int hellForgeIndex = getStepIndex(tasks, "Hellforge"); //must also be skipped if underworld is
             multiplyStep(tasks, hellForgeIndex, WorldConfig.Instance.UnderworldToggle ? 1 : 0);
 
+            /*
             if (WorldConfig.Instance.InvertedHell && WorldConfig.Instance.UnderworldToggle)
             {
                 tasks.Insert(underworldIndex, new PassLegacy("Toggle", ToggleDrunkSeedOn));
                 tasks.Insert(underworldIndex + 2, new PassLegacy("Toggle", ToggleDrunkSeedOff));
                 underworldIndex = getStepIndex(tasks, "Underworld");
             }
-
-            if (WorldConfig.Instance.RemixUnderworld && WorldConfig.Instance.UnderworldToggle)
+            */
+            if (WorldGenOptions.RemixUnderworld && WorldConfig.Instance.UnderworldToggle)
             {
                 tasks.Insert(underworldIndex, new PassLegacy("Toggle", ToggleRemixSeedOn));
                 tasks.Insert(underworldIndex + 2, new PassLegacy("Toggle", ToggleRemixSeedOff));
@@ -385,19 +387,19 @@ namespace FargoSeeds
 
             int shiniesIndex = getStepIndex(tasks, "Shinies");
 
-            if (WorldConfig.Instance.BothOres)
+            if (WorldGenOptions.BothOres)
             {
                 tasks.Insert(shiniesIndex, new PassLegacy("Toggle", ToggleDrunkSeedOn));
                 tasks.Insert(shiniesIndex + 2, new PassLegacy("Toggle", ToggleDrunkSeedOff));
                 shiniesIndex = getStepIndex(tasks, "Shinies");
             }
 
-            multiplyStep(tasks, shiniesIndex, WorldConfig.Instance.OreMultiplier);
+            multiplyStep(tasks, shiniesIndex, WorldGenOptions.OreMultiplier);
 
             int marbleIndex = getStepIndex(tasks, "Marble");
             int graniteIndex = getStepIndex(tasks, "Granite");
 
-            if (WorldConfig.Instance.MarbleGraniteSwapped)
+            if (WorldGenOptions.MarbleGraniteSwapped)
             {
                 tasks.Insert(marbleIndex, new PassLegacy("Toggle", ToggleDrunkSeedOn));
                 tasks.Insert(graniteIndex + 2, new PassLegacy("Toggle", ToggleDrunkSeedOff));
@@ -406,12 +408,12 @@ namespace FargoSeeds
                 marbleIndex = getStepIndex(tasks, "Marble");
             }
 
-            multiplyStep(tasks, graniteIndex, WorldConfig.Instance.GraniteMultiplier);
-            multiplyStep(tasks, marbleIndex, WorldConfig.Instance.MarbleMultiplier);
+            multiplyStep(tasks, graniteIndex, WorldGenOptions.GraniteMultiplier);
+            multiplyStep(tasks, marbleIndex, WorldGenOptions.MarbleMultiplier);
 
             int mushroomPatchIndex = getStepIndex(tasks, "Mushroom Patches");
 
-            if (WorldConfig.Instance.MushroomLayer && WorldConfig.Instance.MushroomToggle)
+            if (WorldGenOptions.MushroomLayer && WorldConfig.Instance.MushroomToggle)
             {
                 tasks.Insert(mushroomPatchIndex, new PassLegacy("Toggle", ToggleRemixSeedOn));
                 tasks.Insert(mushroomPatchIndex + 2, new PassLegacy("Toggle", ToggleRemixSeedOff));
@@ -429,12 +431,12 @@ namespace FargoSeeds
             int floatingIslandHouseIndex = getStepIndex(tasks, "Floating Island Houses");
             int floatingIslandIndex = getStepIndex(tasks, "Floating Islands");
 
-            if (WorldConfig.Instance.FloatingIslandMultiplier > 1)
+            if (WorldGenOptions.FloatingIslandMultiplier > 1)
             {
                 GenPass floatingIslandHouseStep = tasks[floatingIslandHouseIndex];
                 GenPass floatingIslandStep = tasks[floatingIslandIndex];
 
-                for (int i = 1; i < WorldConfig.Instance.FloatingIslandMultiplier; i++)
+                for (int i = 1; i < WorldGenOptions.FloatingIslandMultiplier; i++)
                 {
                     tasks.Insert(floatingIslandIndex, floatingIslandHouseStep);
                     tasks.Insert(floatingIslandIndex, floatingIslandStep);
@@ -442,7 +444,7 @@ namespace FargoSeeds
             }
             else
             {
-                int multiplier = WorldConfig.Instance.FloatingIslandMultiplier;
+                int multiplier = WorldGenOptions.FloatingIslandMultiplier;
 
                 multiplyStep(tasks, floatingIslandIndex, multiplier);
                 multiplyStep(tasks, floatingIslandHouseIndex, multiplier);
@@ -460,7 +462,7 @@ namespace FargoSeeds
 
             int wavyCaveIndex = getStepIndex(tasks, "Wavy Caves");
 
-            if (WorldConfig.Instance.WavyCaves)
+            if (WorldGenOptions.WavyCaves)
             {
                 tasks.Insert(wavyCaveIndex, new PassLegacy("Toggle", ToggleConstantSeedOn));
                 tasks.Insert(wavyCaveIndex + 2, new PassLegacy("Toggle", ToggleConstantSeedOff));
@@ -470,7 +472,7 @@ namespace FargoSeeds
 
             if (WorldConfig.Instance.CavesToggle)
             {
-                multiplyStep(tasks, surfaceCaveIndex, WorldConfig.Instance.CaveMultiplier);
+                multiplyStep(tasks, surfaceCaveIndex, WorldGenOptions.CaveMultiplier);
             }
             else
             {

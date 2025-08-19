@@ -13,7 +13,6 @@ namespace FargoSeeds
         public override void Load()
         {
             base.Load();
-            WorldGenOptions.AddOptions(this);
         }
         public override object Call(params object[] args)
         {
