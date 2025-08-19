@@ -64,7 +64,6 @@ namespace FargoSeeds
                 }
             );
 
-
             /*
             WorldGenUIManager.AddToggle(
                 this,
