@@ -31,11 +31,13 @@ namespace FargoSeeds.UI.WorldGenMenu
         public UIElement InfoMenuParent;
 
         public static List<UIElement> Toggles = [];
+        public static List<UIWorldGenCategory> Categories = [];
+        public static Dictionary<UIElement, UIWorldGenCategory> ToggleCategories = [];
 
         public static int ToggleWidth = 222;
         public static int ToggleHeight = 34;
 
-        public static void AddToggle(Mod mod, LocalizedText title, LocalizedText description, Color textColor, string iconTexturePath,  bool defaultValue, Action<bool> action)
+        public static void AddToggle(Mod mod, LocalizedText category, LocalizedText title, LocalizedText description, Color textColor, string iconTexturePath,  bool defaultValue, Action<bool> action)
         {
             var uiToggle = new UIWorldGenToggle(mod, title, description, textColor, iconTexturePath, defaultValue, action)
             {
@@ -43,8 +45,9 @@ namespace FargoSeeds.UI.WorldGenMenu
                 Height = StyleDimension.FromPixels(ToggleHeight),
             };
             Toggles.Add(uiToggle);
+            AddCategory(uiToggle, category);
         }
-        public static void AddSlider(Mod mod, LocalizedText title, LocalizedText description, Color textColor, string iconTexturePath,  float defaultValue, Action<float> action, bool intSlider, List<float> sliderRange)
+        public static void AddSlider(Mod mod, LocalizedText category, LocalizedText title, LocalizedText description, Color textColor, string iconTexturePath,  float defaultValue, Action<float> action, bool intSlider, List<float> sliderRange)
         {
             var uiToggle = new UIWorldGenSlider(mod, title, description, textColor, iconTexturePath, defaultValue, action, intSlider, sliderRange)
             {
@@ -52,6 +55,21 @@ namespace FargoSeeds.UI.WorldGenMenu
                 Height = StyleDimension.FromPixels(ToggleHeight),
             };
             Toggles.Add(uiToggle);
+            AddCategory(uiToggle, category);
+        }
+        public static void AddCategory(UIElement element, LocalizedText categoryText)
+        {
+            UIWorldGenCategory category = Categories.FirstOrDefault(c => c.Text.Value == categoryText.Value, null);
+            if (category == null)
+            {
+                category = new UIWorldGenCategory(categoryText)
+                {
+                    Width = StyleDimension.FromPixels(ToggleWidth),
+                    Height = StyleDimension.FromPixels(ToggleHeight),
+                };
+                Categories.Add(category);
+            }
+            ToggleCategories[element] = category;
         }
         public int TogglesPerRow => 2;
         public override void Load()
@@ -159,38 +177,45 @@ namespace FargoSeeds.UI.WorldGenMenu
             scrollBar.OnScrollWheel += HotbarScrollFix;
             scrollBar.HAlign = 1;
 
-            UIToggleList toggleList1 = [];
-            toggleList1.Width.Set(0, 0.5f);
-            toggleList1.Height.Set(0, 0.8f);
-            toggleList1.SetScrollbar(scrollBar);
-            toggleList1.OnScrollWheel += HotbarScrollFix;
+            UIToggleList toggleList = [];
+            toggleList.Width.Set(0, 1f);
+            toggleList.Height.Set(0, 0.8f);
+            toggleList.SetScrollbar(scrollBar);
+            toggleList.OnScrollWheel += HotbarScrollFix;
 
+            /*
             UIToggleList toggleList2 = [];
             toggleList2.Left.Set(ToggleWidth + 8, 0);
             toggleList2.Width.Set(0, 0.5f);
             toggleList2.Height.Set(0, 0.8f);
             toggleList2.SetScrollbar(scrollBar);
             toggleList2.OnScrollWheel += HotbarScrollFix;
+            */
 
             uiPanel.Append(scrollBar);
-            uiPanel.Append(toggleList1);
-            uiPanel.Append(toggleList2);
+            uiPanel.Append(toggleList);
+            //uiPanel.Append(toggleList2);
 
+            var elements = new List<UIElement>();
+            foreach (UIElement category in Categories)
+            {
+                if (elements.Count % 2 == 1)
+                    elements.Add(new UIWorldGenCategory(Language.GetText(""))); // empty space
+                elements.Add(category);
+                elements.Add(new UIWorldGenCategory(Language.GetText(""))); // empty space
 
-            foreach (UIElement element in Toggles)
+                var categToggles = Toggles.Where(t => ToggleCategories[t] == category).ToList();
+                foreach (var categToggle in categToggles)
+                    elements.Add(categToggle);
+            }
+
+            foreach (UIElement element in elements)
             {
                 element.OnMouseOver += ShowToggleDescription;
                 element.OnMouseOut += ClearToggleDescription;
                 element.SetSnapPoint("WorldGenToggle" + toggleCount, 0);
                 toggleCount++;
-                if (toggleCount % TogglesPerRow == 0)
-                {
-                    toggleList2.Add(element);
-                }
-                else
-                {
-                    toggleList1.Add(element);
-                }
+                toggleList.Add(element);
             }
 
             int height = 238; // evil magic number to put the separator in the same spot as the vanilla one

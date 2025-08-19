@@ -9,6 +9,7 @@ namespace FargoSeeds.UI.WorldGenMenu
     public class UIToggleList : UIList
     {
         public readonly static FieldInfo field_innerList;
+        public readonly static FieldInfo field_innerListHeight;
         public readonly static MethodInfo method_uiElementAppend;
         public readonly static MethodInfo method_uiElementRecalcuate;
         public readonly static MethodInfo method_uiElementRemoveChild;
@@ -16,6 +17,7 @@ namespace FargoSeeds.UI.WorldGenMenu
         static UIToggleList()
         {
             field_innerList = typeof(UIList).GetField("_innerList", BindingFlags.Instance | BindingFlags.NonPublic);
+            field_innerListHeight = typeof(UIList).GetField("_innerListHeight", BindingFlags.Instance | BindingFlags.NonPublic);
             method_uiElementAppend = typeof(UIElement).GetMethod("Append", BindingFlags.Instance | BindingFlags.Public);
             method_uiElementRecalcuate = typeof(UIElement).GetMethod("Recalculate", BindingFlags.Instance | BindingFlags.Public);
             method_uiElementRemoveChild = typeof(UIElement).GetMethod("RemoveChild", BindingFlags.Instance | BindingFlags.Public);
@@ -32,6 +34,29 @@ namespace FargoSeeds.UI.WorldGenMenu
         {
             method_uiElementRemoveChild.Invoke(field_innerList.GetValue(this), [item]);
             return _items.Remove(item);
+        }
+        public override void RecalculateChildren()
+        {
+            base.RecalculateChildren();
+            float num = 0f;
+            float x = 0f;
+            for (int i = 0; i < _items.Count; i++)
+            {
+                float num2 = ((_items.Count == 1) ? 0f : ListPadding);
+                _items[i].Top.Set(num, 0f);
+                _items[i].Left.Set(x, 0f);
+                if (i % 2 == 0)
+                    x = _items[i].GetOuterDimensions().Width + ListPadding;
+                _items[i].Recalculate();
+                if (i % 2 == 1)
+                {
+                    x = 0;
+                    num += _items[i].GetOuterDimensions().Height + num2;
+                }
+                    
+            }
+
+            field_innerListHeight.SetValue(this, num);
         }
     }
 }
