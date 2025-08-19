@@ -80,10 +80,11 @@ namespace FargoSeeds.UI.WorldGenMenu
                 Title = title;
                 UIText uIText = new(title, 1f)
                 {
-                    HAlign = 0.5f,
+                    HAlign = 0f,
                     VAlign = 0.5f,
                     Width = StyleDimension.FromPixelsAndPercent(0f - 10f, 1f),
                     Top = StyleDimension.FromPixels(0f),
+                    Left = StyleDimension.FromPixelsAndPercent(0, 0.05f),
                     TextColor = textColor
                 };
                 Append(uIText);
@@ -98,7 +99,6 @@ namespace FargoSeeds.UI.WorldGenMenu
         protected override void DrawSelf(SpriteBatch spriteBatch)
         {
             base.DrawSelf(spriteBatch);
-
 
             float num = 6f;
             int num2 = 0;

@@ -48,7 +48,7 @@ namespace FargoSeeds.UI.WorldGenMenu
                 if (i % 2 == 0)
                     x = _items[i].GetOuterDimensions().Width + ListPadding;
                 _items[i].Recalculate();
-                if (i % 2 == 1)
+                if (i % 2 == 1 || i == _items.Count - 1)
                 {
                     x = 0;
                     num += _items[i].GetOuterDimensions().Height + num2;

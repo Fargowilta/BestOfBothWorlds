@@ -45,11 +45,11 @@ namespace FargoSeeds
                 [0, 5]
                 );
 
-            for (int i = 1; i < 30; i++)
+            for (int i = 1; i < 10; i++)
             {
                 WorldGenUIManager.AddToggle(
                     this,
-                    Language.GetText("World Generation"),
+                    Language.GetText("World Generation 2"),
                     Language.GetText("Example Toggle " + i),
                     Language.GetText("Whether both Corruption and Crimson should be generated."),
                     Color.MediumPurple,
@@ -62,6 +62,44 @@ namespace FargoSeeds
                     }
                     );
             }
+
+            for (int i = 1; i < 1; i++)
+            {
+                WorldGenUIManager.AddToggle(
+                    this,
+                    Language.GetText("World Generation 3"),
+                    Language.GetText("Example Toggle " + i),
+                    Language.GetText("Whether both Corruption and Crimson should be generated."),
+                    Color.MediumPurple,
+                    "Terraria/Images/UI/WorldCreation/IconEvilCorruption",
+                    WorldConfig.Instance.BothEvils,
+                    value =>
+                    {
+                        WorldConfig.Instance.BothEvils = value;
+                        WorldConfig.Instance.SaveChanges();
+                    }
+                    );
+            }
+
+            for (int i = 1; i < 29; i++)
+            {
+                WorldGenUIManager.AddSlider(
+                    this,
+                    Language.GetText("Multipliers"),
+                    Language.GetText("Cave Multiplier" + i),
+                    Language.GetText("Cave multiplier"),
+                    Color.MediumPurple,
+                    "Terraria/Images/UI/WorldCreation/IconEvilCorruption",
+                    WorldConfig.Instance.CaveMultiplier,
+                    value =>
+                    {
+                        WorldConfig.Instance.CaveMultiplier = (int)(value * 5);
+                        WorldConfig.Instance.SaveChanges();
+                    },
+                    true,
+                    [0, 5]
+                    );
+        }
         }
         public override object Call(params object[] args)
         {
