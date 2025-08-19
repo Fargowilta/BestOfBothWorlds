@@ -20,9 +20,8 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.UI;
 using Terraria.UI.Chat;
-using static Terraria.WorldGen;
 
-namespace FargoSeeds.UI
+namespace FargoSeeds.UI.WorldGenMenu
 {
     internal class WorldGenUIManager : ModSystem
     {
@@ -31,7 +30,29 @@ namespace FargoSeeds.UI
 
         public UIElement InfoMenuParent;
 
-        public static List<WorldGenToggle> Toggles = [];
+        public static List<UIElement> Toggles = [];
+
+        public static int ToggleWidth = 222;
+        public static int ToggleHeight = 34;
+
+        public static void AddToggle(Mod mod, LocalizedText title, LocalizedText description, Color textColor, string iconTexturePath,  bool defaultValue, Action<bool> action)
+        {
+            var uiToggle = new UIWorldGenToggle(mod, title, description, textColor, iconTexturePath, defaultValue, action)
+            {
+                Width = StyleDimension.FromPixels(ToggleWidth),
+                Height = StyleDimension.FromPixels(ToggleHeight),
+            };
+            Toggles.Add(uiToggle);
+        }
+        public static void AddSlider(Mod mod, LocalizedText title, LocalizedText description, Color textColor, string iconTexturePath,  float defaultValue, Action<float> action, bool intSlider, List<float> sliderRange)
+        {
+            var uiToggle = new UIWorldGenSlider(mod, title, description, textColor, iconTexturePath, defaultValue, action, intSlider, sliderRange)
+            {
+                Width = StyleDimension.FromPixels(ToggleWidth),
+                Height = StyleDimension.FromPixels(ToggleHeight),
+            };
+            Toggles.Add(uiToggle);
+        }
         public int TogglesPerRow => 2;
         public override void Load()
         {
@@ -59,14 +80,14 @@ namespace FargoSeeds.UI
 
             // tab buttons
             // TODO: these aren't aligned correctly vertically if resolution is not 1920x1080
-            var vanillaTab = new UIWorldGenTab(Language.GetText("Standard World Settings"), "FargoSeeds/UI/UIWorldGenTab_Vanilla", () => !ModdedMenuActive, ToggleMenu)
+            var vanillaTab = new UIWorldGenTab(Language.GetText("Standard World Settings"), "FargoSeeds/UI/WorldGenMenu/UIWorldGenTab_Vanilla", () => !ModdedMenuActive, ToggleMenu)
             {
                 HAlign = 0.5f,
                 VAlign = 0.5f,
                 Left = StyleDimension.FromPixels(infoMenuHalfWidth),
                 Top = StyleDimension.FromPixels(-infoMenuHalfHeight + 0f)
             };
-            var moddedTab = new UIWorldGenTab(Language.GetText("Modded World Settings"), "FargoSeeds/UI/UIWorldGenTab_Modded", () => ModdedMenuActive, ToggleMenu)
+            var moddedTab = new UIWorldGenTab(Language.GetText("Modded World Settings"), "FargoSeeds/UI/WorldGenMenu/UIWorldGenTab_Modded", () => ModdedMenuActive, ToggleMenu)
             {
                 HAlign = 0.5f,
                 VAlign = 0.5f,
@@ -126,8 +147,6 @@ namespace FargoSeeds.UI
         }
         public void AddOptions(UIElement uiPanel)
         {
-            int toggleWidth = 222;
-            int toggleHeight = 34;
             int toggleSeparation = 8;
 
             int toggleCount = 0;
@@ -147,7 +166,7 @@ namespace FargoSeeds.UI
             toggleList1.OnScrollWheel += HotbarScrollFix;
 
             UIToggleList toggleList2 = [];
-            toggleList2.Left.Set(toggleWidth + 8, 0);
+            toggleList2.Left.Set(ToggleWidth + 8, 0);
             toggleList2.Width.Set(0, 0.5f);
             toggleList2.Height.Set(0, 0.8f);
             toggleList2.SetScrollbar(scrollBar);
@@ -158,32 +177,19 @@ namespace FargoSeeds.UI
             uiPanel.Append(toggleList2);
 
 
-            foreach (WorldGenToggle toggle in Toggles)
+            foreach (UIElement element in Toggles)
             {
-                UIWorldGenToggle uiToggle = new(toggle.EnabledByDefault, toggle.Title, toggle.Description, toggle.TextColor, toggle.IconTexturePath, toggle.Toggle)
-                {
-                    Width = StyleDimension.FromPixels(toggleWidth),
-                    Height = StyleDimension.FromPixels(toggleHeight),
-                    //VAlign = 0f,
-                    //HAlign = toggleCount % TogglesPerRow == 0 ? 0 : 1,
-                    //Top = StyleDimension.FromPixels(currentY),
-                    //Left = StyleDimension.FromPixels(currentX)
-                };
-                //uiToggle.OnLeftMouseDown += Click_SetToggle;
-                uiToggle.OnMouseOver += ShowToggleDescription;
-                uiToggle.OnMouseOut += ClearToggleDescription;
-                uiToggle.SetSnapPoint("WorldGenToggle" + toggleCount, 0);
-                
-                
+                element.OnMouseOver += ShowToggleDescription;
+                element.OnMouseOut += ClearToggleDescription;
+                element.SetSnapPoint("WorldGenToggle" + toggleCount, 0);
                 toggleCount++;
-                //currentX += toggleWidth + toggleSeparation;
                 if (toggleCount % TogglesPerRow == 0)
                 {
-                    toggleList2.Add(uiToggle);
+                    toggleList2.Add(element);
                 }
                 else
                 {
-                    toggleList1.Add(uiToggle);
+                    toggleList1.Add(element);
                 }
             }
 
@@ -246,9 +252,13 @@ namespace FargoSeeds.UI
         {
             foreach (var toggle in TogglePanel.Children)
             {
-                if (toggle is  UIWorldGenToggle uiToggle)
+                if (toggle is UIWorldGenToggle uiToggle)
                 {
-                    uiToggle.InvokeToggle();
+                    uiToggle.InvokeAction();
+                }
+                else if (toggle is UIWorldGenSlider uiSlider)
+                {
+                    uiSlider.InvokeAction();
                 }
             }
             orig(self);

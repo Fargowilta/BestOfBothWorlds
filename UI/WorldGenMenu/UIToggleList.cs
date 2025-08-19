@@ -2,7 +2,7 @@
 using Terraria.GameContent.UI.Elements;
 using Terraria.UI;
 
-namespace FargoSeeds.UI
+namespace FargoSeeds.UI.WorldGenMenu
 {
     // I have to reflect here because, to stop it from ordering all its children with its messed up sorting method, I need to override Add and Remove to just not call that method
     // However, _innerList which it accesses is private (bleh)

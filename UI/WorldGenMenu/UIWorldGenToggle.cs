@@ -14,11 +14,13 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.UI;
 
-namespace FargoSeeds.UI
+namespace FargoSeeds.UI.WorldGenMenu
 {
     public class UIWorldGenToggle : UIElement
     {
         private bool _enabled;
+
+        public Mod Mod;
 
         private readonly Asset<Texture2D> _BasePanelTexture;
 
@@ -42,23 +44,11 @@ namespace FargoSeeds.UI
 
         private bool _soundedHover;
 
-        public bool ShowHighlightWhenSelected = true;
-
-        private bool _UseOverrideColors;
-
-        private Color _overrideUnpickedColor = Color.White;
-
-        private Color _overridePickedColor = Color.White;
-
-        private float _overrideOpacityPicked;
-
-        private float _overrideOpacityUnpicked;
-
         public readonly LocalizedText Description;
 
-        private UIText _title;
+        private readonly UIText _title;
 
-        private Action<bool> _toggle;
+        private readonly Action<bool> _action;
 
 
         public bool IsSelected
@@ -69,13 +59,11 @@ namespace FargoSeeds.UI
             }
         }
 
-        public UIWorldGenToggle(bool enabledByDefault, LocalizedText title, LocalizedText description, Color textColor, string iconTexturePath, Action<bool> toggle, float textSize = 1f, float titleAlignmentX = 0.5f, float titleWidthReduction = 10f)
+        public UIWorldGenToggle(Mod mod, LocalizedText title, LocalizedText description, Color textColor, string iconTexturePath, bool defaultValue, Action<bool> action)
         {
-            _enabled = enabledByDefault;
+            Mod = mod;
             _borderColor = Color.White;
             Description = description;
-            Width = StyleDimension.FromPixels(236);
-            Height = StyleDimension.FromPixels(34f);
             _BasePanelTexture = ModContent.Request<Texture2D>("Terraria/Images/UI/CharCreation/PanelGrayscale", (AssetRequestMode)1);
             _selectedBorderTexture = ModContent.Request<Texture2D>("Terraria/Images/UI/CharCreation/CategoryPanelHighlight", (AssetRequestMode)1);
             _hoveredBorderTexture = ModContent.Request<Texture2D>("Terraria/Images/UI/CharCreation/CategoryPanelBorder", (AssetRequestMode)1);
@@ -86,43 +74,20 @@ namespace FargoSeeds.UI
             _color = Colors.InventoryDefaultColor;
             if (title != null)
             {
-                UIText uIText = new UIText(title, textSize)
+                UIText uIText = new(title, 1f)
                 {
-                    HAlign = titleAlignmentX,
+                    HAlign = 0.5f,
                     VAlign = 0.5f,
-                    Width = StyleDimension.FromPixelsAndPercent(0f - titleWidthReduction, 1f),
-                    Top = StyleDimension.FromPixels(0f)
+                    Width = StyleDimension.FromPixelsAndPercent(0f - 10f, 1f),
+                    Top = StyleDimension.FromPixels(0f),
+                    TextColor = textColor
                 };
-                uIText.TextColor = textColor;
                 Append(uIText);
                 _title = uIText;
             }
-            _toggle = toggle;
+            _enabled = defaultValue;
+            _action = action;
         }
-
-        public void SetText(LocalizedText text, float textSize, Color color)
-        {
-            if (_title != null)
-            {
-                _title.Remove();
-            }
-            UIText uIText = new UIText(text, textSize)
-            {
-                HAlign = 0.5f,
-                VAlign = 0.5f,
-                Width = StyleDimension.FromPixelsAndPercent(-10f, 1f),
-                Top = StyleDimension.FromPixels(0f)
-            };
-            uIText.TextColor = color;
-            Append(uIText);
-            _title = uIText;
-        }
-
-        public void Set(bool enabled)
-        {
-            _enabled = enabled;
-        }
-
         protected override void DrawSelf(SpriteBatch spriteBatch)
         {
             if (_hovered)
@@ -141,13 +106,8 @@ namespace FargoSeeds.UI
             Color color = _color;
             float num = _opacity;
             bool isSelected = IsSelected;
-            if (_UseOverrideColors)
-            {
-                color = (isSelected ? _overridePickedColor : _overrideUnpickedColor);
-                num = (isSelected ? _overrideOpacityPicked : _overrideOpacityUnpicked);
-            }
             Utils.DrawSplicedPanel(spriteBatch, _BasePanelTexture.Value, (int)dimensions.X, (int)dimensions.Y, (int)dimensions.Width, (int)dimensions.Height, 10, 10, 10, 10, Color.Lerp(Color.Black, color, FadeFromBlack) * num);
-            if (isSelected && ShowHighlightWhenSelected)
+            if (isSelected)
             {
                 Utils.DrawSplicedPanel(spriteBatch, _selectedBorderTexture.Value, (int)dimensions.X + 7, (int)dimensions.Y + 7, (int)dimensions.Width - 14, (int)dimensions.Height - 14, 10, 10, 10, 10, Color.Lerp(color, Color.White, _whiteLerp) * num);
             }
@@ -185,29 +145,9 @@ namespace FargoSeeds.UI
             _hovered = false;
         }
 
-        public void SetColor(Color color, float opacity)
+        public void InvokeAction()
         {
-            _color = color;
-            _opacity = opacity;
-        }
-
-        public void SetColorsBasedOnSelectionState(Color pickedColor, Color unpickedColor, float opacityPicked, float opacityNotPicked)
-        {
-            _UseOverrideColors = true;
-            _overridePickedColor = pickedColor;
-            _overrideUnpickedColor = unpickedColor;
-            _overrideOpacityPicked = opacityPicked;
-            _overrideOpacityUnpicked = opacityNotPicked;
-        }
-
-        public void SetBorderColor(Color color)
-        {
-            _borderColor = color;
-        }
-
-        public void InvokeToggle()
-        {
-            _toggle.Invoke(_enabled);
+            _action.Invoke(_enabled);
         }
     }
 

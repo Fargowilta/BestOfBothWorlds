@@ -16,7 +16,7 @@ using Terraria.ModLoader;
 using Terraria.ModLoader.UI;
 using Terraria.UI;
 
-namespace FargoSeeds.UI
+namespace FargoSeeds.UI.WorldGenMenu
 {
     public class UIWorldGenTab : UIElement
     {
