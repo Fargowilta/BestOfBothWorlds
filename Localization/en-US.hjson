@@ -4,159 +4,13 @@ Mods: {
 
 		Configs: {
 			WorldConfig: {
-				MoreSpiders: {
-					Tooltip: ""
-					Label: "[i:952] Extra Spider Caves"
-				}
-
-				HugeTemple: {
-					Tooltip: ""
-					Label: Huge Jungle Temple
-				}
-
-				OceanSpawn: {
-					Tooltip: ""
-					Label: "[i:324] Ocean Spawn Point"
-				}
-
-				PyramidEntrance: {
-					Tooltip: ""
-					Label: Guarantee Pyramid
-				}
-
-				BigHives: {
-					Tooltip: ""
-					Label: Big Bee Hives
-				}
-
-				LivingTrees: {
-					Tooltip: ""
-					Label: More Living Trees
-				}
-
-				OceanCaves: {
-					Tooltip: ""
-					Label: Guarantee Ocean Caves
-				}
-
-				InvertedHell: {
-					Tooltip: ""
-					Label: "[i:207] Inverted Underworld"
-				}
-
-				BothOres: {
-					Tooltip: ""
-					Label: Both Ore Sets
-				}
-
-				BothEvils: {
-					Tooltip: ""
-					Label: Both Evils
-				}
-
 				DisplayName: Best of Both Worlds Config
-				Header0: s
-				Header1: Drunk Seed
+				Header0: Header1: Drunk Seed
 				Header2: Celebration Seed
 				Header3: For the Worthy Seed
 
-				MarbleMultiplier: {
-					Label: Marble
-					Tooltip: ""
-				}
-
-				GraniteMultiplier: {
-					Label: Granite
-					Tooltip: ""
-				}
-
-				MarbleGraniteSwapped: {
-					Label: Marble/Granite Swapped
-					Tooltip: ""
-				}
-
-				GlowingMushroomMultiplier: {
-					Label: "[i:183] Glowing Mushroom"
-					Tooltip: ""
-				}
-
-				LarvaMultiplier: {
-					Label: "[i:1133] Bee Larva"
-					Tooltip: ""
-				}
-
-				LifeCrystalMultiplier: {
-					Label: Life Crystals
-					Tooltip: ""
-				}
-
-				StatueMultiplier: {
-					Label: Statue
-					Tooltip: ""
-				}
-
-				ChestMultiplier: {
-					Label: Chests
-					Tooltip: ""
-				}
-
-				SpiderMultiplier: {
-					Label: Spider Caves
-					Tooltip: ""
-				}
-
-				PotMultiplier: {
-					Label: Pots
-					Tooltip: ""
-				}
-
-				TrapMultiplier: {
-					Label: Trap
-					Tooltip: ""
-				}
-
-				DungeonMultiplier: {
-					Label: "[i:134] Dungeon Toggle"
-					Tooltip: ""
-				}
-
-				CaveMultiplier: {
-					Label: Caves
-					Tooltip: ""
-				}
-
-				GemMultiplier: {
-					Label: Gems
-					Tooltip: ""
-				}
-
-				AltarMultiplier: {
-					Label: "[i:86] Altar"
-					Tooltip: ""
-				}
-
-				HiveMultiplier: {
-					Label: Hives
-					Tooltip: ""
-				}
-
 				DungeonToggle: {
 					Label: "[i:134] Dungeon Toggle"
-					Tooltip: ""
-				}
-
-				FloatingIslandMultiplier: {
-					Label: Floating Islands
-					Tooltip: ""
-				}
-
-				OreMultiplier: {
-					Label: Ores
-					Tooltip: ""
-				}
-
-				LakeMultiplier: {
-					Label: "[i:3086] Lake"
 					Tooltip: ""
 				}
 
@@ -187,11 +41,6 @@ Mods: {
 					Tooltip: ""
 				}
 
-				ShimmerMultiplier: {
-					Label: "[i:5357] Aether"
-					Tooltip: ""
-				}
-
 				OceanToggle: {
 					Label: "[i:2625] Ocean Toggle"
 					Tooltip: ""
@@ -199,16 +48,6 @@ Mods: {
 
 				MushroomToggle: {
 					Label: "[i:183] Glowing Mushroom Toggle"
-					Tooltip: ""
-				}
-
-				TreeMultiplier: {
-					Label: Trees
-					Tooltip: ""
-				}
-
-				LivingTreeMultiplier: {
-					Label: "[i:832] Living Trees"
 					Tooltip: ""
 				}
 
@@ -254,79 +93,17 @@ Mods: {
 					Tooltip: ""
 				}
 
-				UndergroundDungeon: {
-					Label: Underground Dungeon
-					Tooltip: ""
-				}
-
-				RainbowCabins: {
-					Label: Rainbow Cabins
-					Tooltip: ""
-				}
-
-				ExtraShimmer: {
-					Label: "[i:5340] Extra Shimmer Pools"
-					Tooltip: ""
-				}
-
 				HeaderConstant: Constant Seed
-
-				SurfaceSpiders: {
-					Label: Surface Spider
-					Tooltip: ""
-				}
-
-				SurfaceMarble: {
-					Label: Surface Marble
-					Tooltip: ""
-				}
-
-				WavyCaves: {
-					Label: More Open Caves
-					Tooltip: ""
-				}
-
-				PaintEverything: {
-					Label: Paint Everything
-					Tooltip: ""
-				}
-
 				HeaderTraps: No Traps Seed
-
-				NoTraps: {
-					Label: '''"No" Traps'''
-					Tooltip: ""
-				}
-
 				HeaderRemix: Remix Seed
-
-				EvilSurface: {
-					Label: Evil Surface
-					Tooltip: ""
-				}
-
-				SurfaceTemple: {
-					Label: Surface Temple
-					Tooltip: ""
-				}
 
 				UnderworldSpawn: {
 					Label: "[i:207] Underworld Spawn"
 					Tooltip: ""
 				}
 
-				MushroomLayer: {
-					Label: Mushroom Layer
-					Tooltip: ""
-				}
-
 				AetherToggle: {
 					Label: "[i:5340] Aether Toggle"
-					Tooltip: ""
-				}
-
-				SurfaceMushroom: {
-					Label: Surface Mushroom
 					Tooltip: ""
 				}
 
@@ -337,16 +114,6 @@ Mods: {
 
 				MinecartMultiplier: {
 					Label: "[i:2340] Minecart Track"
-					Tooltip: ""
-				}
-
-				SecondShimmer: {
-					Label: Two Shimmers
-					Tooltip: ""
-				}
-
-				MicroMultiplier: {
-					Label: Microbiomes
 					Tooltip: ""
 				}
 
@@ -362,18 +129,8 @@ Mods: {
 					Tooltip: ""
 				}
 
-				RemixUnderworld: {
-					Label: Remix Underworld
-					Tooltip: ""
-				}
-
 				RandomSpawn: {
 					Label: "[i:267] Random Spawn Location"
-					Tooltip: ""
-				}
-
-				MahoganyTrees: {
-					Label: Mahogany Anywhere
 					Tooltip: ""
 				}
 

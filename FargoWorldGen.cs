@@ -371,14 +371,6 @@ namespace FargoSeeds
             int hellForgeIndex = getStepIndex(tasks, "Hellforge"); //must also be skipped if underworld is
             multiplyStep(tasks, hellForgeIndex, WorldConfig.Instance.UnderworldToggle ? 1 : 0);
 
-            /*
-            if (WorldConfig.Instance.InvertedHell && WorldConfig.Instance.UnderworldToggle)
-            {
-                tasks.Insert(underworldIndex, new PassLegacy("Toggle", ToggleDrunkSeedOn));
-                tasks.Insert(underworldIndex + 2, new PassLegacy("Toggle", ToggleDrunkSeedOff));
-                underworldIndex = getStepIndex(tasks, "Underworld");
-            }
-            */
             if (WorldGenOptions.RemixUnderworld && WorldConfig.Instance.UnderworldToggle)
             {
                 tasks.Insert(underworldIndex, new PassLegacy("Toggle", ToggleRemixSeedOn));
@@ -423,7 +415,7 @@ namespace FargoSeeds
 
             multiplyStep(tasks, mushroomPatchIndex, WorldConfig.Instance.MushroomToggle ? 1 : 0);
 
-            if (WorldConfig.Instance.SurfaceMushroom > 0)
+            if (WorldGenOptions.SurfaceMushroom)
             {
                 tasks.Insert(mushroomPatchIndex, new PassLegacy("Surface Mushroom", surfaceMushroom));
             }
@@ -865,7 +857,7 @@ namespace FargoSeeds
 
         private void surfaceMushroom(GenerationProgress progress, GameConfiguration configuration)
         {
-            for (int i = 0; i < WorldConfig.Instance.SurfaceMushroom; i++)
+            if (WorldGenOptions.SurfaceMushroom)
             {
                 int shroomX = Main.rand.Next(100, Main.maxTilesX - 100);
                 int shroomY = (int)Main.worldSurface + Main.rand.Next(-120, -80);

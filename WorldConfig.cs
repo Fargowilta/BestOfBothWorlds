@@ -87,13 +87,6 @@ namespace FargoSeeds
         [Slider]
         public int HardModeOreMulti;
 
-        [Label("[i:183] Surface Mushroom Biomes")]
-        [Increment(1)]
-        [Range(0, 5)]
-        [DefaultValue(0)]
-        [Slider]
-        public int SurfaceMushroom;
-
         [Label("[i:267] Spawn Location")]
         [DefaultValue(SpawnLocation.Normal)]
         [Slider]

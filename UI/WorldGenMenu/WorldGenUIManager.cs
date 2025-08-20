@@ -237,13 +237,13 @@ namespace FargoSeeds.UI.WorldGenMenu
             uISlicedImage.SetSliceDepths(10);
             uISlicedImage.Color = Color.LightGray * 0.7f;
             uiPanel.Append(uISlicedImage);
-            UIText uIText = new(Language.GetText("UI.WorldDescriptionDefault"), 0.82f)
+            UIText uIText = new(Language.GetText("UI.WorldDescriptionDefault"), 0.6f)
             {
                 HAlign = 0f,
                 VAlign = 0f,
                 Width = StyleDimension.FromPixelsAndPercent(0f, 1f),
                 Height = StyleDimension.FromPixelsAndPercent(0f, 1f),
-                Top = StyleDimension.FromPixelsAndPercent(5f, 0f),
+                Top = StyleDimension.FromPixelsAndPercent(1f, 0f),
                 PaddingLeft = 20f,
                 PaddingRight = 20f,
                 PaddingTop = 6f
@@ -275,15 +275,18 @@ namespace FargoSeeds.UI.WorldGenMenu
 
         private void FinishCreatingWorld_Detour(On_UIWorldCreation.orig_FinishCreatingWorld orig, UIWorldCreation self)
         {
-            foreach (var toggle in TogglePanel.Children)
+            foreach (var toggles in ToggleCategories.Values)
             {
-                if (toggle is UIWorldGenToggle uiToggle)
+                foreach (var toggle in toggles)
                 {
-                    uiToggle.InvokeAction();
-                }
-                else if (toggle is UIWorldGenSlider uiSlider)
-                {
-                    uiSlider.InvokeAction();
+                    if (toggle is UIWorldGenToggle uiToggle)
+                    {
+                        uiToggle.InvokeAction();
+                    }
+                    else if (toggle is UIWorldGenSlider uiSlider)
+                    {
+                        uiSlider.InvokeAction();
+                    }
                 }
             }
             orig(self);

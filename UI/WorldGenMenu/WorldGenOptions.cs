@@ -22,12 +22,11 @@ namespace FargoSeeds.UI.WorldGenMenu
         internal void AddToggle(LocalizedText category, string config, Color textColor, int iconItemID, bool defaultValue, Action<bool> action)
         {
             string iconTexturePath = "Terraria/Images/Item_" + iconItemID;
-            string path = "Mods.FargoSeeds.Configs.WorldConfig.";
             WorldGenUIManager.AddToggle(
                 Mod,
                 category,
-                Language.GetText(path + config + ".Label"),
-                Language.GetText(path + config + ".Tooltip"),
+                Language.GetText(Path + config + ".Label"),
+                Language.GetText(Path + config + ".Tooltip"),
                 textColor,
                 iconTexturePath,
                 defaultValue,
@@ -36,12 +35,11 @@ namespace FargoSeeds.UI.WorldGenMenu
         }
         internal void AddToggle(LocalizedText category, string config, Color textColor, string iconTexturePath, bool defaultValue, Action<bool> action)
         {
-            string path = "Mods.FargoSeeds.Configs.WorldConfig.";
             WorldGenUIManager.AddToggle(
                 Mod,
                 category,
-                Language.GetText(path + config + ".Label"),
-                Language.GetText(path + config + ".Tooltip"),
+                Language.GetText(Path + config + ".Label"),
+                Language.GetText(Path + config + ".Tooltip"),
                 textColor,
                 iconTexturePath,
                 defaultValue,
@@ -50,12 +48,11 @@ namespace FargoSeeds.UI.WorldGenMenu
         }
         internal void AddSlider(LocalizedText category, string config, Color textColor, string iconTexturePath, float defaultValue, Action<float> action, bool intSlider, List<float> sliderRange)
         {
-            string path = "Mods.FargoSeeds.Configs.WorldConfig.";
             WorldGenUIManager.AddSlider(
                 Mod,
                 category,
-                Language.GetText(path + config + ".Label"),
-                Language.GetText(path + config + ".Tooltip"),
+                Language.GetText(Path + config + ".Label"),
+                Language.GetText(Path + config + ".Tooltip"),
                 textColor,
                 iconTexturePath,
                 defaultValue,
@@ -64,18 +61,17 @@ namespace FargoSeeds.UI.WorldGenMenu
                 sliderRange
                 );
         }
-        internal void AddFrequencySlider(string config, Color textColor, int iconItemID, Action<float> action)
+        internal void AddFrequencySlider(string config, Color textColor, int iconItemID, Action<float> action, int defaultValue = 1)
         {
             string iconTexturePath = "Terraria/Images/Item_" + iconItemID;
-            string path = "Mods.FargoSeeds.Configs.WorldConfig.";
             WorldGenUIManager.AddSlider(
                 Mod,
                 Language.GetText(Path + "HeaderFrequency"),
-                Language.GetText(path + config + ".Label"),
-                Language.GetText(path + config + ".Tooltip"),
+                Language.GetText(Path + config + ".Label"),
+                Language.GetText(Path + config + ".Tooltip"),
                 textColor,
                 iconTexturePath,
-                1,
+                defaultValue,
                 action,
                 true,
                 [0, 5]
@@ -113,8 +109,8 @@ namespace FargoSeeds.UI.WorldGenMenu
             AddToggle(header, "SecondShimmer", color, ItemID.BottomlessShimmerBucket, false, (value) => { SecondShimmer = value; });
 
             // FREQUENCY
+            AddFrequencySlider("CaveMultiplier", color, ItemID.StoneBlock, (value) => { CaveMultiplier = (int)value; }, defaultValue: 2);
             AddFrequencySlider("TreeMultiplier", color, 4765, (value) => { TreeMultiplier = (int)value; });
-            AddFrequencySlider("CaveMultiplier", color, ItemID.StoneBlock, (value) => { CaveMultiplier = (int)value; });
             AddFrequencySlider("FloatingIslandMultiplier", color, 838, (value) => { FloatingIslandMultiplier = (int)value; });
             AddFrequencySlider("MarbleMultiplier", color, ItemID.Marble, (value) => { MarbleMultiplier = (int)value; });
             AddFrequencySlider("GraniteMultiplier", color, ItemID.Granite, (value) => { GraniteMultiplier = (int)value; });
