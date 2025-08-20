@@ -66,5 +66,6 @@ Completely new world gen options:
 -Surface Mushroom Biomes
 -Random Spawn Location
 
-**NEW UPDATE - V0.5.3**
--Added Russian translations
+**NEW UPDATE - V1.0**
+-Revamped config to be built into the World Gen menu
+-Improved Surface Mushroom placement
