@@ -2,199 +2,195 @@ HeaderGeneral: General
 
 BothEvils: {
 	Label: Both Evils
-	Tooltip: Generates both the Corruption and Crimson in the same world, on opposite sides.
+	Tooltip: Generates both the Corruption and Crimson in the same world, on opposite sides. (part of Drunk Seed)
 }
 
 BothOres: {
 	Label: Both Ores
-	Tooltip: Generates all mineral and ore variations in the same world.
+	Tooltip: Generates all mineral and ore variations in the same world. (part of Drunk Seed)
 }
 
 HeaderUnderground: Underground
 
 WavyCaves: {
 	Label: More Open Caves
-	Tooltip: Caves have more openings and long-winded paths. Less digging, more exploring!
+	Tooltip: "Caves have more openings and long-winded paths. Less digging, more exploring!" (part of The Constant Seed)
 }
 
 RemixUnderworld: {
 	Label: Underworld Overhaul
-	Tooltip:
-		'''
-		Moves the Obsidian houses to the side of the world
-		and adds a large Ashwood Forest island to the center.
-		'''
+	Tooltip: "Flips Underworld generation, with a large Ashwood Forest in the middle and Obsidian Houses on the outskirts. Well suited for fighting the Wall of Flesh! (part of Remix Seed)"
 }
 
 HeaderSurface: Surface
 
 LivingTrees: {
 	Label: More Living Trees
-	Tooltip: Generates more Living Trees throughout the world.
+	Tooltip: "Generates more Living Trees throughout the world."
 }
 
 SurfaceMushroom: {
 	Label: Surface Mushroom
-	Tooltip: Generates a small Glowing Mushroom biome somewhere on the surface.
+	Tooltip: "Generates a small Glowing Mushroom biome somewhere on the surface."
 }
 
 SurfaceMarble: {
 	Label: Surface Marble
-	Tooltip: Generates a small Marble biome somewhere on the surface.
+	Tooltip: "Generates a few Marble patches with statues on or near the surface. (part of The Constant Seed)"
 }
 
 SurfaceSpiders: {
 	Label: Surface Spider
-	Tooltip: Generates a small Spider biome somewhere on the surface.
+	Tooltip: "Generates small Spider Nests somewhere on the surface. (part of The Constant Seed)"
 }
 
 HeaderStructure: Structure
 
 BigHives: {
 	Label: Big Bee Hives
-	Tooltip: Drastically increases the size of Bee Hives.
+	Tooltip: "Drastically increases the size of Bee Hives. (part of Drunk Seed)"
 }
 
 PyramidEntrance: {
 	Label: Guarantee Pyramid
-	Tooltip: Guarantees that a Pyramid generates at the entrance of the Underground Desert.
+	Tooltip: "Guarantees that a Pyramid generates at the entrance of the Underground Desert."
 }
 
 HugeTemple: {
 	Label: Huge Jungle Temple
-	Tooltip: Drastically increases the size of the Jungle Temple.
+	Tooltip: "Drastically increases the size of the Jungle Temple."
 }
 
 SecondShimmer: {
 	Label: Two Shimmers
-	Tooltip: Generates a second Shimmer biome on the opposite side of the world.
+	Tooltip: "Generates a second Shimmer biome on the opposite side of the world."
 }
 
 HeaderFrequency: Frequency
 
 MarbleMultiplier: {
 	Label: Marble
-	Tooltip: Multiplies the amount of Marble biomes that appear throughout the world.
+	Tooltip: "Multiplies the amount of Marble biomes that appear throughout the world."
 }
 
 GraniteMultiplier: {
 	Label: Granite
-	Tooltip: Multiplies the amount of Granite biomes that appear throughout the world.
+	Tooltip: "Multiplies the amount of Granite biomes that appear throughout the world."
 }
 
 LifeCrystalMultiplier: {
 	Label: Life Crystals
-	Tooltip: Multiplies the amount of Life Crystals that appear throughout the world.
+	Tooltip: "Multiplies the amount of Life Crystals that appear throughout the world."
 }
 
 StatueMultiplier: {
 	Label: Statue
-	Tooltip: Multiplies the amount of Statues that appear throughout the world.
+	Tooltip: "Multiplies the amount of Statues that appear throughout the world."
 }
 
 ChestMultiplier: {
 	Label: Chests
-	Tooltip: Multiplies the amount of Chests that appear throughout the world.
+	Tooltip: "Multiplies the amount of Chests that appear throughout the world."
 }
 
 SpiderMultiplier: {
 	Label: Spider Caves
-	Tooltip: Multiplies the amount of Spider Caves that appear throughout the world.
+	Tooltip: "Multiplies the amount of Spider Caves that appear throughout the world."
 }
 
 PotMultiplier: {
 	Label: Pots
-	Tooltip: Multiplies the amount of Pots that appear throughout the world.
+	Tooltip: "Multiplies the amount of Pots that appear throughout the world."
 }
 
 TrapMultiplier: {
 	Label: Trap
-	Tooltip: Multiplies the amount of Traps that appear throughout the world.
+	Tooltip: "Multiplies the amount of Traps that appear throughout the world."
 }
 
 CaveMultiplier: {
 	Label: Caves
-	Tooltip: Multiplies the amount of Caves that appear throughout the world.
+	Tooltip: "Multiplies the amount of Caves that appear throughout the world."
 }
 
 GemMultiplier: {
 	Label: Gems
-	Tooltip: Multiplies the amount of Gems that appear throughout the world.
+	Tooltip: "Multiplies the amount of Gems that appear throughout the world."
 }
 
 HiveMultiplier: {
 	Label: Bee Hives
-	Tooltip: Multiplies the amount of Bee Hive biomes that appear throughout the world.
+	Tooltip: "Multiplies the amount of Bee Hive biomes that appear throughout the world."
 }
 
 FloatingIslandMultiplier: {
 	Label: Floating Islands
-	Tooltip: Multiplies the amount of Floating Islands that appear throughout the world.
+	Tooltip: "Multiplies the amount of Floating Islands that appear throughout the world."
 }
 
 OreMultiplier: {
 	Label: Ores
-	Tooltip: Multiplies the amount of standard Ores that appear throughout the world.
+	Tooltip: "Multiplies the amount of standard Ores that appear throughout the world."
 }
 
 TreeMultiplier: {
 	Label: Trees
-	Tooltip: Multiplies the amount of Trees that appear throughout the world.
+	Tooltip: "Multiplies the amount of Trees that appear throughout the world."
 }
 
 MicroMultiplier: {
 	Label: Microbiomes
-	Tooltip: Multiplies the amount of Microbiomes (Minecart tracks, Sword Shrines and more) that appear throughout the world.
+	Tooltip: "Multiplies the amount of Microbiomes (Minecart tracks, Sword Shrines and more) that appear throughout the world."
 }
 
 HeaderMiscellaneous: Miscellaneous
 
 OceanCaves: {
-	Tooltip: Guarantees that an Ocean Cave generates in one of the oceans.
+	Tooltip: "Guarantees that an Ocean Cave generates in one of the oceans. (part of Drunk Seed)"
 	Label: Guarantee Ocean Caves
 }
 
 SurfaceTemple: {
 	Label: Surface Temple
-	Tooltip: Generates the Temple at the surface instead of underground.
+	Tooltip: "Generates the Temple at the surface instead of underground. (part of Remix Seed)"
 }
 
 EvilSurface: {
 	Label: Evil Surface
-	Tooltip: Covers the entire surface in Corruption or Crimson biome.
+	Tooltip: "Covers the entire surface in Corruption or Crimson biome. (part of Remix Seed)"
 }
 
 NoTraps: {
 	Label: '''"No" Traps'''
-	Tooltip: Drastically increases the amount of traps throughout the world. (From No Traps seed)
+	Tooltip: "Drastically increases the amount of traps throughout the world. (From No Traps seed)"
 }
 
 MushroomLayer: {
 	Label: Mushroom Layer
-	Tooltip: Generates a layer of Glowing Mushroom above the Underworld.
+	Tooltip: "Generates a layer of the Glowing Mushroom Biome above the Underworld. (part of Remix Seed)"
 }
 
 RainbowCabins: {
 	Label: Rainbow Cabins
-	Tooltip: Paints underground cabins Rainbow.
+	Tooltip: "Paints underground cabins Rainbow with either paint or Rainbow Bricks. (part of CelebrationMK10 Seed)"
 }
 
 PaintEverything: {
 	Label: Paint Everything
-	Tooltip: Paints everything.
+	Tooltip: "Paints everything. (part of CelebrationMK10 Seed)"
 }
 
 MahoganyTrees: {
 	Label: Mahogany Anywhere
-	Tooltip: Living Mahogany Trees can spawn anywhere throughout the surface.
+	Tooltip: "Living Mahogany Trees can spawn anywhere throughout the surface. (part of Drunk Seed)"
 }
 
 UndergroundDungeon: {
 	Label: Underground Dungeon
-	Tooltip: Generates the Dungeon to be accessible further into the ground, rather than being on the surface.
+	Tooltip: "Generates the Dungeon to be accessed through a decayed Living Tree, rather than being on the surface. (part of Drunk Seed)"
 }
 
 MarbleGraniteSwapped: {
 	Label: Marble/Granite Swapped
-	Tooltip: Swaps the positions and shapes of Marble and Granite biomes.
+	Tooltip: "Swaps the positions and shapes of Marble and Granite biomes. (part of Drunk Seed)"
 }

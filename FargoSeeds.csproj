@@ -7,7 +7,6 @@
   </PropertyGroup>
   <ItemGroup>
     <None Remove="description_workshop.txt" />
-    <None Remove="Localization\en-US.hjson" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Localization\en-US\" />
