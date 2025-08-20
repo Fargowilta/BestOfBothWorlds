@@ -861,6 +861,15 @@ namespace FargoSeeds
             {
                 int shroomX = Main.rand.Next(100, Main.maxTilesX - 100);
                 int shroomY = (int)Main.worldSurface + Main.rand.Next(-120, -80);
+                for (int attempt = 0; attempt < 50000; attempt++)
+                {
+                    if (Main.tile[shroomX, shroomY].TileType != TileID.Mud)
+                    {
+                        shroomX = Main.rand.Next(100, Main.maxTilesX - 100);
+                        shroomY = (int)Main.worldSurface + Main.rand.Next(-120, -80);
+                    }
+                }
+                
 
                 WorldGen.ShroomPatch(shroomX, shroomY);
 
