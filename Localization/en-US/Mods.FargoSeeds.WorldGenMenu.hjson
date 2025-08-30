@@ -2,24 +2,24 @@ HeaderGeneral: General
 
 BothEvils: {
 	Label: Both Evils
-	Tooltip: Generates both the Corruption and Crimson in the same world, on opposite sides. (part of Drunk Seed)
+	Tooltip: Generates both the Corruption and Crimson in the same world, on opposite sides. (Drunk Seed)
 }
 
 BothOres: {
 	Label: Both Ores
-	Tooltip: Generates all mineral and ore variations in the same world. (part of Drunk Seed)
+	Tooltip: Generates all pre HardMode ore variations in the same world. (Drunk Seed)
 }
 
 HeaderUnderground: Underground
 
 WavyCaves: {
 	Label: More Open Caves
-	Tooltip: "Caves have more openings and long-winded paths. Less digging, more exploring!" (part of The Constant Seed)
+	Tooltip: "Caves have more openings and long-winded paths. Less digging, more exploring!" (The Constant Seed)
 }
 
 RemixUnderworld: {
 	Label: Underworld Overhaul
-	Tooltip: "Flips Underworld generation, with a large Ashwood Forest in the middle and Obsidian Houses on the outskirts. Well suited for fighting the Wall of Flesh! (part of Remix Seed)"
+	Tooltip: "Flips Underworld generation, with a large Ashwood Forest in the middle and Obsidian Houses on the outskirts. Well suited for fighting the Wall of Flesh! (Remix Seed)"
 }
 
 HeaderSurface: Surface
@@ -36,19 +36,19 @@ SurfaceMushroom: {
 
 SurfaceMarble: {
 	Label: Surface Marble
-	Tooltip: "Generates a few Marble patches with statues on or near the surface. (part of The Constant Seed)"
+	Tooltip: "Generates a few Marble patches with statues on or near the surface. (The Constant Seed)"
 }
 
 SurfaceSpiders: {
 	Label: Surface Spider
-	Tooltip: "Generates small Spider Nests somewhere on the surface. (part of The Constant Seed)"
+	Tooltip: "Generates small Spider Nests somewhere on the surface. (The Constant Seed)"
 }
 
 HeaderStructure: Structure
 
 BigHives: {
 	Label: Big Bee Hives
-	Tooltip: "Drastically increases the size of Bee Hives. (part of Drunk Seed)"
+	Tooltip: "Drastically increases the size of Bee Hives. (Drunk Seed)"
 }
 
 PyramidEntrance: {
@@ -146,51 +146,51 @@ MicroMultiplier: {
 HeaderMiscellaneous: Miscellaneous
 
 OceanCaves: {
-	Tooltip: "Guarantees that an Ocean Cave generates in one of the oceans. (part of Drunk Seed)"
+	Tooltip: "Guarantees that an Ocean Cave generates in one of the oceans. (Drunk Seed)"
 	Label: Guarantee Ocean Caves
 }
 
 SurfaceTemple: {
 	Label: Surface Temple
-	Tooltip: "Generates the Temple at the surface instead of underground. (part of Remix Seed)"
+	Tooltip: "Generates the Temple at the surface instead of underground. (Remix Seed)"
 }
 
 EvilSurface: {
 	Label: Evil Surface
-	Tooltip: "Covers the entire surface in Corruption or Crimson biome. (part of Remix Seed)"
+	Tooltip: "Covers the entire surface in Corruption or Crimson biome. (Remix Seed)"
 }
 
 NoTraps: {
 	Label: '''"No" Traps'''
-	Tooltip: "Drastically increases the amount of traps throughout the world. (From No Traps seed)"
+	Tooltip: "Drastically increases the amount of traps throughout the world. (No Traps seed)"
 }
 
 MushroomLayer: {
 	Label: Mushroom Layer
-	Tooltip: "Generates a layer of the Glowing Mushroom Biome above the Underworld. (part of Remix Seed)"
+	Tooltip: "Generates a layer of the Glowing Mushroom Biome above the Underworld. (Remix Seed)"
 }
 
 RainbowCabins: {
 	Label: Rainbow Cabins
-	Tooltip: "Paints underground cabins Rainbow with either paint or Rainbow Bricks. (part of CelebrationMK10 Seed)"
+	Tooltip: "Paints underground cabins Rainbow with either paint or Rainbow Bricks. (CelebrationMK10 Seed)"
 }
 
 PaintEverything: {
 	Label: Paint Everything
-	Tooltip: "Paints everything. (part of CelebrationMK10 Seed)"
+	Tooltip: "Paints everything. (CelebrationMK10 Seed)"
 }
 
 MahoganyTrees: {
 	Label: Mahogany Anywhere
-	Tooltip: "Living Mahogany Trees can spawn anywhere throughout the surface. (part of Drunk Seed)"
+	Tooltip: "Living Mahogany Trees can spawn anywhere throughout the surface. (Drunk Seed)"
 }
 
 UndergroundDungeon: {
 	Label: Underground Dungeon
-	Tooltip: "Generates the Dungeon to be accessed through a decayed Living Tree, rather than being on the surface. (part of Drunk Seed)"
+	Tooltip: "Generates the Dungeon to be accessed through a decayed Living Tree, rather than being on the surface. (Drunk Seed)"
 }
 
 MarbleGraniteSwapped: {
 	Label: Marble/Granite Swapped
-	Tooltip: "Swaps the positions and shapes of Marble and Granite biomes. (part of Drunk Seed)"
+	Tooltip: "Swaps the positions and shapes of Marble and Granite biomes. (Drunk Seed)"
 }
