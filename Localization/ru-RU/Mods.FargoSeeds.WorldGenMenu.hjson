@@ -2,28 +2,24 @@
 
 BothEvils: {
 	// Label: Both Evils
-	// Tooltip: Generates both the Corruption and Crimson in the same world, on opposite sides.
+	// Tooltip: Generates both the Corruption and Crimson in the same world, on opposite sides. (Drunk Seed)
 }
 
 BothOres: {
 	// Label: Both Ores
-	// Tooltip: Generates all mineral and ore variations in the same world.
+	// Tooltip: Generates all pre HardMode ore variations in the same world. (Drunk Seed)
 }
 
 // HeaderUnderground: Underground
 
 WavyCaves: {
 	// Label: More Open Caves
-	// Tooltip: Caves have more openings and long-winded paths. Less digging, more exploring!
+	// Tooltip: Caves have more openings and long-winded paths. Less digging, more exploring! (The Constant Seed)
 }
 
 RemixUnderworld: {
 	// Label: Underworld Overhaul
-	/* Tooltip:
-		'''
-		Moves the Obsidian houses to the side of the world
-		and adds a large Ashwood Forest island to the center.
-		''' */
+	// Tooltip: Flips Underworld generation, with a large Ashwood Forest in the middle and Obsidian Houses on the outskirts. Well suited for fighting the Wall of Flesh! (Remix Seed)
 }
 
 // HeaderSurface: Surface
@@ -40,19 +36,19 @@ SurfaceMushroom: {
 
 SurfaceMarble: {
 	// Label: Surface Marble
-	// Tooltip: Generates a small Marble biome somewhere on the surface.
+	// Tooltip: Generates a few Marble patches with statues on or near the surface. (The Constant Seed)
 }
 
 SurfaceSpiders: {
 	// Label: Surface Spider
-	// Tooltip: Generates a small Spider biome somewhere on the surface.
+	// Tooltip: Generates small Spider Nests somewhere on the surface. (The Constant Seed)
 }
 
 // HeaderStructure: Structure
 
 BigHives: {
 	// Label: Big Bee Hives
-	// Tooltip: Drastically increases the size of Bee Hives.
+	// Tooltip: Drastically increases the size of Bee Hives. (Drunk Seed)
 }
 
 PyramidEntrance: {
@@ -150,51 +146,51 @@ MicroMultiplier: {
 // HeaderMiscellaneous: Miscellaneous
 
 OceanCaves: {
-	// Tooltip: Guarantees that an Ocean Cave generates in one of the oceans.
+	// Tooltip: Guarantees that an Ocean Cave generates in one of the oceans. (Drunk Seed)
 	// Label: Guarantee Ocean Caves
 }
 
 SurfaceTemple: {
 	// Label: Surface Temple
-	// Tooltip: Generates the Temple at the surface instead of underground.
+	// Tooltip: Generates the Temple at the surface instead of underground. (Remix Seed)
 }
 
 EvilSurface: {
 	// Label: Evil Surface
-	// Tooltip: Covers the entire surface in Corruption or Crimson biome.
+	// Tooltip: Covers the entire surface in Corruption or Crimson biome. (Remix Seed)
 }
 
 NoTraps: {
 	// Label: '''"No" Traps'''
-	// Tooltip: Drastically increases the amount of traps throughout the world. (From No Traps seed)
+	// Tooltip: Drastically increases the amount of traps throughout the world. (No Traps seed)
 }
 
 MushroomLayer: {
 	// Label: Mushroom Layer
-	// Tooltip: Generates a layer of Glowing Mushroom above the Underworld.
+	// Tooltip: Generates a layer of the Glowing Mushroom Biome above the Underworld. (Remix Seed)
 }
 
 RainbowCabins: {
 	// Label: Rainbow Cabins
-	// Tooltip: Paints underground cabins Rainbow.
+	// Tooltip: Paints underground cabins Rainbow with either paint or Rainbow Bricks. (CelebrationMK10 Seed)
 }
 
 PaintEverything: {
 	// Label: Paint Everything
-	// Tooltip: Paints everything.
+	// Tooltip: Paints everything. (CelebrationMK10 Seed)
 }
 
 MahoganyTrees: {
 	// Label: Mahogany Anywhere
-	// Tooltip: Living Mahogany Trees can spawn anywhere throughout the surface.
+	// Tooltip: Living Mahogany Trees can spawn anywhere throughout the surface. (Drunk Seed)
 }
 
 UndergroundDungeon: {
 	// Label: Underground Dungeon
-	// Tooltip: Generates the Dungeon to be accessible further into the ground, rather than being on the surface.
+	// Tooltip: Generates the Dungeon to be accessed through a decayed Living Tree, rather than being on the surface. (Drunk Seed)
 }
 
 MarbleGraniteSwapped: {
 	// Label: Marble/Granite Swapped
-	// Tooltip: Swaps the positions and shapes of Marble and Granite biomes.
+	// Tooltip: Swaps the positions and shapes of Marble and Granite biomes. (Drunk Seed)
 }

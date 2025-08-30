@@ -1,8 +1,8 @@
 WorldConfig: {
 	DisplayName: ????????????
 	Header0: ????????
-	Header2: ??? «Celebrationmk10»
-	Header3: ??? «For the worthy»
+	Header2: ??? ï¿½Celebrationmk10ï¿½
+	Header3: ??? ï¿½For the worthyï¿½
 
 	DungeonToggle: {
 		Label: "[i:134] ???????"
@@ -88,9 +88,9 @@ WorldConfig: {
 		Tooltip: ""
 	}
 
-	HeaderConstant: ??? «The Constant»
-	HeaderTraps: ??? «No traps»
-	HeaderRemix: ??? «Get fixed boi»
+	HeaderConstant: ??? ï¿½The Constantï¿½
+	HeaderTraps: ??? ï¿½No trapsï¿½
+	HeaderRemix: ??? ï¿½Get fixed boiï¿½
 
 	UnderworldSpawn: {
 		Label: -
@@ -172,4 +172,122 @@ StartingNPC: {
 	PartyGroup.Label: ??????? ?????
 	TaxCollector.Label: ??????? ???????
 	Angler.Label: ?????
+}
+
+"": {
+	WorldConfig: {
+		// DisplayName: Fargo Seeds Config
+		// HeaderToggles: Evil Toggle Header
+
+		EvilToggle: {
+			// Label: "[i:86][i:1329] World Evil Toggle"
+			// Tooltip: ""
+		}
+
+		DungeonToggle: {
+			// Label: "[i:134] Dungeon Toggle"
+			// Tooltip: ""
+		}
+
+		OceanToggle: {
+			// Label: "[i:2625] Ocean Toggle"
+			// Tooltip: ""
+		}
+
+		DesertToggle: {
+			// Label: "[i:276] Desert Toggle"
+			// Tooltip: ""
+		}
+
+		JungleToggle: {
+			// Label: "[i:208] Jungle Toggle"
+			// Tooltip: ""
+		}
+
+		IceToggle: {
+			// Label: "[i:2358] Ice Toggle"
+			// Tooltip: ""
+		}
+
+		CavesToggle: {
+			// Label: "[i:2358] Caves Toggle"
+			// Tooltip: ""
+		}
+
+		MushroomToggle: {
+			// Label: "[i:183] Glowing Mushroom Toggle"
+			// Tooltip: ""
+		}
+
+		UnderworldToggle: {
+			// Label: "[i:318] Underworld Toggle"
+			// Tooltip: ""
+		}
+
+		AetherToggle: {
+			// Label: "[i:5340] Aether Toggle"
+			// Tooltip: ""
+		}
+
+		// HeaderExtras: Second Dungeon Header
+
+		SecondDungeon: {
+			// Label: "[i:1169] Two Dungeons"
+			// Tooltip: ""
+		}
+
+		liquidReplace: {
+			// Label: "[i:3031][i:4820][i:5302][i:5364] Replace all Liquids With"
+			// Tooltip: ""
+		}
+
+		EarlyHardMode: {
+			// Label: "[i:3335] Start in HardMode"
+			// Tooltip: ""
+		}
+
+		HardModeOreMulti: {
+			// Label: "[i:364] HardMode Ore"
+			// Tooltip: ""
+		}
+
+		spawnLocation: {
+			// Label: "[i:267] Spawn Location"
+			// Tooltip: ""
+		}
+
+		startingNPC: {
+			// Label: "[i:267] Starting NPC"
+			// Tooltip: ""
+		}
+	}
+
+	LiquidReplace: {
+		// Tooltip: ""
+		// None.Label: None
+		// Water.Label: Water
+		// Lava.Label: Lava
+		// Honey.Label: Honey
+		// Shimmer.Label: Shimmer
+		// Random.Label: Random
+	}
+
+	SpawnLocation: {
+		// Tooltip: ""
+		// Normal.Label: Normal
+		// Ocean.Label: Ocean
+		// Underworld.Label: Underworld
+		// Random.Label: Random
+	}
+
+	StartingNPC: {
+		// Tooltip: ""
+		// Guide.Label: Guide
+		// PartyGirl.Label: Party Girl
+		// Merchant.Label: Merchant
+		// Demolitionist.Label: Demolitionist
+		// PartyGroup.Label: Party Group
+		// TaxCollector.Label: Tax Collector
+		// Angler.Label: Angler
+	}
 }
