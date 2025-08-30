@@ -14,7 +14,7 @@ HeaderUnderground: Underground
 
 WavyCaves: {
 	Label: More Open Caves
-	Tooltip: "Caves have more openings and long-winded paths. Less digging, more exploring!" (The Constant Seed)
+	Tooltip: "Caves have more openings and long-winded paths. Less digging, more exploring! (The Constant Seed)"
 }
 
 RemixUnderworld: {
