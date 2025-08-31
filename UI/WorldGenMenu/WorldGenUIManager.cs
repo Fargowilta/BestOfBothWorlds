@@ -37,6 +37,9 @@ namespace FargoSeeds.UI.WorldGenMenu
 
         public static void AddToggle(Mod mod, LocalizedText category, LocalizedText title, LocalizedText description, Color textColor, string iconTexturePath,  bool defaultValue, Action<bool> action)
         {
+            if (Main.dedServ)
+                return;
+            
             var uiToggle = new UIWorldGenToggle(mod, title, description, textColor, iconTexturePath, defaultValue, action)
             {
                 Width = StyleDimension.FromPixels(ToggleWidth),
@@ -46,6 +49,9 @@ namespace FargoSeeds.UI.WorldGenMenu
         }
         public static void AddSlider(Mod mod, LocalizedText category, LocalizedText title, LocalizedText description, Color textColor, string iconTexturePath,  float defaultValue, Action<float> action, bool intSlider, List<float> sliderRange)
         {
+            if (Main.dedServ)
+                return;
+
             var uiToggle = new UIWorldGenSlider(mod, title, description, textColor, iconTexturePath, defaultValue, action, intSlider, sliderRange)
             {
                 Width = StyleDimension.FromPixels(ToggleWidth),
@@ -55,6 +61,9 @@ namespace FargoSeeds.UI.WorldGenMenu
         }
         public static void AddCategory(UIElement element, LocalizedText categoryText)
         {
+            if (Main.dedServ)
+                return;
+
             UIWorldGenCategory category = ToggleCategories.Keys.FirstOrDefault(c => c.Text.Value == categoryText.Value, null);
             if (category == null)
             {

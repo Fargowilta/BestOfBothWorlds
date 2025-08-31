@@ -14,7 +14,7 @@ HeaderUnderground: Underground
 
 WavyCaves: {
 	Label: More Open Caves
-	Tooltip: 
+	Tooltip:
 		'''
 		Caves have more openings and long-winded paths. 
 		Less digging, more exploring! (The Constant Seed)
@@ -23,7 +23,7 @@ WavyCaves: {
 
 RemixUnderworld: {
 	Label: Underworld Overhaul
-	Tooltip: 
+	Tooltip:
 		'''
 		Flips Underworld generation, with a large Ashwood Forest in the middle and Obsidian Houses on the outskirts. 
 		Well suited for fighting the Wall of Flesh! (Remix Seed)
@@ -148,7 +148,7 @@ TreeMultiplier: {
 
 MicroMultiplier: {
 	Label: Microbiomes
-	Tooltip: 
+	Tooltip:
 		'''
 		Multiplies the amount of Microbiomes (Minecart tracks, Sword Shrines and more)
 		that appear throughout the world.
@@ -199,7 +199,7 @@ MahoganyTrees: {
 
 UndergroundDungeon: {
 	Label: Underground Dungeon
-	Tooltip: 
+	Tooltip:
 		'''
 		Generates the Dungeon to be accessed through a decayed Living Tree, 
 		rather than being on the surface. (Drunk Seed)
