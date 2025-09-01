@@ -76,7 +76,7 @@ namespace FargoSeeds.UI.WorldGenMenu
             }
             ToggleCategories[category].Add(element);
         }
-        public int TogglesPerRow => 2;
+        public static int TogglesPerRow => 2;
         public override void Load()
         {
             base.Load();
