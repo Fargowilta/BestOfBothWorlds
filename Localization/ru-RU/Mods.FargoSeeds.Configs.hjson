@@ -1,0 +1,115 @@
+WorldConfig: {
+	DisplayName: Конфигурация
+	HeaderToggles: Переключатели
+
+	DungeonToggle: {
+		Label: "[i:134] Темница"
+		Tooltip: ""
+	}
+
+	EvilToggle: {
+		Label: "[i:86] Мировое зло"
+		Tooltip: ""
+	}
+
+	OceanToggle: {
+		Label: "[i:2625] Океан"
+		Tooltip: ""
+	}
+
+	DesertToggle: {
+		Label: "[i:276] Пустыня"
+		Tooltip: ""
+	}
+
+	JungleToggle: {
+		Label: "[i:208] Джунгли"
+		Tooltip: ""
+	}
+
+	IceToggle: {
+		Label: "[i:2358] Снега"
+		Tooltip: ""
+	}
+
+	CavesToggle: {
+		Label: "[i:315] Пещеры"
+		Tooltip: ""
+	}
+
+	MushroomToggle: {
+		Label: "[i:183] Грибные пещеры"
+		Tooltip: ""
+	}
+
+	UnderworldToggle: {
+		Label: "[i:318] Преисподняя"
+		Tooltip: ""
+	}
+
+	AetherToggle: {
+		Label: "[i:5340] Эфир"
+		Tooltip: ""
+	}
+
+	HeaderExtras: Дополнительные настройки
+
+	SecondDungeon: {
+		Label: "[i:1169] Две темницы"
+		Tooltip: ""
+	}
+
+	EarlyHardMode: {
+		Label: "[i:3335] Начинать в хардмоде"
+		Tooltip: ""
+	}
+
+	HardModeOreMulti: {
+		Label: "[i:364] Множитель хардмодных руд"
+		Tooltip: ""
+	}
+
+	liquidReplace: {
+		Label: "[i:3031][i:4820][i:5302][i:5364] Заменить все жидкости на"
+		Tooltip: ""
+	}
+
+	spawnLocation: {
+		Label: "[i:267] Точка возрождения"
+		Tooltip: ""
+	}
+
+	startingNPC: {
+		Label: "[i:267] Первый НИП в мире"
+		Tooltip: ""
+	}
+}
+
+LiquidReplace: {
+	Tooltip: ""
+	None.Label: выкл
+	Water.Label: воду
+	Lava.Label: лаву
+	Honey.Label: мёд
+	Shimmer.Label: мерцание
+	Random.Label: случ. жидкости
+}
+
+SpawnLocation: {
+	Tooltip: ""
+	Normal.Label: поверхность
+	Ocean.Label: океан
+	Underworld.Label: преисподняя
+	Random.Label: случ. выбор
+}
+
+StartingNPC: {
+	Tooltip: ""
+	Guide.Label: Гид
+	PartyGirl.Label: Тусовщица
+	Merchant.Label: Торговец
+	Demolitionist.Label: Подрывник
+	PartyGroup.Label: тусовка НИПов
+	TaxCollector.Label: Сборщик налогов
+	Angler.Label: Рыбак
+}

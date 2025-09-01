@@ -103,14 +103,14 @@ namespace FargoSeeds.UI.WorldGenMenu
 
             // tab buttons
             // TODO: these aren't aligned correctly vertically if resolution is not 1920x1080
-            var vanillaTab = new UIWorldGenTab(Language.GetText("Standard World Settings"), "FargoSeeds/UI/WorldGenMenu/UIWorldGenTab_Vanilla", () => !ModdedMenuActive, ToggleMenu)
+            var vanillaTab = new UIWorldGenTab(Language.GetText("Mods.FargoSeeds.WorldGenMenu.StandardSetting"), "FargoSeeds/UI/WorldGenMenu/UIWorldGenTab_Vanilla", () => !ModdedMenuActive, ToggleMenu)
             {
                 HAlign = 0.5f,
                 VAlign = 0.5f,
                 Left = StyleDimension.FromPixels(infoMenuHalfWidth),
                 Top = StyleDimension.FromPixels(-infoMenuHalfHeight + 0f)
             };
-            var moddedTab = new UIWorldGenTab(Language.GetText("Modded World Settings"), "FargoSeeds/UI/WorldGenMenu/UIWorldGenTab_Modded", () => ModdedMenuActive, ToggleMenu)
+            var moddedTab = new UIWorldGenTab(Language.GetText("Mods.FargoSeeds.WorldGenMenu.ModSetting"), "FargoSeeds/UI/WorldGenMenu/UIWorldGenTab_Modded", () => ModdedMenuActive, ToggleMenu)
             {
                 HAlign = 0.5f,
                 VAlign = 0.5f,

@@ -1,3 +1,5 @@
+StandardSetting: Standard World Settings
+ModSetting: Modded World Settings
 HeaderGeneral: General
 
 BothEvils: {
@@ -7,7 +9,7 @@ BothEvils: {
 
 BothOres: {
 	Label: Both Ores
-	Tooltip: Generates all pre HardMode ore variations in the same world. (Drunk Seed)
+	Tooltip: Generates all pre-Hardmode ore variations in the same world. (Drunk Seed)
 }
 
 HeaderUnderground: Underground
@@ -25,7 +27,7 @@ RemixUnderworld: {
 	Label: Underworld Overhaul
 	Tooltip:
 		'''
-		Flips Underworld generation, with a large Ashwood Forest in the middle and Obsidian Houses on the outskirts. 
+		Generates a large Ashwood Forest in the middle and moves obsidian houses to the outskirts.
 		Well suited for fighting the Wall of Flesh! (Remix Seed)
 		'''
 }
@@ -60,8 +62,8 @@ BigHives: {
 }
 
 PyramidEntrance: {
-	Label: Guarantee Pyramid
-	Tooltip: Guarantees that a Pyramid generates at the entrance of the Underground Desert.
+	Label: Guaranteed Pyramid
+	Tooltip: Guarantees that a Pyramid generates at the entrance of the Underground Desert. 
 }
 
 HugeTemple: {
@@ -158,8 +160,8 @@ MicroMultiplier: {
 HeaderMiscellaneous: Miscellaneous
 
 OceanCaves: {
+	Label: Guaranteed Ocean Caves
 	Tooltip: Guarantees that an Ocean Cave generates in one of the oceans. (Drunk Seed)
-	Label: Guarantee Ocean Caves
 }
 
 SurfaceTemple: {
@@ -201,7 +203,7 @@ UndergroundDungeon: {
 	Label: Underground Dungeon
 	Tooltip:
 		'''
-		Generates the Dungeon to be accessed through a decayed Living Tree, 
+		Generates the Dungeon to be accessed through a decayed Living Tree,
 		rather than being on the surface. (Drunk Seed)
 		'''
 }
