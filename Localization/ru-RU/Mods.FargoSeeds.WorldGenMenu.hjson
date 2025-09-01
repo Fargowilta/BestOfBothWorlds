@@ -1,214 +1,214 @@
-// StandardSetting: Standard World Settings
-// ModSetting: Modded World Settings
-// HeaderGeneral: General
+﻿StandardSetting: Стандартные настройки мира
+ModSetting: Модовые настройки мира
+HeaderGeneral: Основные
 
 BothEvils: {
-	// Label: Both Evils
-	// Tooltip: Generates both the Corruption and Crimson in the same world, on opposite sides. (Drunk Seed)
+	Label: Оба зла
+	Tooltip: Генерирует и порчу, и багрянец, на разных сторонах мира. («Пьяный» сид)
 }
 
 BothOres: {
-	// Label: Both Ores
-	// Tooltip: Generates all pre-Hardmode ore variations in the same world. (Drunk Seed)
+	Label: Оба вида руд
+	Tooltip: Генерирует все виды пре-хардмодных руд в одном мире. («Пьяный» сид)
 }
 
-// HeaderUnderground: Underground
+HeaderUnderground: Подземелья
 
 WavyCaves: {
-	// Label: More Open Caves
-	/* Tooltip:
+	Label: Более открытые пещеры
+	Tooltip:
 		'''
-		Caves have more openings and long-winded paths. 
-		Less digging, more exploring! (The Constant Seed)
-		''' */
+		Генерирует более просторные пещеры, которые чаще соединяются друг с другом.
+		Меньше копай, больше мир изучай! (Сид «Постоянства»)
+		'''
 }
 
 RemixUnderworld: {
-	// Label: Underworld Overhaul
-	/* Tooltip:
+	Label: Улучшенная преисподняя
+	Tooltip:
 		'''
-		Creates a large Ashwood Forest in the middle and moves obsidian houses to the outskirts. 
-		Well suited for fighting the Wall of Flesh! (Remix Seed)
-		''' */
+		Генерирует огромный лес пепельной древесины по середине и сдвигает обсидиановые дома к краю.
+		Отлично подходит для битвы со Стеной плоти! (Сид «Get fixed boi»)
+		'''
 }
 
-// HeaderSurface: Surface
+HeaderSurface: Поверхность
 
 LivingTrees: {
-	// Label: More Living Trees
-	// Tooltip: Generates more Living Trees throughout the world.
+	Label: Больше живых деревьев
+	Tooltip: Генерирует больше живых деревьев в мире.
 }
 
 SurfaceMushroom: {
-	// Label: Surface Mushroom
-	// Tooltip: Generates a small Glowing Mushroom biome somewhere on the surface.
+	Label: Грибные поля
+	Tooltip: Генерирует небольшой биом светящихся грибов на поверхности.
 }
 
 SurfaceMarble: {
-	// Label: Surface Marble
-	// Tooltip: Generates a few Marble patches with statues on or near the surface. (The Constant Seed)
+	Label: Мраморные биомы
+	Tooltip: Генерирует несколько мраморных биомов со статуями на или близ поверхности. (Сид «Постоянства»)
 }
 
 SurfaceSpiders: {
-	// Label: Surface Spider
-	// Tooltip: Generates small Spider Nests somewhere on the surface. (The Constant Seed)
+	Label: Паучьи гнёзда
+	Tooltip: Генерирует небольшие паучьи гнёзда на поверхности. (Сид «Постоянства»)
 }
 
-// HeaderStructure: Structure
+HeaderStructure: Структуры
 
 BigHives: {
-	// Label: Big Bee Hives
-	// Tooltip: Drastically increases the size of Bee Hives. (Drunk Seed)
+	Label: Большие пчелиные ульи
+	Tooltip: Значительно увеличивает размеры пчелиных ульев. («Пьяный» сид)
 }
 
 PyramidEntrance: {
-	// Label: Guaranteed Pyramid
-	// Tooltip: Guarantees that a Pyramid generates at the entrance of the Underground Desert.
+	Label: Пустынная пирамида
+	Tooltip: Гарантирует, что на входе в подземную пустыню будет пирамида.
 }
 
 HugeTemple: {
-	// Label: Huge Jungle Temple
-	// Tooltip: Drastically increases the size of the Jungle Temple.
+	Label: Огромный храм джунглей
+	Tooltip: Значительно увеличивает размер храма джунглей.
 }
 
 SecondShimmer: {
-	// Label: Two Shimmers
-	// Tooltip: Generates a second Shimmer biome on the opposite side of the world.
+	Label: Два мерцания
+	Tooltip: Генерирует второй биом эфира на другой стороне мира.
 }
 
-// HeaderFrequency: Frequency
+HeaderFrequency: Частота
 
 MarbleMultiplier: {
-	// Label: Marble
-	// Tooltip: Multiplies the amount of Marble biomes that appear throughout the world.
+	Label: Мрамор
+	Tooltip: Умножает количество мраморных биомов в мире.
 }
 
 GraniteMultiplier: {
-	// Label: Granite
-	// Tooltip: Multiplies the amount of Granite biomes that appear throughout the world.
+	Label: Гранит
+	Tooltip: Умножает количество гранитных биомов в мире.
 }
 
 LifeCrystalMultiplier: {
-	// Label: Life Crystals
-	// Tooltip: Multiplies the amount of Life Crystals that appear throughout the world.
+	Label: Кристаллы жизни
+	Tooltip: Умножает количество кристаллов жизни в мире.
 }
 
 StatueMultiplier: {
-	// Label: Statue
-	// Tooltip: Multiplies the amount of Statues that appear throughout the world.
+	Label: Статуи
+	Tooltip: Умножает количество статуй в мире.
 }
 
 ChestMultiplier: {
-	// Label: Chests
-	// Tooltip: Multiplies the amount of Chests that appear throughout the world.
+	Label: Сундуки
+	Tooltip: Умножает количество сундуков в мире.
 }
 
 SpiderMultiplier: {
-	// Label: Spider Caves
-	// Tooltip: Multiplies the amount of Spider Caves that appear throughout the world.
+	Label: Паучьи гнёзда
+	Tooltip: Умножает количество паучьих гнёзд в мире.
 }
 
 PotMultiplier: {
-	// Label: Pots
-	// Tooltip: Multiplies the amount of Pots that appear throughout the world.
+	Label: Горшки
+	Tooltip: Умножает количество горшков в мире.
 }
 
 TrapMultiplier: {
-	// Label: Trap
-	// Tooltip: Multiplies the amount of Traps that appear throughout the world.
+	Label: Ловушки
+	Tooltip: Умножает количество ловушек в мире.
 }
 
 CaveMultiplier: {
-	// Label: Caves
-	// Tooltip: Multiplies the amount of Caves that appear throughout the world.
+	Label: Пещеры
+	Tooltip: Умножает количество пещер в мире.
 }
 
 GemMultiplier: {
-	// Label: Gems
-	// Tooltip: Multiplies the amount of Gems that appear throughout the world.
+	Label: Самоцветы
+	Tooltip: Умножает количество самоцветов в мире.
 }
 
 HiveMultiplier: {
-	// Label: Bee Hives
-	// Tooltip: Multiplies the amount of Bee Hive biomes that appear throughout the world.
+	Label: Пчелиные ульи
+	Tooltip: Умножает количество пчелиных ульев в мире.
 }
 
 FloatingIslandMultiplier: {
-	// Label: Floating Islands
-	// Tooltip: Multiplies the amount of Floating Islands that appear throughout the world.
+	Label: Парящие острова
+	Tooltip: Умножает количество парящих островов в мире.
 }
 
 OreMultiplier: {
-	// Label: Ores
-	// Tooltip: Multiplies the amount of standard Ores that appear throughout the world.
+	Label: Руды
+	Tooltip: Умножает количество руд в мире.
 }
 
 TreeMultiplier: {
-	// Label: Trees
-	// Tooltip: Multiplies the amount of Trees that appear throughout the world.
+	Label: Деревья
+	Tooltip: Умножает количество деревье в мире.
 }
 
 MicroMultiplier: {
-	// Label: Microbiomes
-	/* Tooltip:
+	Label: Микробиомы
+	Tooltip:
 		'''
-		Multiplies the amount of Microbiomes (Minecart tracks, Sword Shrines and more)
-		that appear throughout the world.
-		''' */
+		Умножает количество микробиомов (рельсы для вагонеток,
+		святилища мечей и т.д.) в мире.
+		'''
 }
 
-// HeaderMiscellaneous: Miscellaneous
+HeaderMiscellaneous: Прочие
 
 OceanCaves: {
-	// Tooltip: Guarantees that an Ocean Cave generates in one of the oceans. (Drunk Seed)
-	// Label: Guarantee Ocean Caves
+	Label: Пещера в океане
+	Tooltip: Гарантирует пещеру под одним из океанов в мире. («Пьяный» сид)
 }
 
 SurfaceTemple: {
-	// Label: Surface Temple
-	// Tooltip: Generates the Temple at the surface instead of underground. (Remix Seed)
+	Label: Храм на поверхности
+	Tooltip: Генерирует храм джунглей на поверхности. (Сид «Get fixed boi»)
 }
 
 EvilSurface: {
-	// Label: Evil Surface
-	// Tooltip: Covers the entire surface in Corruption or Crimson biome. (Remix Seed)
+	Label: Заражённая поверхность
+	Tooltip: Покрывает всю поверхность мировым злом. (Сид «Get fixed boi»)
 }
 
 NoTraps: {
-	// Label: '''"No" Traps'''
-	// Tooltip: Drastically increases the amount of traps throughout the world. (No Traps seed)
+	Label: «Никаких» ловушек
+	Tooltip: Значительно увеличивает количество ловушек в мире. (Сид «без ловушек»)
 }
 
 MushroomLayer: {
-	// Label: Mushroom Layer
-	// Tooltip: Generates a layer of the Glowing Mushroom Biome above the Underworld. (Remix Seed)
+	Label: Слой грибных пещер
+	Tooltip: Генерирует слой грибных пещер над преисподней. (Сид «Get fixed boi»)
 }
 
 RainbowCabins: {
-	// Label: Rainbow Cabins
-	// Tooltip: Paints underground cabins Rainbow with either paint or Rainbow Bricks. (CelebrationMK10 Seed)
+	Label: Радужные хижины
+	Tooltip: Раскрашивает все подземные хижины в радугу краской или радужными блоками. (Сид «Празднования»)
 }
 
 PaintEverything: {
-	// Label: Paint Everything
-	// Tooltip: Paints everything. (CelebrationMK10 Seed)
+	Label: Краска повсюду
+	Tooltip: Раскрашивает всё. (Сид «Празднования»)
 }
 
 MahoganyTrees: {
-	// Label: Mahogany Anywhere
-	// Tooltip: Living Mahogany Trees can spawn anywhere throughout the surface. (Drunk Seed)
+	Label: Красные живые деревья
+	Tooltip: Красные живые деревья можно встретить на повехности. («Пьяный» сид)
 }
 
 UndergroundDungeon: {
-	// Label: Underground Dungeon
-	/* Tooltip:
+	Label: Подземная темница
+	Tooltip:
 		'''
-		Generates the Dungeon to be accessed through a decayed Living Tree, 
-		rather than being on the surface. (Drunk Seed)
-		''' */
+		Генерирует вход в темницу через увядающее живое дерево
+		вместо обычного входа на поверхности. («Пьяный» сид)
+		'''
 }
 
 MarbleGraniteSwapped: {
-	// Label: Marble/Granite Swapped
-	// Tooltip: Swaps the positions and shapes of Marble and Granite biomes. (Drunk Seed)
+	Label: Поменять мрамор/гранит
+	Tooltip: Меняет местами позиции и формы мраморных и гранитных биомов. («Пьяный» сид)
 }

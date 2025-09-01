@@ -69,13 +69,13 @@ WorldConfig: {
 		Tooltip: ""
 	}
 
-	spawnLocation: {
-		Label: "[i:267] Spawn Location"
+	liquidReplace: {
+		Label: "[i:3031][i:4820][i:5302][i:5364] Replace All Liquids With"
 		Tooltip: ""
 	}
 
-	liquidReplace: {
-		Label: "[i:3031][i:4820][i:5302][i:5364] Replace All Liquids With"
+	spawnLocation: {
+		Label: "[i:267] Spawn Location"
 		Tooltip: ""
 	}
 

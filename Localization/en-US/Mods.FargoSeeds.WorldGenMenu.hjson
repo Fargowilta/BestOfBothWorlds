@@ -27,7 +27,7 @@ RemixUnderworld: {
 	Label: Underworld Overhaul
 	Tooltip:
 		'''
-		Creates a large Ashwood Forest in the middle and moves obsidian houses to the outskirts. 
+		Generates a large Ashwood Forest in the middle and moves obsidian houses to the outskirts.
 		Well suited for fighting the Wall of Flesh! (Remix Seed)
 		'''
 }
@@ -63,7 +63,7 @@ BigHives: {
 
 PyramidEntrance: {
 	Label: Guaranteed Pyramid
-	Tooltip: Guarantees that a Pyramid generates at the entrance of the Underground Desert.
+	Tooltip: Guarantees that a Pyramid generates at the entrance of the Underground Desert. 
 }
 
 HugeTemple: {
@@ -160,8 +160,8 @@ MicroMultiplier: {
 HeaderMiscellaneous: Miscellaneous
 
 OceanCaves: {
+	Label: Guaranteed Ocean Caves
 	Tooltip: Guarantees that an Ocean Cave generates in one of the oceans. (Drunk Seed)
-	Label: Guarantee Ocean Caves
 }
 
 SurfaceTemple: {
@@ -203,7 +203,7 @@ UndergroundDungeon: {
 	Label: Underground Dungeon
 	Tooltip:
 		'''
-		Generates the Dungeon to be accessed through a decayed Living Tree, 
+		Generates the Dungeon to be accessed through a decayed Living Tree,
 		rather than being on the surface. (Drunk Seed)
 		'''
 }

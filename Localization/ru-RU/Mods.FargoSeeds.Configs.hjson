@@ -28,7 +28,7 @@ WorldConfig: {
 	}
 
 	IceToggle: {
-		Label: "[i:2358] Снежный биом"
+		Label: "[i:2358] Снега"
 		Tooltip: ""
 	}
 
@@ -38,7 +38,7 @@ WorldConfig: {
 	}
 
 	MushroomToggle: {
-		Label: "[i:183] Биом светящихся грибов"
+		Label: "[i:183] Грибные пещеры"
 		Tooltip: ""
 	}
 
@@ -52,7 +52,7 @@ WorldConfig: {
 		Tooltip: ""
 	}
 
-	HeaderExtras: Дополнительные
+	HeaderExtras: Дополнительные настройки
 
 	SecondDungeon: {
 		Label: "[i:1169] Две темницы"
@@ -69,13 +69,13 @@ WorldConfig: {
 		Tooltip: ""
 	}
 
-	spawnLocation: {
-		Label: "[i:267] Точка возрождения"
+	liquidReplace: {
+		Label: "[i:3031][i:4820][i:5302][i:5364] Заменить все жидкости на"
 		Tooltip: ""
 	}
 
-	liquidReplace: {
-		Label: "[i:3031][i:4820][i:5302][i:5364] Заменить все жидкости на"
+	spawnLocation: {
+		Label: "[i:267] Точка возрождения"
 		Tooltip: ""
 	}
 
