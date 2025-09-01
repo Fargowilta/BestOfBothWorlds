@@ -176,296 +176,178 @@ StartingNPC: {
 
 "": {
 	WorldConfig: {
-		DisplayName: {
-			$parentVal: Fargo Seeds Config
-		}
-
-		HeaderToggles: {
-			$parentVal: Evil Toggle Header
-		}
+		DisplayName: Fargo Seeds Config
+		HeaderToggles: Evil Toggle Header
 
 		EvilToggle: {
-			Label: {
-				$parentVal: "[i:86][i:1329] World Evil Toggle"
+			$parentVal: {
 			}
 
-			Tooltip: {
-				$parentVal: ""
-			}
+			Label: "[i:86][i:1329] World Evil Toggle"
+			Tooltip: ""
 		}
 
 		DungeonToggle: {
-			Label: {
-				$parentVal: "[i:134] Dungeon Toggle"
+			$parentVal: {
 			}
 
-			Tooltip: {
-				$parentVal: ""
-			}
+			Label: "[i:134] Dungeon Toggle"
+			Tooltip: ""
 		}
 
 		OceanToggle: {
-			Label: {
-				$parentVal: "[i:2625] Ocean Toggle"
+			$parentVal: {
 			}
 
-			Tooltip: {
-				$parentVal: ""
-			}
+			Label: "[i:2625] Ocean Toggle"
+			Tooltip: ""
 		}
 
 		DesertToggle: {
-			Label: {
-				$parentVal: "[i:276] Desert Toggle"
+			$parentVal: {
 			}
 
-			Tooltip: {
-				$parentVal: ""
-			}
+			Label: "[i:276] Desert Toggle"
+			Tooltip: ""
 		}
 
 		JungleToggle: {
-			Label: {
-				$parentVal: "[i:208] Jungle Toggle"
+			$parentVal: {
 			}
 
-			Tooltip: {
-				$parentVal: ""
-			}
+			Label: "[i:208] Jungle Toggle"
+			Tooltip: ""
 		}
 
 		IceToggle: {
-			Label: {
-				$parentVal: "[i:2358] Ice Toggle"
+			$parentVal: {
 			}
 
-			Tooltip: {
-				$parentVal: ""
-			}
+			Label: "[i:2358] Ice Toggle"
+			Tooltip: ""
 		}
 
 		CavesToggle: {
-			Label: {
-				$parentVal: "[i:2358] Caves Toggle"
+			$parentVal: {
 			}
 
-			Tooltip: {
-				$parentVal: ""
-			}
+			Label: "[i:2358] Caves Toggle"
+			Tooltip: ""
 		}
 
 		MushroomToggle: {
-			Label: {
-				$parentVal: "[i:183] Glowing Mushroom Toggle"
+			$parentVal: {
 			}
 
-			Tooltip: {
-				$parentVal: ""
-			}
+			Label: "[i:183] Glowing Mushroom Toggle"
+			Tooltip: ""
 		}
 
 		UnderworldToggle: {
-			Label: {
-				$parentVal: "[i:318] Underworld Toggle"
+			$parentVal: {
 			}
 
-			Tooltip: {
-				$parentVal: ""
-			}
+			Label: "[i:318] Underworld Toggle"
+			Tooltip: ""
 		}
 
 		AetherToggle: {
-			Label: {
-				$parentVal: "[i:5340] Aether Toggle"
+			$parentVal: {
 			}
 
-			Tooltip: {
-				$parentVal: ""
-			}
+			Label: "[i:5340] Aether Toggle"
+			Tooltip: ""
 		}
 
-		HeaderExtras: {
-			$parentVal: Second Dungeon Header
+		$parentVal: {
 		}
+
+		HeaderExtras: Second Dungeon Header
 
 		SecondDungeon: {
-			Label: {
-				$parentVal: "[i:1169] Two Dungeons"
+			$parentVal: {
 			}
 
-			Tooltip: {
-				$parentVal: ""
-			}
+			Label: "[i:1169] Two Dungeons"
+			Tooltip: ""
 		}
 
 		liquidReplace: {
-			Label: {
-				$parentVal: "[i:3031][i:4820][i:5302][i:5364] Replace all Liquids With"
+			$parentVal: {
 			}
 
-			Tooltip: {
-				$parentVal: ""
-			}
+			Label: "[i:3031][i:4820][i:5302][i:5364] Replace all Liquids With"
+			Tooltip: ""
 		}
 
 		EarlyHardMode: {
-			Label: {
-				$parentVal: "[i:3335] Start in HardMode"
+			$parentVal: {
 			}
 
-			Tooltip: {
-				$parentVal: ""
-			}
+			Label: "[i:3335] Start in HardMode"
+			Tooltip: ""
 		}
 
 		HardModeOreMulti: {
-			Label: {
-				$parentVal: "[i:364] HardMode Ore"
+			$parentVal: {
 			}
 
-			Tooltip: {
-				$parentVal: ""
-			}
+			Label: "[i:364] HardMode Ore"
+			Tooltip: ""
 		}
 
 		spawnLocation: {
-			Label: {
-				$parentVal: "[i:267] Spawn Location"
+			$parentVal: {
 			}
 
-			Tooltip: {
-				$parentVal: ""
-			}
+			Label: "[i:267] Spawn Location"
+			Tooltip: ""
 		}
 
 		startingNPC: {
-			Label: {
-				$parentVal: "[i:267] Starting NPC"
+			$parentVal: {
 			}
 
-			Tooltip: {
-				$parentVal: ""
-			}
+			Label: "[i:267] Starting NPC"
+			Tooltip: ""
 		}
 	}
 
 	LiquidReplace: {
-		Tooltip: {
-			$parentVal: ""
+		$parentVal: {
 		}
 
-		None: {
-			Label: {
-				$parentVal: None
-			}
-		}
-
-		Water: {
-			Label: {
-				$parentVal: Water
-			}
-		}
-
-		Lava: {
-			Label: {
-				$parentVal: Lava
-			}
-		}
-
-		Honey: {
-			Label: {
-				$parentVal: Honey
-			}
-		}
-
-		Shimmer: {
-			Label: {
-				$parentVal: Shimmer
-			}
-		}
-
-		Random: {
-			Label: {
-				$parentVal: Random
-			}
-		}
+		Tooltip: ""
+		None.Label: None
+		Water.Label: Water
+		Lava.Label: Lava
+		Honey.Label: Honey
+		Shimmer.Label: Shimmer
+		Random.Label: Random
 	}
 
 	SpawnLocation: {
-		Tooltip: {
-			$parentVal: ""
+		$parentVal: {
 		}
 
-		Normal: {
-			Label: {
-				$parentVal: Normal
-			}
-		}
-
-		Ocean: {
-			Label: {
-				$parentVal: Ocean
-			}
-		}
-
-		Underworld: {
-			Label: {
-				$parentVal: Underworld
-			}
-		}
-
-		Random: {
-			Label: {
-				$parentVal: Random
-			}
-		}
+		Tooltip: ""
+		Normal.Label: Normal
+		Ocean.Label: Ocean
+		Underworld.Label: Underworld
+		Random.Label: Random
 	}
 
 	StartingNPC: {
-		Tooltip: {
-			$parentVal: ""
+		$parentVal: {
 		}
 
-		Guide: {
-			Label: {
-				$parentVal: Guide
-			}
-		}
-
-		PartyGirl: {
-			Label: {
-				$parentVal: Party Girl
-			}
-		}
-
-		Merchant: {
-			Label: {
-				$parentVal: Merchant
-			}
-		}
-
-		Demolitionist: {
-			Label: {
-				$parentVal: Demolitionist
-			}
-		}
-
-		PartyGroup: {
-			Label: {
-				$parentVal: Party Group
-			}
-		}
-
-		TaxCollector: {
-			Label: {
-				$parentVal: Tax Collector
-			}
-		}
-
-		Angler: {
-			Label: {
-				$parentVal: Angler
-			}
-		}
+		Tooltip: ""
+		Guide.Label: Guide
+		PartyGirl.Label: Party Girl
+		Merchant.Label: Merchant
+		Demolitionist.Label: Demolitionist
+		PartyGroup.Label: Party Group
+		TaxCollector.Label: Tax Collector
+		Angler.Label: Angler
 	}
 }
