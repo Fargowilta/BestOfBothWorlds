@@ -1,353 +1,115 @@
 WorldConfig: {
-	DisplayName: Best of Both Worlds Config
-	Header0: Header1: Drunk Seed
-	Header2: Celebration Seed
-	Header3: For the Worthy Seed
+	DisplayName: Конфигурация
+	HeaderToggles: Переключатели
 
 	DungeonToggle: {
-		// Label: "[i:134] Dungeon Toggle"
-		// Tooltip: ""
-	}
-	
-	// HeaderToggles: Toggles
-
-	UnderworldToggle: {
-		// Label: "[i:318] Underworld Toggle"
-		// Tooltip: ""
+		Label: "[i:134] Темница"
+		Tooltip: ""
 	}
 
 	EvilToggle: {
-		// Label: "[i:86] World Evil Toggle"
-		// Tooltip: ""
-	}
-
-	DesertToggle: {
-		// Label: "[i:276] Desert Toggle"
-		// Tooltip: ""
-	}
-
-	JungleToggle: {
-		// Label: "[i:208] Jungle Toggle"
-		// Tooltip: ""
-	}
-
-	IceToggle: {
-		// Label: "[i:2358] Ice Toggle"
-		// Tooltip: ""
+		Label: "[i:86] Мировое зло"
+		Tooltip: ""
 	}
 
 	OceanToggle: {
-		// Label: "[i:2625] Ocean Toggle"
-		// Tooltip: ""
+		Label: "[i:2625] Океан"
+		Tooltip: ""
 	}
 
-	MushroomToggle: {
-		// Label: "[i:183] Glowing Mushroom Toggle"
-		// Tooltip: ""
+	DesertToggle: {
+		Label: "[i:276] Пустыня"
+		Tooltip: ""
 	}
 
-	// HeaderExtras: Extras
-
-	SecondDungeon: {
-		// Label: "[i:1169] Two Dungeons"
-		// Tooltip: ""
+	JungleToggle: {
+		Label: "[i:208] Джунгли"
+		Tooltip: ""
 	}
 
-	AllLava: {
-		// Label: "[i:4820] Replace all Liquids with Lava"
-		// Tooltip: ""
-	}
-
-	AllWater: {
-		// Label: "[i:3031] Replace all Liquids with Water"
-		// Tooltip: ""
-	}
-
-	AllHoney: {
-		// Label: "[i:5302] Replace all Liquids with Honey"
-		// Tooltip: ""
-	}
-
-	AllShimmer: {
-		// Label: "[i:5364] Replace all Liquids with Shimmer"
-		// Tooltip: ""
-	}
-
-	LiquidSwap: {
-		// Label: "[i:3031][i:4820][i:5302][i:5364] Randomly Swap Liquids"
-		// Tooltip: ""
+	IceToggle: {
+		Label: "[i:2358] Снежный биом"
+		Tooltip: ""
 	}
 
 	CavesToggle: {
-		// Label: "[i:315] Caves Toggle"
-		// Tooltip: ""
+		Label: "[i:315] Пещеры"
+		Tooltip: ""
 	}
 
-	EarlyHardMode: {
-		// Label: "[i:3335] Start in HardMode"
-		// Tooltip: ""
+	MushroomToggle: {
+		Label: "[i:183] Биом светящихся грибов"
+		Tooltip: ""
 	}
 
-	// HeaderConstant: Constant Seed
-	// HeaderTraps: No Traps Seed
-	// HeaderRemix: Remix Seed
-
-	UnderworldSpawn: {
-		// Label: "[i:207] Underworld Spawn"
-		// Tooltip: ""
+	UnderworldToggle: {
+		Label: "[i:318] Преисподняя"
+		Tooltip: ""
 	}
 
 	AetherToggle: {
-		// Label: "[i:5340] Aether Toggle"
-		// Tooltip: ""
+		Label: "[i:5340] Эфир"
+		Tooltip: ""
 	}
 
-	AetherIsland: {
-		// Label: "[i:5340] Aether Floating Island"
-		// Tooltip: ""
+	HeaderExtras: Дополнительные
+
+	SecondDungeon: {
+		Label: "[i:1169] Две темницы"
+		Tooltip: ""
 	}
 
-	MinecartMultiplier: {
-		// Label: "[i:2340] Minecart Track"
-		// Tooltip: ""
+	EarlyHardMode: {
+		Label: "[i:3335] Начинать в хардмоде"
+		Tooltip: ""
 	}
 
 	HardModeOreMulti: {
-		// Label: "[i:364] HardMode Ore"
-		// Tooltip: ""
-	}
-
-	// HeaderPost: No Evil Spread Header
-
-	NoEvilSpread: {
-		// Label: "[i:66] No Evil Spread"
-		// Tooltip: ""
-	}
-
-	RandomSpawn: {
-		// Label: "[i:267] Random Spawn Location"
-		// Tooltip: ""
+		Label: "[i:364] Множитель хардмодных руд"
+		Tooltip: ""
 	}
 
 	spawnLocation: {
-		// Label: "[i:267] Spawn Location"
-		// Tooltip: ""
+		Label: "[i:267] Точка возрождения"
+		Tooltip: ""
 	}
 
 	liquidReplace: {
-		// Label: "[i:3031][i:4820][i:5302][i:5364] Replace all Liquids With"
-		// Tooltip: ""
+		Label: "[i:3031][i:4820][i:5302][i:5364] Заменить все жидкости на"
+		Tooltip: ""
 	}
 
 	startingNPC: {
-		// Label: "[i:267] Starting NPC"
-		// Tooltip: ""
+		Label: "[i:267] Первый НИП в мире"
+		Tooltip: ""
 	}
-}
-
-SpawnLocation: {
-	// Tooltip: ""
-	// Normal.Label: Normal
-	// Ocean.Label: Ocean
-	// Underworld.Label: Underworld
-	// Random.Label: Random
 }
 
 LiquidReplace: {
-	// Tooltip: ""
-	// None.Label: None
-	// Water.Label: Water
-	// Lava.Label: Lava
-	// Honey.Label: Honey
-	// Shimmer.Label: Shimmer
-	// Random.Label: Random
+	Tooltip: ""
+	None.Label: выкл
+	Water.Label: воду
+	Lava.Label: лаву
+	Honey.Label: мёд
+	Shimmer.Label: мерцание
+	Random.Label: случ. жидкости
+}
+
+SpawnLocation: {
+	Tooltip: ""
+	Normal.Label: поверхность
+	Ocean.Label: океан
+	Underworld.Label: преисподняя
+	Random.Label: случ. выбор
 }
 
 StartingNPC: {
-	// Tooltip: ""
-	// Guide.Label: Guide
-	// PartyGirl.Label: Party Girl
-	// Merchant.Label: Merchant
-	// Demolitionist.Label: Demolitionist
-	// PartyGroup.Label: Party Group
-	// TaxCollector.Label: Tax Collector
-	// Angler.Label: Angler
-}
-
-"": {
-	WorldConfig: {
-		// DisplayName: Fargo Seeds Config
-		// HeaderToggles: Evil Toggle Header
-
-		EvilToggle: {
-			$parentVal: {
-			}
-
-			// Label: "[i:86][i:1329] World Evil Toggle"
-			// Tooltip: ""
-		}
-
-		DungeonToggle: {
-			$parentVal: {
-			}
-
-			// Label: "[i:134] Dungeon Toggle"
-			// Tooltip: ""
-		}
-
-		OceanToggle: {
-			$parentVal: {
-			}
-
-			// Label: "[i:2625] Ocean Toggle"
-			// Tooltip: ""
-		}
-
-		DesertToggle: {
-			$parentVal: {
-			}
-
-			// Label: "[i:276] Desert Toggle"
-			// Tooltip: ""
-		}
-
-		JungleToggle: {
-			$parentVal: {
-			}
-
-			// Label: "[i:208] Jungle Toggle"
-			// Tooltip: ""
-		}
-
-		IceToggle: {
-			$parentVal: {
-			}
-
-			// Label: "[i:2358] Ice Toggle"
-			// Tooltip: ""
-		}
-
-		CavesToggle: {
-			$parentVal: {
-			}
-
-			// Label: "[i:2358] Caves Toggle"
-			// Tooltip: ""
-		}
-
-		MushroomToggle: {
-			$parentVal: {
-			}
-
-			// Label: "[i:183] Glowing Mushroom Toggle"
-			// Tooltip: ""
-		}
-
-		UnderworldToggle: {
-			$parentVal: {
-			}
-
-			// Label: "[i:318] Underworld Toggle"
-			// Tooltip: ""
-		}
-
-		AetherToggle: {
-			$parentVal: {
-			}
-
-			// Label: "[i:5340] Aether Toggle"
-			// Tooltip: ""
-		}
-
-		$parentVal: {
-		}
-
-		// HeaderExtras: Second Dungeon Header
-
-		SecondDungeon: {
-			$parentVal: {
-			}
-
-			// Label: "[i:1169] Two Dungeons"
-			// Tooltip: ""
-		}
-
-		liquidReplace: {
-			$parentVal: {
-			}
-
-			// Label: "[i:3031][i:4820][i:5302][i:5364] Replace all Liquids With"
-			// Tooltip: ""
-		}
-
-		EarlyHardMode: {
-			$parentVal: {
-			}
-
-			// Label: "[i:3335] Start in HardMode"
-			// Tooltip: ""
-		}
-
-		HardModeOreMulti: {
-			$parentVal: {
-			}
-
-			// Label: "[i:364] HardMode Ore"
-			// Tooltip: ""
-		}
-
-		spawnLocation: {
-			$parentVal: {
-			}
-
-			// Label: "[i:267] Spawn Location"
-			// Tooltip: ""
-		}
-
-		startingNPC: {
-			$parentVal: {
-			}
-
-			// Label: "[i:267] Starting NPC"
-			// Tooltip: ""
-		}
-	}
-
-	LiquidReplace: {
-		$parentVal: {
-		}
-
-		// Tooltip: ""
-		// None.Label: None
-		// Water.Label: Water
-		// Lava.Label: Lava
-		// Honey.Label: Honey
-		// Shimmer.Label: Shimmer
-		// Random.Label: Random
-	}
-
-	SpawnLocation: {
-		$parentVal: {
-		}
-
-		// Tooltip: ""
-		// Normal.Label: Normal
-		// Ocean.Label: Ocean
-		// Underworld.Label: Underworld
-		// Random.Label: Random
-	}
-
-	StartingNPC: {
-		$parentVal: {
-		}
-
-		// Tooltip: ""
-		// Guide.Label: Guide
-		// PartyGirl.Label: Party Girl
-		// Merchant.Label: Merchant
-		// Demolitionist.Label: Demolitionist
-		// PartyGroup.Label: Party Group
-		// TaxCollector.Label: Tax Collector
-		// Angler.Label: Angler
-	}
+	Tooltip: ""
+	Guide.Label: Гид
+	PartyGirl.Label: Тусовщица
+	Merchant.Label: Торговец
+	Demolitionist.Label: Подрывник
+	PartyGroup.Label: тусовка НИПов
+	TaxCollector.Label: Сборщик налогов
+	Angler.Label: Рыбак
 }
