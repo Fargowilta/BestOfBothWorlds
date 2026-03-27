@@ -109,7 +109,7 @@ namespace FargoSeeds.UI.WorldGenMenu
             AddToggle(header, "SecondShimmer", color, ItemID.BottomlessShimmerBucket, false, (value) => { SecondShimmer = value; });
 
             // FREQUENCY
-            AddFrequencySlider("CaveMultiplier", color, ItemID.StoneBlock, (value) => { CaveMultiplier = (int)value; }, defaultValue: 2);
+            AddFrequencySlider("CaveMultiplier", color, ItemID.StoneBlock, (value) => { CaveMultiplier = (int)value; });
             AddFrequencySlider("TreeMultiplier", color, 4765, (value) => { TreeMultiplier = (int)value; });
             AddFrequencySlider("FloatingIslandMultiplier", color, 838, (value) => { FloatingIslandMultiplier = (int)value; });
             AddFrequencySlider("MarbleMultiplier", color, ItemID.Marble, (value) => { MarbleMultiplier = (int)value; });
