@@ -40,7 +40,15 @@ namespace FargoSeeds
                                 break;
                             if (args[8].GetType() != typeof(Action<bool>)) // Toggle action (should flip your bool that determines the given worldgen option
                                 break;
-                            WorldGenUIManager.AddToggle(ModLoader.GetMod((string)args[1]), Language.GetText((string)args[2]), Language.GetText((string)args[3]), Language.GetText((string)args[4]), (Color)args[5], (string)args[6], (bool)args[7], (Action<bool>)args[8]);
+                            // optional arg
+                            bool emode = false;
+                            if (args.Length > 9)
+                            {
+                                if (args[9].GetType() != typeof(bool)) // Whether this should be recommended for Eternity Mode
+                                    break;
+                                emode = (bool)args[9];
+                            }
+                            WorldGenUIManager.AddToggle(ModLoader.GetMod((string)args[1]), Language.GetText((string)args[2]), Language.GetText((string)args[3]), Language.GetText((string)args[4]), (Color)args[5], (string)args[6], (bool)args[7], (Action<bool>)args[8], emode);
                         }
                         break;
                     case "AddWorldGenSlider":

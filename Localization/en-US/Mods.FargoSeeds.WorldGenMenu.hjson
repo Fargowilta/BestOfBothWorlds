@@ -1,6 +1,7 @@
 StandardSetting: Standard World Settings
 ModSetting: Modded World Settings
 HeaderGeneral: General
+EmodeTag: Recommended for Eternity Mode!
 
 BothEvils: {
 	Label: Both Evils
@@ -63,7 +64,7 @@ BigHives: {
 
 PyramidEntrance: {
 	Label: Guaranteed Pyramid
-	Tooltip: Guarantees that a Pyramid generates at the entrance of the Underground Desert. 
+	Tooltip: Guarantees that a Pyramid generates at the entrance of the Underground Desert.
 }
 
 HugeTemple: {

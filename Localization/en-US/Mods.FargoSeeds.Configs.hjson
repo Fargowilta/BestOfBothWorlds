@@ -87,29 +87,97 @@ WorldConfig: {
 
 LiquidReplace: {
 	Tooltip: ""
-	None.Label: None
-	Water.Label: Water
-	Lava.Label: Lava
-	Honey.Label: Honey
-	Shimmer.Label: Shimmer
-	Random.Label: Random
+
+	None: {
+		Label: None
+		Tooltip: ""
+	}
+
+	Water: {
+		Label: Water
+		Tooltip: ""
+	}
+
+	Lava: {
+		Label: Lava
+		Tooltip: ""
+	}
+
+	Honey: {
+		Label: Honey
+		Tooltip: ""
+	}
+
+	Shimmer: {
+		Label: Shimmer
+		Tooltip: ""
+	}
+
+	Random: {
+		Label: Random
+		Tooltip: ""
+	}
 }
 
 SpawnLocation: {
 	Tooltip: ""
-	Normal.Label: Normal
-	Ocean.Label: Ocean
-	Underworld.Label: Underworld
-	Random.Label: Random
+
+	Normal: {
+		Label: Normal
+		Tooltip: ""
+	}
+
+	Ocean: {
+		Label: Ocean
+		Tooltip: ""
+	}
+
+	Underworld: {
+		Label: Underworld
+		Tooltip: ""
+	}
+
+	Random: {
+		Label: Random
+		Tooltip: ""
+	}
 }
 
 StartingNPC: {
 	Tooltip: ""
-	Guide.Label: Guide
-	PartyGirl.Label: Party Girl
-	Merchant.Label: Merchant
-	Demolitionist.Label: Demolitionist
-	PartyGroup.Label: Party Group
-	TaxCollector.Label: Tax Collector
-	Angler.Label: Angler
+
+	Guide: {
+		Label: Guide
+		Tooltip: ""
+	}
+
+	PartyGirl: {
+		Label: Party Girl
+		Tooltip: ""
+	}
+
+	Merchant: {
+		Label: Merchant
+		Tooltip: ""
+	}
+
+	Demolitionist: {
+		Label: Demolitionist
+		Tooltip: ""
+	}
+
+	PartyGroup: {
+		Label: Party Group
+		Tooltip: ""
+	}
+
+	TaxCollector: {
+		Label: Tax Collector
+		Tooltip: ""
+	}
+
+	Angler: {
+		Label: Angler
+		Tooltip: ""
+	}
 }
