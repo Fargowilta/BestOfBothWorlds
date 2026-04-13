@@ -1,6 +1,7 @@
-﻿StandardSetting: Стандартные настройки мира
+StandardSetting: Стандартные настройки мира
 ModSetting: Модовые настройки мира
 HeaderGeneral: Основные
+// EmodeTag: Recommended for Eternity Mode!
 
 BothEvils: {
 	Label: Оба зла

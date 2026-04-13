@@ -20,6 +20,7 @@ namespace FargoSeeds.UI.WorldGenMenu
     {
         private LocalizedText _titleText;
         private UIText _title;
+        public float Priority;
         public LocalizedText Text
         {
             get 
@@ -27,7 +28,7 @@ namespace FargoSeeds.UI.WorldGenMenu
                 return _titleText; 
             }
         }
-        public UIWorldGenCategory(LocalizedText title)
+        public UIWorldGenCategory(LocalizedText title, float priority)
         {
             this.Width.Set(WorldGenUIManager.ToggleWidth, 0);
             this.Height.Set(WorldGenUIManager.ToggleHeight, 0);
@@ -53,6 +54,8 @@ namespace FargoSeeds.UI.WorldGenMenu
                 };
                 Append(separator);
             }
+
+            Priority = priority; 
         }
         protected override void DrawSelf(SpriteBatch spriteBatch)
         {

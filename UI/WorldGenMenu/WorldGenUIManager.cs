@@ -68,7 +68,7 @@ namespace FargoSeeds.UI.WorldGenMenu
             UIWorldGenCategory category = ToggleCategories.Keys.FirstOrDefault(c => c.Text.Value == categoryText.Value, null);
             if (category == null)
             {
-                category = new UIWorldGenCategory(categoryText)
+                category = new UIWorldGenCategory(categoryText, ToggleCategories.Count)
                 {
                     Width = StyleDimension.FromPixels(ToggleWidth),
                     Height = StyleDimension.FromPixels(ToggleHeight),
@@ -76,6 +76,25 @@ namespace FargoSeeds.UI.WorldGenMenu
                 ToggleCategories[category] = [];
             }
             ToggleCategories[category].Add(element);
+        }
+        /// <summary>
+        /// Ascending order <br></br>
+        /// By default, the priority of category number n (vertically) is n <br></br>
+        /// Creates the category if it does not already exist
+        /// </summary>
+        public static void ChangeCategoryPriority(LocalizedText categoryText, float newPriority)
+        {
+            UIWorldGenCategory category = ToggleCategories.Keys.FirstOrDefault(c => c.Text.Value == categoryText.Value, null);
+            if (category == null)
+            {
+                category = new UIWorldGenCategory(categoryText, ToggleCategories.Count)
+                {
+                    Width = StyleDimension.FromPixels(ToggleWidth),
+                    Height = StyleDimension.FromPixels(ToggleHeight),
+                };
+                ToggleCategories[category] = [];
+            }
+            category.Priority = newPriority;
         }
         public static int TogglesPerRow => 2;
         public override void Load()
@@ -208,8 +227,10 @@ namespace FargoSeeds.UI.WorldGenMenu
             //uiPanel.Append(toggleList2);
 
             var elements = new List<UIElement>();
-            foreach (UIWorldGenCategory category in ToggleCategories.Keys)
+            foreach (UIWorldGenCategory category in ToggleCategories.Keys.OrderBy(x => x.Priority))
             {
+                if (ToggleCategories[category].Count == 0)
+                    continue;
                 category.Width = StyleDimension.FromPercent(1f);
                 if (elements.Count % 2 == 1)
                     elements.Add(new UIElement() { Height = StyleDimension.FromPixels(ToggleHeight) }); // empty space

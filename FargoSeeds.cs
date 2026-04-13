@@ -78,6 +78,17 @@ namespace FargoSeeds
                             WorldGenUIManager.AddSlider(ModLoader.GetMod((string)args[1]), Language.GetText((string)args[2]), Language.GetText((string)args[3]), Language.GetText((string)args[4]), (Color)args[5], (string)args[6], (float)args[7], (Action<float>)args[8], (bool)args[9], (List<float>)args[10]);
                         }
                         break;
+                    case "SetCategoryPriority":
+                        {
+                            if (args[1].GetType() != typeof(string)) // Your mod name
+                                break;
+                            if (args[2].GetType() != typeof(string)) // Toggle Category
+                                break;
+                            if (args[3].GetType() != typeof(float)) // The new priority
+                                break;
+                            WorldGenUIManager.ChangeCategoryPriority(Language.GetText((string)args[2]), (float)args[3]);
+                        }
+                        break;
                 }
 
             }
