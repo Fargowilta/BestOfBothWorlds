@@ -36,12 +36,12 @@ namespace FargoSeeds.UI.WorldGenMenu
         public static int ToggleWidth = 222;
         public static int ToggleHeight = 34;
 
-        public static void AddToggle(Mod mod, LocalizedText category, LocalizedText title, LocalizedText description, Color textColor, string iconTexturePath,  bool defaultValue, Action<bool> action)
+        public static void AddToggle(Mod mod, LocalizedText category, LocalizedText title, LocalizedText description, Color textColor, string iconTexturePath,  bool defaultValue, Action<bool> action, bool emode = false)
         {
             if (Main.dedServ)
                 return;
             
-            var uiToggle = new UIWorldGenToggle(mod, title, description, textColor, iconTexturePath, defaultValue, action)
+            var uiToggle = new UIWorldGenToggle(mod, title, description, textColor, iconTexturePath, defaultValue, action, emode)
             {
                 Width = StyleDimension.FromPixels(ToggleWidth),
                 Height = StyleDimension.FromPixels(ToggleHeight),

@@ -59,7 +59,7 @@ namespace FargoSeeds.UI.WorldGenMenu
             }
         }
 
-        public UIWorldGenToggle(Mod mod, LocalizedText title, LocalizedText description, Color textColor, string iconTexturePath, bool defaultValue, Action<bool> action)
+        public UIWorldGenToggle(Mod mod, LocalizedText title, LocalizedText description, Color textColor, string iconTexturePath, bool defaultValue, Action<bool> action, bool emode = false)
         {
             Mod = mod;
             _borderColor = Color.White;
@@ -88,6 +88,18 @@ namespace FargoSeeds.UI.WorldGenMenu
             }
             _enabled = defaultValue;
             _action = action;
+
+            if (emode)
+            {
+                EmodeTag emodeTag = new()
+                {
+                    HAlign = 1f,
+                    VAlign = 0f,
+                    Width = StyleDimension.FromPixels(24),
+                    Height = StyleDimension.FromPixels(26)
+                };
+                Append(emodeTag);
+            }
         }
         protected override void DrawSelf(SpriteBatch spriteBatch)
         {

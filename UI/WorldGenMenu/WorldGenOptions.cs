@@ -19,7 +19,7 @@ namespace FargoSeeds.UI.WorldGenMenu
         {
             AddOptions();
         }
-        internal void AddToggle(LocalizedText category, string config, Color textColor, int iconItemID, bool defaultValue, Action<bool> action)
+        internal void AddToggle(LocalizedText category, string config, Color textColor, int iconItemID, bool defaultValue, Action<bool> action, bool emode = false)
         {
             string iconTexturePath = "Terraria/Images/Item_" + iconItemID;
             WorldGenUIManager.AddToggle(
@@ -30,10 +30,11 @@ namespace FargoSeeds.UI.WorldGenMenu
                 textColor,
                 iconTexturePath,
                 defaultValue,
-                action
+                action,
+                emode
                 );
         }
-        internal void AddToggle(LocalizedText category, string config, Color textColor, string iconTexturePath, bool defaultValue, Action<bool> action)
+        internal void AddToggle(LocalizedText category, string config, Color textColor, string iconTexturePath, bool defaultValue, Action<bool> action, bool emode = false)
         {
             WorldGenUIManager.AddToggle(
                 Mod,
@@ -43,7 +44,8 @@ namespace FargoSeeds.UI.WorldGenMenu
                 textColor,
                 iconTexturePath,
                 defaultValue,
-                action
+                action,
+                emode
                 );
         }
         internal void AddSlider(LocalizedText category, string config, Color textColor, string iconTexturePath, float defaultValue, Action<float> action, bool intSlider, List<float> sliderRange)
@@ -86,13 +88,13 @@ namespace FargoSeeds.UI.WorldGenMenu
             // GENERAL
             LocalizedText header = Language.GetText(headerPath + "General");
 
-            AddToggle(header, "BothEvils", color, ItemID.CrimstoneBlock, true, (value) => { BothEvils = value; });
-            AddToggle(header, "BothOres", color, ItemID.TinOre, true, (value) => { BothOres = value; });
+            AddToggle(header, "BothEvils", color, ItemID.CrimstoneBlock, true, (value) => { BothEvils = value; }, emode: true);
+            AddToggle(header, "BothOres", color, ItemID.TinOre, true, (value) => { BothOres = value; }, emode: true);
 
             // UNDERGROUND
             header = Language.GetText(headerPath + "Underground");
-            AddToggle(header, "WavyCaves", color, ItemID.StoneBlock, true, (value) => { WavyCaves = value; });
-            AddToggle(header, "RemixUnderworld", color, ItemID.Hellstone, true, (value) => { RemixUnderworld = value; });
+            AddToggle(header, "WavyCaves", color, ItemID.StoneBlock, true, (value) => { WavyCaves = value; }, emode: true);
+            AddToggle(header, "RemixUnderworld", color, ItemID.Hellstone, true, (value) => { RemixUnderworld = value; }, emode: true);
 
             // SURFACE
             header = Language.GetText(headerPath + "Surface");
@@ -103,13 +105,13 @@ namespace FargoSeeds.UI.WorldGenMenu
 
             // STRUCTURE
             header = Language.GetText(headerPath + "Structure");
-            AddToggle(header, "BigHives", color, ItemID.Hive, true, (value) => { BigHives = value; });
-            AddToggle(header, "PyramidEntrance", color, 848, true, (value) => { PyramidEntrance = value; });
+            AddToggle(header, "BigHives", color, ItemID.Hive, true, (value) => { BigHives = value; }, emode: true);
+            AddToggle(header, "PyramidEntrance", color, 848, true, (value) => { PyramidEntrance = value; }, emode: true);
             AddToggle(header, "HugeTemple", color, 1153, false, (value) => { HugeTemple = value; });
             AddToggle(header, "SecondShimmer", color, ItemID.BottomlessShimmerBucket, false, (value) => { SecondShimmer = value; });
 
             // FREQUENCY
-            AddFrequencySlider("CaveMultiplier", color, ItemID.StoneBlock, (value) => { CaveMultiplier = (int)value; }, defaultValue: 2);
+            AddFrequencySlider("CaveMultiplier", color, ItemID.StoneBlock, (value) => { CaveMultiplier = (int)value; });
             AddFrequencySlider("TreeMultiplier", color, 4765, (value) => { TreeMultiplier = (int)value; });
             AddFrequencySlider("FloatingIslandMultiplier", color, 838, (value) => { FloatingIslandMultiplier = (int)value; });
             AddFrequencySlider("MarbleMultiplier", color, ItemID.Marble, (value) => { MarbleMultiplier = (int)value; });

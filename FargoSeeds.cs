@@ -25,106 +25,56 @@ namespace FargoSeeds
                     case "AddWorldGenToggle":
                         {
                             if (args[1].GetType() != typeof(string)) // Your mod name
-                            {
-                                Logger.Error("AddWorldGenToggle: Failed argument 1");
                                 break;
-                            }
-                               
                             if (args[2].GetType() != typeof(string)) // Toggle Category
-                            {
-                                Logger.Error("AddWorldGenToggle: Failed argument 2");
                                 break;
-                            }
                             if (args[3].GetType() != typeof(string)) // Toggle Title
-                            {
-                                Logger.Error("AddWorldGenToggle: Failed argument 3");
                                 break;
-                            }
                             if (args[4].GetType() != typeof(string)) // Toggle Description
-                            {
-                                Logger.Error("AddWorldGenToggle: Failed argument 4");
                                 break;
-                            }
                             if (args[5].GetType() != typeof(Color)) // Toggle title text color
-                            {
-                                Logger.Error("AddWorldGenToggle: Failed argument 5");
                                 break;
-                            }
                             if (args[6].GetType() != typeof(string)) // Toggle icon texture path
-                            {
-                                Logger.Error("AddWorldGenToggle: Failed argument 6");
                                 break;
-                            }
                             if (args[7].GetType() != typeof(bool)) // Default toggle value
-                            {
-                                Logger.Error("AddWorldGenToggle: Failed argument 7");
                                 break;
-                            }
                             if (args[8].GetType() != typeof(Action<bool>)) // Toggle action (should flip your bool that determines the given worldgen option
-                            {
-                                Logger.Error("AddWorldGenToggle: Failed argument 8");
                                 break;
+                            // optional arg
+                            bool emode = false;
+                            if (args.Length > 9)
+                            {
+                                if (args[9].GetType() != typeof(bool)) // Whether this should be recommended for Eternity Mode
+                                    break;
+                                emode = (bool)args[9];
                             }
-                            WorldGenUIManager.AddToggle(ModLoader.GetMod((string)args[1]), Language.GetText((string)args[2]), Language.GetText((string)args[3]), Language.GetText((string)args[4]), (Color)args[5], (string)args[6], (bool)args[7], (Action<bool>)args[8]);
+                            WorldGenUIManager.AddToggle(ModLoader.GetMod((string)args[1]), Language.GetText((string)args[2]), Language.GetText((string)args[3]), Language.GetText((string)args[4]), (Color)args[5], (string)args[6], (bool)args[7], (Action<bool>)args[8], emode);
                         }
                         break;
                     case "AddWorldGenSlider":
                         {
                             if (args[1].GetType() != typeof(string)) // Your mod name
-                            {
-                                Logger.Error("AddWorldGenToggle: Failed argument 1");
                                 break;
-                            }
                             if (args[2].GetType() != typeof(string)) // Toggle Category
-                            {
-                                Logger.Error("AddWorldGenToggle: Failed argument 2");
                                 break;
-                            }
                             if (args[3].GetType() != typeof(string)) // Toggle Title
-                            {
-                                Logger.Error("AddWorldGenToggle: Failed argument 3");
                                 break;
-                            }
                             if (args[4].GetType() != typeof(string)) // Toggle Description
-                            {
-                                Logger.Error("AddWorldGenToggle: Failed argument 4");
                                 break;
-                            }
                             if (args[5].GetType() != typeof(Color)) // Toggle title text color
-                            {
-                                Logger.Error("AddWorldGenToggle: Failed argument 5");
                                 break;
-                            }
                             if (args[6].GetType() != typeof(string)) // Toggle icon texture path
-                            {
-                                Logger.Error("AddWorldGenToggle: Failed argument 6");
                                 break;
-                            }
                             if (args[7].GetType() != typeof(float)) // Default slider value
-                            {
-                                Logger.Error("AddWorldGenToggle: Failed argument 7");
                                 break;
-                            }
                             if (args[8].GetType() != typeof(Action<float>)) // Toggle action (should flip your bool that determines the given worldgen option
-                            {
-                                Logger.Error("AddWorldGenToggle: Failed argument 8");
                                 break;
-                            }
                             if (args[9].GetType() != typeof(Action<float>)) // Whether the slider should be locked to integers
-                            {
-                                Logger.Error("AddWorldGenToggle: Failed argument 9");
                                 break;
-                            }
                             if (args[10].GetType() != typeof(List<float>)) // Slider range
-                            {
-                                Logger.Error("AddWorldGenToggle: Failed argument 10");
                                 break;
-                            }
                             if (((List<float>)args[9]).Count != 2) // Range must have two elements (min, max)
-                            {
-                                Logger.Error("AddWorldGenToggle: Argument 10 does not have two elements");
                                 break;
-                            }
                             WorldGenUIManager.AddSlider(ModLoader.GetMod((string)args[1]), Language.GetText((string)args[2]), Language.GetText((string)args[3]), Language.GetText((string)args[4]), (Color)args[5], (string)args[6], (float)args[7], (Action<float>)args[8], (bool)args[9], (List<float>)args[10]);
                         }
                         break;
