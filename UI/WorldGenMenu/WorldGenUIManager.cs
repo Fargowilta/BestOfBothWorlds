@@ -26,6 +26,7 @@ namespace FargoSeeds.UI.WorldGenMenu
     internal class WorldGenUIManager : ModSystem
     {
         public static bool ModdedMenuActive = false;
+        public static bool HasClickedMenu = false;
         public static UIText DescriptionText = null;
 
         public UIElement InfoMenuParent;
@@ -86,6 +87,7 @@ namespace FargoSeeds.UI.WorldGenMenu
             // load stuff
             On_UIWorldCreation.MakeInfoMenu += MakeInfoMenu_Detour;
             On_UIWorldCreation.FinishCreatingWorld += FinishCreatingWorld_Detour;
+            On_UIWorldCreation.Click_NamingAndCreating += Click_NamingAndCreating_Detour;
 
             On_UIElement.Draw += UIElement_Draw_Detour;
             On_UIElement.Update += UIElement_Update_Detour;
@@ -97,6 +99,10 @@ namespace FargoSeeds.UI.WorldGenMenu
         private void MakeInfoMenu_Detour(On_UIWorldCreation.orig_MakeInfoMenu orig, UIWorldCreation self, UIElement parentContainer)
         {
             orig(self, parentContainer);
+
+            HasClickedMenu = false; // This method runs every time the New World button is clicked; so we can put this here
+            ModdedMenuActive = false;
+
             InfoMenuParent = parentContainer;
             int infoMenuHalfWidth = 278;
             int infoMenuHalfHeight = 225;
@@ -299,6 +305,17 @@ namespace FargoSeeds.UI.WorldGenMenu
                 }
             }
             orig(self);
+        }
+
+        private void Click_NamingAndCreating_Detour(On_UIWorldCreation.orig_Click_NamingAndCreating orig, UIWorldCreation self, UIMouseEvent evt, UIElement listeningElement)
+        {
+            if (!HasClickedMenu)
+            {
+                HasClickedMenu = true;
+                ModdedMenuActive = true;
+                return;
+            }
+            orig(self, evt, listeningElement);
         }
 
         private void HotbarScrollFix(UIScrollWheelEvent evt, UIElement listeningElement) => Main.LocalPlayer.ScrollHotbar(PlayerInput.ScrollWheelDelta / 120);

@@ -70,6 +70,7 @@ namespace FargoSeeds.UI.WorldGenMenu
 
             float fade = isSelected ? 1f : 0.4f;
 
+
             Utils.DrawSplicedPanel(spriteBatch, _BasePanelTexture.Value, (int)dimensions.X, (int)dimensions.Y, (int)dimensions.Width, (int)dimensions.Height, 10, 10, 10, 10, Color.Lerp(Color.Black, color, fade) * opacity);
             if (_hovered)
             {
@@ -84,6 +85,17 @@ namespace FargoSeeds.UI.WorldGenMenu
                     textPosition,
                     Color.White);
             }
+
+            if (!WorldGenUIManager.HasClickedMenu && !isSelected) // blinking flashing baby sensory lights please look at my menu
+            {
+                spriteBatch.End();
+                spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.Additive, Main.DefaultSamplerState, DepthStencilState.None, RasterizerState.CullNone, null, Main.UIScaleMatrix);
+                float flashOpacity = (MathF.Sin(Main.GlobalTimeWrappedHourly * 12f) + 1) / 2;
+                flashOpacity *= 0.65f;
+                Utils.DrawSplicedPanel(spriteBatch, _BasePanelTexture.Value, (int)dimensions.X, (int)dimensions.Y, (int)dimensions.Width, (int)dimensions.Height, 10, 10, 10, 10, Color.White * opacity * flashOpacity);
+                spriteBatch.End();
+                spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, Main.DefaultSamplerState, DepthStencilState.None, RasterizerState.CullNone, null, Main.UIScaleMatrix);
+            }
         }
 
         public override void LeftMouseDown(UIMouseEvent evt)
@@ -92,6 +104,7 @@ namespace FargoSeeds.UI.WorldGenMenu
                 return;
             SoundEngine.PlaySound(SoundID.MenuTick);
             _onClick.Invoke();
+            WorldGenUIManager.HasClickedMenu = true;
             base.LeftMouseDown(evt);
         }
 

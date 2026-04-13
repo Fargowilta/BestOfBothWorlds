@@ -87,29 +87,97 @@ WorldConfig: {
 
 LiquidReplace: {
 	Tooltip: ""
-	None.Label: выкл
-	Water.Label: воду
-	Lava.Label: лаву
-	Honey.Label: мёд
-	Shimmer.Label: мерцание
-	Random.Label: случ. жидкости
+
+	None: {
+		Label: выкл
+		// Tooltip: ""
+	}
+
+	Water: {
+		Label: воду
+		// Tooltip: ""
+	}
+
+	Lava: {
+		Label: лаву
+		// Tooltip: ""
+	}
+
+	Honey: {
+		Label: мёд
+		// Tooltip: ""
+	}
+
+	Shimmer: {
+		Label: мерцание
+		// Tooltip: ""
+	}
+
+	Random: {
+		Label: случ. жидкости
+		// Tooltip: ""
+	}
 }
 
 SpawnLocation: {
 	Tooltip: ""
-	Normal.Label: поверхность
-	Ocean.Label: океан
-	Underworld.Label: преисподняя
-	Random.Label: случ. выбор
+
+	Normal: {
+		Label: поверхность
+		// Tooltip: ""
+	}
+
+	Ocean: {
+		Label: океан
+		// Tooltip: ""
+	}
+
+	Underworld: {
+		Label: преисподняя
+		// Tooltip: ""
+	}
+
+	Random: {
+		Label: случ. выбор
+		// Tooltip: ""
+	}
 }
 
 StartingNPC: {
 	Tooltip: ""
-	Guide.Label: Гид
-	PartyGirl.Label: Тусовщица
-	Merchant.Label: Торговец
-	Demolitionist.Label: Подрывник
-	PartyGroup.Label: тусовка НИПов
-	TaxCollector.Label: Сборщик налогов
-	Angler.Label: Рыбак
+
+	Guide: {
+		Label: Гид
+		// Tooltip: ""
+	}
+
+	PartyGirl: {
+		Label: Тусовщица
+		// Tooltip: ""
+	}
+
+	Merchant: {
+		Label: Торговец
+		// Tooltip: ""
+	}
+
+	Demolitionist: {
+		Label: Подрывник
+		// Tooltip: ""
+	}
+
+	PartyGroup: {
+		Label: тусовка НИПов
+		// Tooltip: ""
+	}
+
+	TaxCollector: {
+		Label: Сборщик налогов
+		// Tooltip: ""
+	}
+
+	Angler: {
+		Label: Рыбак
+		// Tooltip: ""
+	}
 }

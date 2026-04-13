@@ -63,7 +63,7 @@ BigHives: {
 
 PyramidEntrance: {
 	Label: Guaranteed Pyramid
-	Tooltip: Guarantees that a Pyramid generates at the entrance of the Underground Desert. 
+	Tooltip: Guarantees that a Pyramid generates at the entrance of the Underground Desert.
 }
 
 HugeTemple: {
