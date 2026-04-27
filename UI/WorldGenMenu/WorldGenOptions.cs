@@ -85,26 +85,23 @@ namespace FargoSeeds.UI.WorldGenMenu
 
             Color color = Color.White;
 
-            // GENERAL
-            LocalizedText header = Language.GetText(headerPath + "General");
+            // NEW FEATURES
+            LocalizedText header = Language.GetText(headerPath + "NewFeatures");
+            AddToggle(header, "FishingShacks", color, ItemID.FishingBobber, true, (value) => { FishingShacks = value; }, emode: true);
 
+            // OVERHAULS
+            header = Language.GetText(headerPath + "Overhauls");
             AddToggle(header, "BothEvils", color, ItemID.CrimstoneBlock, true, (value) => { BothEvils = value; }, emode: true);
             AddToggle(header, "BothOres", color, ItemID.TinOre, true, (value) => { BothOres = value; }, emode: true);
-
-            // UNDERGROUND
-            header = Language.GetText(headerPath + "Underground");
             AddToggle(header, "WavyCaves", color, ItemID.StoneBlock, true, (value) => { WavyCaves = value; }, emode: true);
             AddToggle(header, "RemixUnderworld", color, ItemID.Hellstone, true, (value) => { RemixUnderworld = value; }, emode: true);
 
-            // SURFACE
-            header = Language.GetText(headerPath + "Surface");
+            // VANILLA FEATURES
+            header = Language.GetText(headerPath + "VanillaFeatures");
             AddToggle(header, "LivingTrees", color, 832, false, (value) => { LivingTrees = value; });
             AddToggle(header, "SurfaceMushroom", color, ItemID.GlowingMushroom, false, (value) => { SurfaceMushroom = value; });
             AddToggle(header, "SurfaceMarble", color, ItemID.MarbleBlock, false, (value) => { SurfaceMarble = value; });
             AddToggle(header, "SurfaceSpiders", color, ItemID.Cobweb, false, (value) => { SurfaceSpiders = value; });
-
-            // STRUCTURE
-            header = Language.GetText(headerPath + "Structure");
             AddToggle(header, "BigHives", color, ItemID.Hive, true, (value) => { BigHives = value; }, emode: true);
             AddToggle(header, "PyramidEntrance", color, 848, true, (value) => { PyramidEntrance = value; }, emode: true);
             AddToggle(header, "HugeTemple", color, 1153, false, (value) => { HugeTemple = value; });
@@ -127,8 +124,8 @@ namespace FargoSeeds.UI.WorldGenMenu
             AddFrequencySlider("TrapMultiplier", color, 539, (value) => { TrapMultiplier = (int)value; });
             AddFrequencySlider("MicroMultiplier", color, ItemID.MinecartTrack, (value) => { MicroMultiplier = (int)value; });
 
-            // MISC
-            header = Language.GetText(headerPath + "Miscellaneous");
+            // EXPERIMENTAL
+            header = Language.GetText(headerPath + "Experimental");
             AddToggle(header, "OceanCaves", color, ItemID.Coral, false, (value) => { OceanCaves = value; });
             AddToggle(header, "SurfaceTemple", color, 1153, false, (value) => { SurfaceTemple = value; });
             AddToggle(header, "EvilSurface", color, 59, false, (value) => { EvilSurface = value; });
@@ -141,19 +138,19 @@ namespace FargoSeeds.UI.WorldGenMenu
             AddToggle(header, "MarbleGraniteSwapped", color, ItemID.Marble, false, (value) => { MarbleGraniteSwapped = value; });
         }
 
-        #region General
+        #region New Features
+        public static bool FishingShacks;
+        #endregion
+
+        #region Features and Overhauls
         public static bool BothEvils;
 
         public static bool BothOres;
-        #endregion
 
-        #region Underground
         public static bool WavyCaves;
 
         public static bool RemixUnderworld;
-        #endregion
 
-        #region Surface
         public static bool LivingTrees;
 
         public static bool SurfaceMushroom;
@@ -161,9 +158,7 @@ namespace FargoSeeds.UI.WorldGenMenu
         public static bool SurfaceMarble;
 
         public static bool SurfaceSpiders;
-        #endregion
 
-        #region Structure
         public static bool BigHives;
 
         public static bool PyramidEntrance;
@@ -206,7 +201,8 @@ namespace FargoSeeds.UI.WorldGenMenu
         public static int MicroMultiplier;
         #endregion
 
-        #region Misc
+        #region Experimental
+
         public static bool OceanCaves;
 
         public static bool SurfaceTemple;

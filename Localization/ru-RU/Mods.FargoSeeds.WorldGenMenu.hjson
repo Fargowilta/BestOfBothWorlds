@@ -1,7 +1,16 @@
 StandardSetting: Стандартные настройки мира
 ModSetting: Модовые настройки мира
-HeaderGeneral: Основные
 // EmodeTag: Recommended for Eternity Mode!
+// HeaderNewFeatures: New Features
+// HeaderOverhauls: Overhauls
+// HeaderVanillaFeatures: Vanilla Features
+HeaderFrequency: Частота
+// HeaderExperimental: Experimental
+
+FishingShacks: {
+	// Label: Fishing Shacks
+	// Tooltip: Adds new Fishing Shack structures throughout the Underground, complete with a fishing lake.
+}
 
 BothEvils: {
 	Label: Оба зла
@@ -12,8 +21,6 @@ BothOres: {
 	Label: Оба вида руд
 	Tooltip: Генерирует все виды пре-хардмодных руд в мире. («Пьяный» сид)
 }
-
-HeaderUnderground: Подземелья
 
 WavyCaves: {
 	Label: Более открытые пещеры
@@ -32,8 +39,6 @@ RemixUnderworld: {
 		Отлично подходит для битвы со Стеной плоти! (Сид «Get fixed boi»)
 		'''
 }
-
-HeaderSurface: Поверхность
 
 LivingTrees: {
 	Label: Больше живых деревьев
@@ -55,8 +60,6 @@ SurfaceSpiders: {
 	Tooltip: Генерирует небольшие паучьи гнёзда на поверхности. (Сид «Постоянства»)
 }
 
-HeaderStructure: Структуры
-
 BigHives: {
 	Label: Большие пчелиные ульи
 	Tooltip: Значительно увеличивает размеры пчелиных ульев. («Пьяный» сид)
@@ -76,8 +79,6 @@ SecondShimmer: {
 	Label: Два мерцания
 	Tooltip: Генерирует второй биом эфира на другой стороне мира.
 }
-
-HeaderFrequency: Частота
 
 MarbleMultiplier: {
 	Label: Мрамор
@@ -157,8 +158,6 @@ MicroMultiplier: {
 		святилища мечей и т.д.) в мире.
 		'''
 }
-
-HeaderMiscellaneous: Прочие
 
 OceanCaves: {
 	Label: Пещера в океане

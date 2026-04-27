@@ -1,7 +1,16 @@
 StandardSetting: Standard World Settings
 ModSetting: Modded World Settings
-HeaderGeneral: General
 EmodeTag: Recommended for Eternity Mode!
+HeaderNewFeatures: New Features
+HeaderOverhauls: Overhauls
+HeaderVanillaFeatures: Vanilla Features
+HeaderFrequency: Frequency
+HeaderExperimental: Experimental
+
+FishingShacks: {
+	Label: Fishing Shacks
+	Tooltip: Adds new Fishing Shack structures throughout the Underground, complete with a fishing lake.
+}
 
 BothEvils: {
 	Label: Both Evils
@@ -13,10 +22,8 @@ BothOres: {
 	Tooltip: Generates all pre-Hardmode ore variations in the same world. (Drunk Seed)
 }
 
-HeaderUnderground: Underground
-
 WavyCaves: {
-	Label: More Open Caves
+	Label: Cave Overhaul
 	Tooltip:
 		'''
 		Caves have more openings and long-winded paths. 
@@ -32,8 +39,6 @@ RemixUnderworld: {
 		Well suited for fighting the Wall of Flesh! (Remix Seed)
 		'''
 }
-
-HeaderSurface: Surface
 
 LivingTrees: {
 	Label: More Living Trees
@@ -55,8 +60,6 @@ SurfaceSpiders: {
 	Tooltip: Generates small Spider Nests somewhere on the surface. (The Constant Seed)
 }
 
-HeaderStructure: Structure
-
 BigHives: {
 	Label: Big Bee Hives
 	Tooltip: Drastically increases the size of Bee Hives. (Drunk Seed)
@@ -76,8 +79,6 @@ SecondShimmer: {
 	Label: Two Shimmers
 	Tooltip: Generates a second Shimmer biome on the opposite side of the world.
 }
-
-HeaderFrequency: Frequency
 
 MarbleMultiplier: {
 	Label: Marble
@@ -157,8 +158,6 @@ MicroMultiplier: {
 		that appear throughout the world.
 		'''
 }
-
-HeaderMiscellaneous: Miscellaneous
 
 OceanCaves: {
 	Label: Guaranteed Ocean Caves
