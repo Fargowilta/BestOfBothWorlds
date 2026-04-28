@@ -503,7 +503,7 @@ namespace FargoSeeds.WorldGeneration
             List<Rectangle> islands = [];
             for (int i = 0; i < 8; i++)
             {
-                for (int att = 0; att < 50; att++)
+                for (int attempt = 0; attempt < 50; attempt++)
                 {
                     int isSizer = 12;
                     float xScale = WorldGen.genRand.NextFloat(1.2f, 1.6f);
@@ -512,15 +512,18 @@ namespace FargoSeeds.WorldGeneration
                     Point caveSize = new((int)(isSizer * xScale * 2), isSizer * 2);
                     Rectangle island = new(pos.X - caveSize.X / 2, pos.Y - caveSize.Y / 2, caveSize.X, caveSize.Y);
                     island.Inflate(3, 5);
-                    if (att == 48)
-                    {
-                        Main.NewText("poop alarm");
-                    }
+                    bool br = false;
                     foreach (var otherIsland in islands)
                     {
                         if (otherIsland.Intersects(island))
-                            continue;
+                        {
+                            br = true;
+                            break;
+                        }
+                            
                     }
+                    if (br)
+                        continue;
                     // island
                     for (int iz = -1; iz < 2; iz++)
                     {
@@ -617,8 +620,6 @@ namespace FargoSeeds.WorldGeneration
                     if (TryPlaceGrandCavern(origin, type))
                         break;
 
-                    if (attempt == attempts - 3)
-                        Main.NewText("coal alarm");
                 }
             }
         }
