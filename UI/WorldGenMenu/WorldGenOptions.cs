@@ -89,7 +89,7 @@ namespace FargoSeeds.UI.WorldGenMenu
             // NEW FEATURES
             LocalizedText header = Language.GetText(headerPath + "NewFeatures");
             AddToggle(header, "FishingShacks", color, ItemID.FishingBobber, souls, (value) => { FishingShacks = value; }, emode: true);
-            AddToggle(header, "Mineshafts", color, ItemID.RopeCoil, souls, (value) => { Mineshafts = value; }, emode: true);
+            AddToggle(header, "Mineshafts", color, ItemID.Rope, souls, (value) => { Mineshafts = value; }, emode: true);
 
             // OVERHAULS
             header = Language.GetText(headerPath + "Overhauls");

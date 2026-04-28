@@ -13,8 +13,8 @@ FishingShacks: {
 }
 
 Mineshafts: {
-	Label: Ropeshafts
-	Tooltip: Adds new Ropeshaft structures throughout the underground.
+	Label: Ravines
+	Tooltip: Adds new ravine structures throughout the underground.
 }
 
 BothEvils: {
