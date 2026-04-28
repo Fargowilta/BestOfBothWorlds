@@ -12,6 +12,11 @@ FishingShacks: {
 	// Tooltip: Adds new Fishing Shack structures throughout the underground.
 }
 
+Mineshafts: {
+	// Label: Mineshafts
+	// Tooltip: Adds new Mineshaft and Ropeshaft structures throughout the underground.
+}
+
 BothEvils: {
 	Label: Оба зла
 	Tooltip: Генерирует и порчу, и багрянец на разных сторонах мира. («Пьяный» сид)

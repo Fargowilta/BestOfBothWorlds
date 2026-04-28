@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using Iced.Intel;
+using Microsoft.Xna.Framework;
 using StructureHelper;
 using System.Collections.Generic;
 using Terraria;
@@ -43,12 +44,12 @@ namespace FargoSeeds.WorldGeneration
                     return FishingShackTypes.Base;
                 return FishingShackTypes.None;
             }
-            if (tile == TileID.JungleGrass || tile == TileID.MushroomGrass) // jungle or mushroom biome
+            if (tile == TileID.JungleGrass || tile == TileID.Mud) // jungle or mushroom biome
             {
                 // check for jungle
                 Dictionary<ushort, int> tileDictionary = [];
                 WorldUtils.Gen(origin, new Shapes.Rectangle(sizeX, sizeY), new Actions.TileScanner(TileID.Mud, TileID.JungleGrass).Output(tileDictionary));
-                if (tileDictionary[TileID.Mud] + tileDictionary[TileID.JungleGrass] > sizeRequirement)
+                if (tileDictionary[TileID.Mud] + tileDictionary[TileID.JungleGrass] > sizeRequirement && tileDictionary[TileID.JungleGrass] > 10)
                     return FishingShackTypes.Jungle;
 
                 /*
@@ -104,9 +105,7 @@ namespace FargoSeeds.WorldGeneration
                 return false;
 
             if (GenVars.structures != null && !GenVars.structures.CanPlace(rect, BlacklistedTiles, 10))
-            {
                 return false;
-            }
 
             string extra = "_" + type.ToString();
 
@@ -130,7 +129,7 @@ namespace FargoSeeds.WorldGeneration
             };
             // make island
             var slime = new Shapes.Slime((int)(totalWidth * 0.7f), 1f, 0.4f);
-            ShapeData slimeShapeData = new ShapeData();
+            ShapeData shape = new ShapeData();
             int islandX = origin.X + dir * (int)(extraX * 0f);
             if (dir > 0)
             {
@@ -142,17 +141,17 @@ namespace FargoSeeds.WorldGeneration
             }
             Point islandPos = new(islandX, origin.Y + totalHeight);
             // make the island blob
-            WorldUtils.Gen(islandPos, slime, Actions.Chain(new Modifiers.Blotches(2, 1, 0.8), new Actions.SetTile(tileType), new Actions.SetFrames(frameNeighbors: true).Output(slimeShapeData)));
+            WorldUtils.Gen(islandPos, slime, Actions.Chain(new Modifiers.Blotches(2, 1, 0.8), new Actions.SetTile(tileType), new Actions.SetFrames(frameNeighbors: true).Output(shape)));
             // cut out blocks above house ground level
             Point cutoutPos = new(origin.X - 6, origin.Y + extraY - 1);
             var cutoutRect = new Shapes.Rectangle(new(0, 0, totalWidth + 12, FishingShackSize.Y));
-            WorldUtils.Gen(cutoutPos, cutoutRect, Actions.Chain(new Modifiers.Blotches(2, 0.4), new Actions.ClearTile(frameNeighbors: true).Output(slimeShapeData)));
+            WorldUtils.Gen(cutoutPos, cutoutRect, Actions.Chain(new Modifiers.Blotches(2, 0.4), new Actions.ClearTile(frameNeighbors: true).Output(shape)));
             // cut out lake
             Point lakePos = islandPos;
             lakePos.Y -= (int)(extraY * 0.9f);
             lakePos.X += dir * (int)(extraX * 0.27f);
             var lake = new Shapes.Slime((int)(totalWidth * 0.35f), 1f, 1.2f);
-            WorldUtils.Gen(lakePos, lake, Actions.Chain(new Modifiers.Blotches(2, 1, 0.8), new Actions.ClearTile(frameNeighbors: true).Output(slimeShapeData)));
+            WorldUtils.Gen(lakePos, lake, Actions.Chain(new Modifiers.Blotches(2, 1, 0.8), new Actions.ClearTile(frameNeighbors: true).Output(shape)));
             // make water
             WorldUtils.Gen(lakePos, lake, Actions.Chain(new Modifiers.RectangleMask(-extraX - 4, extraX + 4, 3, extraY + 3), new Modifiers.IsEmpty(), new Actions.SetLiquid()));
 
@@ -201,13 +200,7 @@ namespace FargoSeeds.WorldGeneration
             if (FishingShackSize == Point16.Zero)
                 FishingShackSize = StructureHelper.API.Generator.GetStructureDimensions(path + "_Base", mod);
 
-            int amt = WorldGen.GetWorldSize() switch
-            {
-                0 => 8,
-                1 => 12,
-                2 => 16,
-                _ => 8 * WorldGen.GetWorldSize() * 4
-            };
+            int amt = 8 + WorldGen.GetWorldSize() * 4;
 
             for (int i = 0; i < amt; i++)
             {
@@ -224,6 +217,179 @@ namespace FargoSeeds.WorldGeneration
 
                     Point origin = new(x, y);
                     if (TryPlaceFishingShack(origin))
+                        break;
+                }
+            }
+        }
+        public static bool TryPlaceRopeShaft(Point origin)
+        {
+            int topSectionHeight = 8;
+            int sizeX = WorldGen.genRand.Next(16, 22);
+            int sizeY = WorldGen.genRand.Next(80, 140);
+            int sizeTotal = sizeX * sizeY;
+            float sizeRequirement = sizeTotal * 0.25f;
+
+            int tile = Main.tile[origin].TileType;
+
+            if (!WorldGen.InWorld(origin.X, origin.Y, topSectionHeight + 4))
+                return false;
+
+            if (!WorldGen.InWorld(origin.X, origin.Y + sizeY, 4))
+                return false;
+
+            // offset to top section
+            origin.Y -= topSectionHeight;
+            ushort[] checkTypes = [];
+            ushort tileType = 0;
+            ushort platformVariant = 0;
+            
+            if (tile == TileID.Stone || tile == TileID.Dirt)
+            {
+                tileType = TileID.Stone;
+                checkTypes = [TileID.Stone, TileID.Dirt];
+            }
+            else if (tile == TileID.IceBlock || tile == TileID.SnowBlock)
+            {
+                tileType = TileID.IceBlock;
+                checkTypes = [TileID.IceBlock, TileID.SnowBlock];
+                platformVariant = 19; // boreal
+            }
+            else if (tile == TileID.JungleGrass)
+            {
+                tileType = TileID.Mud;
+                checkTypes = [TileID.Mud, TileID.JungleGrass];
+                platformVariant = 2; // mahog
+            }
+            else if (tile == TileID.HardenedSand || tile == TileID.Sandstone)
+            {
+                tileType = TileID.Sandstone;
+                checkTypes = [TileID.HardenedSand, TileID.Sandstone];
+                platformVariant = 42; // sandstone
+            }
+
+            if (checkTypes.Length > 0)
+            {
+                Point checkPos = origin;
+                int checkSegments = 3;
+                for (int i = 0; i < checkSegments; i++)
+                {
+                    checkPos.Y += (int)(sizeY / checkSegments);
+                    // check for biome
+                    Dictionary<ushort, int> tileDictionary = [];
+                    WorldUtils.Gen(checkPos, new Shapes.Rectangle(sizeX, sizeY / checkSegments), new Actions.TileScanner(checkTypes).Output(tileDictionary));
+                    int sum = 0;
+                    for (int s = 0; s < checkTypes.Length; s++)
+                        sum += tileDictionary[checkTypes[s]];
+                    if (sum < sizeRequirement / checkSegments)
+                        return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+
+            Rectangle rect = new(origin.X, origin.Y, sizeX, sizeY);
+
+            if (WorldUtils.Find(new Point(rect.X - 2, rect.Y - 2), Searches.Chain(new Searches.Rectangle(rect.Width + 4, rect.Height + 4).RequireAll(mode: false), new Conditions.HasLava()), out var _))
+                return false;
+
+            if (GenVars.structures != null && !GenVars.structures.CanPlace(rect, BlacklistedTiles, 10))
+                return false;
+            ShapeData shape = new();
+
+            // dig out shaft
+            /*
+            Point shaftCenter = origin + new Point(sizeX / 2, topSectionHeight);
+            var genshape = new Shapes.Slime((int)(sizeX * 1f), 1f, 0.5f);
+            for (int i = 0; i < iter; i++)
+            {
+                shaftCenter.Y += (int)((1f / iter) * sizeY);
+                WorldUtils.Gen(shaftCenter, genshape, Actions.Chain(new Modifiers.Blotches(2, 1, 0.8), new Actions.SetTile(TileID.Stone), new Actions.SetFrames(frameNeighbors: true).Output(shape)));
+            }
+            */
+
+            // dig out opening
+            Point openingCenter = origin + new Point(sizeX / 2, topSectionHeight / 2);
+            var genshape = new Shapes.Slime((int)(sizeX * 1.2f), 1f, 0.4f);
+            WorldUtils.Gen(openingCenter, genshape, Actions.Chain(new Modifiers.Blotches(3, 3, 0.08), new Actions.ClearTile(frameNeighbors: true).Output(shape)));
+
+            // dig out shaft
+            float iter = 36;
+            var shaftCenter = origin + new Point(sizeX / 2, topSectionHeight);
+            
+            for (int i = 0; i < iter; i++)
+            {
+                float scaler = MathHelper.Lerp(0.6f, 0.32f, (float)i / iter);
+                genshape = new Shapes.Slime((int)(sizeX * scaler), 1f, 0.8f);
+
+                shaftCenter.X = origin.X + sizeX / 2 + WorldGen.genRand.Next(-6, 6);
+                shaftCenter.Y += (int)(sizeY / iter);
+                WorldUtils.Gen(shaftCenter, genshape, Actions.Chain(new Modifiers.Blotches(3, 3, 0.05), new Actions.ClearTile(frameNeighbors: true).Output(shape)));
+            }
+
+            // place platform
+            Point ropeCenter = origin + new Point(sizeX / 2, topSectionHeight);
+            for (int j = -1; j <= 1; j += 2)
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    if (j == 1 && i == 0)
+                        continue;
+                    Point p = ropeCenter + new Point(j * i, 0);
+                    if (Main.tile[p].HasTile)
+                        break;
+                    if (i < 2 || WorldGen.genRand.NextBool(5, 7))
+                        WorldGen.PlaceTile(p.X, p.Y, TileID.Platforms, mute: true, style: platformVariant);
+                }
+            }
+            // place rope
+            for (int i = -1; i < sizeY + 5; i++)
+            {
+                Point p = ropeCenter + new Point(0, i);
+                if (Main.tile[p].HasTile && Main.tile[p].TileType != TileID.Platforms)
+                    break;
+                if (Main.tile[p].TileType != TileID.Platforms)
+                    WorldGen.PlaceTile(p.X, p.Y, TileID.Rope, mute: true);
+            }
+
+            // place grass
+            if (tileType == TileID.Mud)
+            {
+                for (int i = origin.X - 5; i < origin.X + sizeX + 10; i++)
+                {
+                    for (int j = origin.Y - 5; j < origin.Y + sizeY + 10; j++)
+                    {
+                        WorldGen.SpreadGrass(i, j, TileID.Mud, TileID.JungleGrass);
+                    }
+                }
+            }
+
+            GenVars.structures?.AddProtectedStructure(rect, 10);
+
+            return true;
+        }
+        public static void Mineshafts(GenerationProgress progress, GameConfiguration configuration)
+        {
+            progress.Message = Language.GetTextValue("Mods.FargoSeeds.WorldGenMessages.Mineshafts");
+
+            int amt = 8 + WorldGen.GetWorldSize() * 4;
+
+            for (int i = 0; i < amt; i++)
+            {
+                progress.Set((float)i / amt);
+
+                int attempts = 15000;
+
+
+
+                for (int attempt = 0; attempt < attempts; attempt++)
+                {
+                    int x = WorldGen.genRand.Next(200, Main.maxTilesX - 200);
+                    int y = WorldGen.genRand.Next((int)(GenVars.worldSurfaceHigh + 160), Main.maxTilesY - 100);
+
+                    Point origin = new(x, y);
+                    if (TryPlaceRopeShaft(origin))
                         break;
                 }
             }

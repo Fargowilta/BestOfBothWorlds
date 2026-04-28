@@ -12,6 +12,11 @@ FishingShacks: {
 	Tooltip: Adds new Fishing Shack structures throughout the underground.
 }
 
+Mineshafts: {
+	Label: Ropeshafts
+	Tooltip: Adds new Ropeshaft structures throughout the underground.
+}
+
 BothEvils: {
 	Label: Both Evils
 	Tooltip: Generates both the Corruption and Crimson in the same world, on opposite sides. (Drunk Seed)

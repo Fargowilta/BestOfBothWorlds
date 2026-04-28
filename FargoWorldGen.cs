@@ -266,8 +266,13 @@ namespace FargoSeeds
 
             if (WorldGenOptions.FishingShacks)
             {
-                var fishingIndex = getStepIndex(tasks, "Hives");
-                tasks.Insert(fishingIndex + 1, new PassLegacy("FishingShacks", NewFeatures.FishingShacks));
+                tasks.Insert(getStepIndex(tasks, "Hives") + 1, new PassLegacy("FishingShacks", NewFeatures.FishingShacks));
+            }
+
+
+            if (WorldGenOptions.Mineshafts)
+            {
+                tasks.Insert(getStepIndex(tasks, "Hives") + 1, new PassLegacy("Mineshafts", NewFeatures.Mineshafts));
             }
 
             int statueIndex = getStepIndex(tasks, "Statues");

@@ -82,24 +82,26 @@ namespace FargoSeeds.UI.WorldGenMenu
         internal void AddOptions()
         {
             string headerPath = Path + "Header";
+            bool souls = ModLoader.HasMod("FargowiltasSouls");
 
             Color color = Color.White;
 
             // NEW FEATURES
             LocalizedText header = Language.GetText(headerPath + "NewFeatures");
-            AddToggle(header, "FishingShacks", color, ItemID.FishingBobber, true, (value) => { FishingShacks = value; }, emode: true);
+            AddToggle(header, "FishingShacks", color, ItemID.FishingBobber, souls, (value) => { FishingShacks = value; }, emode: true);
+            AddToggle(header, "Mineshafts", color, ItemID.RopeCoil, souls, (value) => { Mineshafts = value; }, emode: true);
 
             // OVERHAULS
             header = Language.GetText(headerPath + "Overhauls");
             AddToggle(header, "BothEvils", color, ItemID.CrimstoneBlock, true, (value) => { BothEvils = value; }, emode: true);
             AddToggle(header, "BothOres", color, ItemID.TinOre, true, (value) => { BothOres = value; }, emode: true);
-            AddToggle(header, "WavyCaves", color, ItemID.StoneBlock, true, (value) => { WavyCaves = value; }, emode: true);
-            AddToggle(header, "RemixUnderworld", color, ItemID.Hellstone, true, (value) => { RemixUnderworld = value; }, emode: true);
+            AddToggle(header, "WavyCaves", color, ItemID.StoneBlock, souls, (value) => { WavyCaves = value; }, emode: true);
+            AddToggle(header, "RemixUnderworld", color, ItemID.Hellstone, souls, (value) => { RemixUnderworld = value; }, emode: true);
 
             // VANILLA FEATURES
             header = Language.GetText(headerPath + "VanillaFeatures");
-            AddToggle(header, "BigHives", color, ItemID.Hive, true, (value) => { BigHives = value; }, emode: true);
-            AddToggle(header, "PyramidEntrance", color, 848, true, (value) => { PyramidEntrance = value; }, emode: true);
+            AddToggle(header, "BigHives", color, ItemID.Hive, souls, (value) => { BigHives = value; }, emode: true);
+            AddToggle(header, "PyramidEntrance", color, 848, souls, (value) => { PyramidEntrance = value; }, emode: true);
             AddToggle(header, "OceanCaves", color, ItemID.Coral, false, (value) => { OceanCaves = value; });
             AddToggle(header, "LivingTrees", color, 832, false, (value) => { LivingTrees = value; });
             AddToggle(header, "SurfaceMushroom", color, ItemID.GlowingMushroom, false, (value) => { SurfaceMushroom = value; });
@@ -139,6 +141,7 @@ namespace FargoSeeds.UI.WorldGenMenu
         }
 
         #region New Features
+        public static bool Mineshafts;
         public static bool FishingShacks;
         #endregion
 
