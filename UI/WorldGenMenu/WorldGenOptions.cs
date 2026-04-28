@@ -89,6 +89,7 @@ namespace FargoSeeds.UI.WorldGenMenu
             // NEW FEATURES
             LocalizedText header = Language.GetText(headerPath + "NewFeatures");
             AddToggle(header, "FishingShacks", color, ItemID.FishingBobber, souls, (value) => { FishingShacks = value; }, emode: true);
+            AddToggle(header, "GrandCaverns", color, ItemID.Boulder, souls, (value) => { GrandCaverns = value; }, emode: true);
             AddToggle(header, "Mineshafts", color, ItemID.Rope, souls, (value) => { Mineshafts = value; }, emode: true);
 
             // OVERHAULS
@@ -142,6 +143,7 @@ namespace FargoSeeds.UI.WorldGenMenu
 
         #region New Features
         public static bool Mineshafts;
+        public static bool GrandCaverns;
         public static bool FishingShacks;
         #endregion
 

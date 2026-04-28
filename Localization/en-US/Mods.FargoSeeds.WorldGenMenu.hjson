@@ -9,12 +9,17 @@ HeaderExperimental: Experimental
 
 FishingShacks: {
 	Label: Fishing Shacks
-	Tooltip: Adds new Fishing Shack structures throughout the underground.
+	Tooltip: Adds new fishing shack structures throughout the underground.
 }
 
 Mineshafts: {
 	Label: Ravines
 	Tooltip: Adds new ravine structures throughout the underground.
+}
+
+GrandCaverns: {
+	Label: Grand Caverns
+	Tooltip: Adds new grand cavern structures throughout the underground. Great for farming and fighting!
 }
 
 BothEvils: {

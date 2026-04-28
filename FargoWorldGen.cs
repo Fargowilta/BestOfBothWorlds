@@ -275,6 +275,11 @@ namespace FargoSeeds
                 tasks.Insert(getStepIndex(tasks, "Hives") + 1, new PassLegacy("Ravines", NewFeatures.Mineshafts));
             }
 
+            if (WorldGenOptions.GrandCaverns)
+            {
+                tasks.Insert(getStepIndex(tasks, "Hives") + 1, new PassLegacy("GrandCaverns", NewFeatures.GrandCaverns));
+            }
+
             int statueIndex = getStepIndex(tasks, "Statues");
             multiplyStep(tasks, statueIndex, WorldGenOptions.StatueMultiplier);
 

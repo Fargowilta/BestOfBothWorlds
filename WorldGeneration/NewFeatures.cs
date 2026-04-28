@@ -276,7 +276,6 @@ namespace FargoSeeds.WorldGeneration
                 int checkSegments = 3;
                 for (int i = 0; i < checkSegments; i++)
                 {
-                    checkPos.Y += (int)(sizeY / checkSegments);
                     // check for biome
                     Dictionary<ushort, int> tileDictionary = [];
                     WorldUtils.Gen(checkPos, new Shapes.Rectangle(sizeX, sizeY / checkSegments), new Actions.TileScanner(checkTypes).Output(tileDictionary));
@@ -285,6 +284,7 @@ namespace FargoSeeds.WorldGeneration
                         sum += tileDictionary[checkTypes[s]];
                     if (sum < sizeRequirement / checkSegments)
                         return false;
+                    checkPos.Y += (int)(sizeY / checkSegments);
                 }
             }
             else
@@ -398,6 +398,227 @@ namespace FargoSeeds.WorldGeneration
                     Point origin = new(x, y);
                     if (TryPlaceRopeShaft(origin))
                         break;
+                }
+            }
+        }
+        public static bool TryPlaceGrandCavern(Point origin, ushort tileType)
+        {
+            int sizeX;
+            int sizeY;
+            if (tileType == TileID.Stone || tileType == TileID.IceBlock) // horizontal big
+            {
+                sizeX = 170;
+                sizeY = 75;
+            }
+            else if (tileType == TileID.Sandstone) // circular
+            {
+                sizeX = 96;
+                sizeY = 96;
+            }
+            else if (tileType == TileID.Mud) // vertical
+            {
+                sizeY = 150;
+                sizeX = 110;
+            }
+            else
+            {
+                return false;
+            }
+
+            Point center = origin;
+            origin.X -= sizeX / 2;
+            origin.Y -= sizeY / 2;
+
+            if (!WorldGen.InWorld(origin.X, origin.Y, 8))
+                return false;
+
+            if (!WorldGen.InWorld(center.X, center.Y, 8))
+                return false;
+
+            Rectangle rect = new(origin.X, origin.Y, sizeX, sizeY);
+
+            if (WorldUtils.Find(new Point(rect.X - 2, rect.Y - 2), Searches.Chain(new Searches.Rectangle(rect.Width + 4, rect.Height + 4).RequireAll(mode: false), new Conditions.HasLava()), out var _))
+                return false;
+
+            if (GenVars.structures != null && !GenVars.structures.CanPlace(rect, BlacklistedTiles, 10))
+                return false;
+
+            ushort tile = Main.tile[center].TileType;
+            ushort[] checkTypes = [];
+
+            int sizeTotal = sizeX * sizeY;
+            float sizeRequirement = sizeTotal * 0.25f;
+
+            if (tileType == TileID.Stone && (tile == TileID.Stone || tile == TileID.Dirt))
+            {
+                checkTypes = [TileID.Stone, TileID.Dirt];
+            }
+            else if (tileType == TileID.IceBlock && (tile == TileID.IceBlock || tile == TileID.SnowBlock))
+            {
+                checkTypes = [TileID.IceBlock, TileID.SnowBlock];
+            }
+            else if (tileType == TileID.Mud && (tile == TileID.JungleGrass))
+            {
+                checkTypes = [TileID.Mud, TileID.JungleGrass];
+            }
+            else if (tileType == TileID.Sandstone && (tile == TileID.HardenedSand || tile == TileID.Sandstone))
+            {
+                checkTypes = [TileID.HardenedSand, TileID.Sandstone];
+            }
+
+            bool a = checkTypes.Length > 0;
+
+            if (checkTypes.Length > 0)
+            {
+                Point checkPos = origin;
+                int checkSegments = 3;
+                for (int i = 0; i < checkSegments; i++)
+                {
+                    // check for biome
+                    Dictionary<ushort, int> tileDictionary = [];
+                    WorldUtils.Gen(checkPos, new Shapes.Rectangle((int)((float)sizeX / checkSegments), sizeY), new Actions.TileScanner(checkTypes).Output(tileDictionary));
+                    int sum = 0;
+                    for (int s = 0; s < checkTypes.Length; s++)
+                        sum += tileDictionary[checkTypes[s]];
+                    if (sum < sizeRequirement / checkSegments)
+                        return false;
+                    checkPos.X += (int)((float)sizeX / checkSegments);
+                }
+            }
+            else
+            {
+                return false;
+            }
+
+            // carve out cave
+            ShapeData shape = new();
+            for (int i = 0; i < 210; i++)
+            {
+                var genshape = new Shapes.Slime((int)(sizeX / 10f), 1f, 1f);
+                Point pos = center + Main.rand.NextVector2Circular(sizeX / 2, sizeY / 2).ToPoint();
+                WorldUtils.Gen(pos, genshape, Actions.Chain(new Modifiers.Blotches(1, 1, 0.8), new Actions.ClearTile(frameNeighbors: true).Output(shape)));
+            }
+
+            // add islands
+            List<Rectangle> islands = [];
+            for (int i = 0; i < 8; i++)
+            {
+                for (int att = 0; att < 50; att++)
+                {
+                    int isSizer = 12;
+                    float xScale = WorldGen.genRand.NextFloat(1.2f, 1.6f);
+                    var genshape = new Shapes.Slime(isSizer, xScale, 1f);
+                    Point pos = center + Main.rand.NextVector2Circular(sizeX / 1.9f, sizeY / 1.9f).ToPoint();
+                    Point caveSize = new((int)(isSizer * xScale * 2), isSizer * 2);
+                    Rectangle island = new(pos.X - caveSize.X / 2, pos.Y - caveSize.Y / 2, caveSize.X, caveSize.Y);
+                    island.Inflate(3, 5);
+                    if (att == 48)
+                    {
+                        Main.NewText("poop alarm");
+                    }
+                    foreach (var otherIsland in islands)
+                    {
+                        if (otherIsland.Intersects(island))
+                            continue;
+                    }
+                    // island
+                    for (int iz = -1; iz < 2; iz++)
+                    {
+                        var isShape = new Shapes.Slime(isSizer, xScale * WorldGen.genRand.NextFloat(0.5f, 0.8f), 1f * WorldGen.genRand.NextFloat(0.8f, 1f));
+                        Point isPos = pos + new Point(iz * (int)((float)isSizer / 3), WorldGen.genRand.Next(0, 5));
+                        WorldUtils.Gen(isPos, isShape, Actions.Chain(new Modifiers.Blotches(1, 1, 0.1), new Actions.SetTile(tileType), new Actions.SetFrames(frameNeighbors: true).Output(shape)));
+                    }
+                    
+                    // remove top half
+                    WorldUtils.Gen(pos, genshape, Actions.Chain(new Modifiers.RectangleMask(-(int)(xScale * isSizer * 1.25f), (int)(xScale * isSizer * 1.25f), -(int)(isSizer * 1.4f), 0), new Actions.ClearTile(frameNeighbors: true)));
+                    islands.Add(island);
+                    break;
+                }
+            }
+
+            // fix walls
+            if (tileType == TileID.Sandstone)
+            {
+                for (int i = 0; i < 210; i++)
+                {
+                    var genshape = new Shapes.Slime((int)(sizeX / 10f), 1f, 1f);
+                    Point pos = center + Main.rand.NextVector2Circular(sizeX / 2, sizeY / 2).ToPoint();
+                    WorldUtils.Gen(pos, genshape, Actions.Chain(new Modifiers.Blotches(1, 1, 0.2), new Actions.PlaceWall(type: WallID.Sandstone).Output(shape)));
+                }
+            }
+
+            // fix grass
+            if (tileType == TileID.Mud) 
+            {
+                for (int i = origin.X - 5; i < origin.X + sizeX + 10; i++)
+                {
+                    for (int j = origin.Y - 5; j < origin.Y + sizeY + 10; j++)
+                    {
+                        WorldGen.SpreadGrass(i, j, TileID.Mud, TileID.JungleGrass);
+                    }
+                }
+            }
+
+            GenVars.structures?.AddProtectedStructure(rect, 20);
+
+            return true;
+        }
+        public static void GrandCaverns(GenerationProgress progress, GameConfiguration configuration)
+        {
+            progress.Message = Language.GetTextValue("Mods.FargoSeeds.WorldGenMessages.GrandCaverns");
+
+            int normalAmt = 2 + WorldGen.GetWorldSize() * 1;
+
+            int xW = (int)((float)Main.maxTilesX / normalAmt);
+
+            int jglAmt = 1;
+
+            int tundraAmt = 1;
+
+            int desertAmt = 1;
+
+            int totalAmt = normalAmt + jglAmt + tundraAmt + desertAmt;
+
+            for (int i = 0; i < totalAmt; i++)
+            {
+                progress.Set((float)i / totalAmt);
+
+                int attempts = 50000;
+                ushort type = TileID.Stone;
+
+                if (i < normalAmt)
+                    type = TileID.Stone;
+                else if (i < normalAmt + jglAmt)
+                    type = TileID.Mud;
+                else if (i < normalAmt + jglAmt + tundraAmt)
+                    type = TileID.IceBlock;
+                else
+                    type = TileID.Sandstone;
+
+                
+
+                for (int attempt = 0; attempt < attempts; attempt++)
+                {
+                    int x;
+                    if (type == TileID.Stone)
+                    {
+                        
+                        x = i * xW;
+                        x += WorldGen.genRand.Next(-(int)(xW * 0.8f), (int)(xW * 0.8f));
+                    }
+                    else
+                    {
+                        x = WorldGen.genRand.Next(500, Main.maxTilesX - 500);
+                    }
+                         
+                    int y = WorldGen.genRand.Next((int)(GenVars.rockLayerHigh + 200), Main.maxTilesY - 200);
+
+                    Point origin = new(x, y);
+                    if (TryPlaceGrandCavern(origin, type))
+                        break;
+
+                    if (attempt == attempts - 3)
+                        Main.NewText("coal alarm");
                 }
             }
         }
