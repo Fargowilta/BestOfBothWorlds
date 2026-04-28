@@ -9,7 +9,7 @@ HeaderExperimental: Experimental
 
 FishingShacks: {
 	Label: Fishing Shacks
-	Tooltip: Adds new Fishing Shack structures throughout the Underground, complete with a fishing lake.
+	Tooltip: Adds new Fishing Shack structures throughout the underground.
 }
 
 BothEvils: {

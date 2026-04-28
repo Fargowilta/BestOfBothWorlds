@@ -98,12 +98,13 @@ namespace FargoSeeds.UI.WorldGenMenu
 
             // VANILLA FEATURES
             header = Language.GetText(headerPath + "VanillaFeatures");
+            AddToggle(header, "BigHives", color, ItemID.Hive, true, (value) => { BigHives = value; }, emode: true);
+            AddToggle(header, "PyramidEntrance", color, 848, true, (value) => { PyramidEntrance = value; }, emode: true);
+            AddToggle(header, "OceanCaves", color, ItemID.Coral, false, (value) => { OceanCaves = value; });
             AddToggle(header, "LivingTrees", color, 832, false, (value) => { LivingTrees = value; });
             AddToggle(header, "SurfaceMushroom", color, ItemID.GlowingMushroom, false, (value) => { SurfaceMushroom = value; });
             AddToggle(header, "SurfaceMarble", color, ItemID.MarbleBlock, false, (value) => { SurfaceMarble = value; });
             AddToggle(header, "SurfaceSpiders", color, ItemID.Cobweb, false, (value) => { SurfaceSpiders = value; });
-            AddToggle(header, "BigHives", color, ItemID.Hive, true, (value) => { BigHives = value; }, emode: true);
-            AddToggle(header, "PyramidEntrance", color, 848, true, (value) => { PyramidEntrance = value; }, emode: true);
             AddToggle(header, "HugeTemple", color, 1153, false, (value) => { HugeTemple = value; });
             AddToggle(header, "SecondShimmer", color, ItemID.BottomlessShimmerBucket, false, (value) => { SecondShimmer = value; });
 
@@ -126,7 +127,6 @@ namespace FargoSeeds.UI.WorldGenMenu
 
             // EXPERIMENTAL
             header = Language.GetText(headerPath + "Experimental");
-            AddToggle(header, "OceanCaves", color, ItemID.Coral, false, (value) => { OceanCaves = value; });
             AddToggle(header, "SurfaceTemple", color, 1153, false, (value) => { SurfaceTemple = value; });
             AddToggle(header, "EvilSurface", color, 59, false, (value) => { EvilSurface = value; });
             AddToggle(header, "NoTraps", color, ItemID.DartTrap, false, (value) => { NoTraps = value; });

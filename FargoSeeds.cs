@@ -10,8 +10,10 @@ namespace FargoSeeds
 {
 	public class FargoSeeds : Mod
 	{
+        public static Mod Mod;
         public override void Load()
         {
+            Mod = this;
             base.Load();
         }
         public override object Call(params object[] args)

@@ -1,4 +1,5 @@
 ﻿using FargoSeeds.UI.WorldGenMenu;
+using FargoSeeds.WorldGeneration;
 using System;
 using System.Collections.Generic;
 using Terraria;
@@ -59,6 +60,17 @@ namespace FargoSeeds
             {
                 gfbSeed = true;
             }
+        }
+        // testing method
+        public override void PostUpdatePlayers()
+        {
+            /*
+            if (Main.mouseLeft && Main.mouseLeftRelease)
+            {
+                Main.NewText("test");
+                NewFeatures.TryPlaceFishingShack(Main.MouseWorld.ToTileCoordinates());
+            }
+            */
         }
 
 		public override void ModifyWorldGenTasks(List<GenPass> tasks, ref double totalWeight)
@@ -251,6 +263,12 @@ namespace FargoSeeds
             }
 
             multiplyStep(tasks, goldChestIndex, WorldGenOptions.ChestMultiplier);
+
+            if (WorldGenOptions.FishingShacks)
+            {
+                var fishingIndex = getStepIndex(tasks, "Hives");
+                tasks.Insert(fishingIndex + 1, new PassLegacy("FishingShacks", NewFeatures.FishingShacks));
+            }
 
             int statueIndex = getStepIndex(tasks, "Statues");
             multiplyStep(tasks, statueIndex, WorldGenOptions.StatueMultiplier);
