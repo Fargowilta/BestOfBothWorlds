@@ -208,11 +208,14 @@ namespace FargoSeeds.WorldGeneration
 
                 int attempts = 15000;
 
-
+                int xBase = Main.maxTilesX * i / amt;
+                int xVar = (int)(Main.maxTilesX / amt);
 
                 for (int attempt = 0; attempt < attempts; attempt++)
                 {
-                    int x = WorldGen.genRand.Next(200, Main.maxTilesX - 200);
+                    int x = xBase + WorldGen.genRand.Next(-xVar, xVar);
+                    if (x < 200 || x > Main.maxTilesX - 200)
+                        continue;
                     int y = WorldGen.genRand.Next((int)(GenVars.worldSurfaceHigh + 230), Main.maxTilesY - 230);
 
                     Point origin = new(x, y);
@@ -373,7 +376,7 @@ namespace FargoSeeds.WorldGeneration
         {
             progress.Message = Language.GetTextValue("Mods.FargoSeeds.WorldGenMessages.Mineshafts");
 
-            int amt = 8 + WorldGen.GetWorldSize() * 4;
+            int amt = 10 + WorldGen.GetWorldSize() * 5;
 
             for (int i = 0; i < amt; i++)
             {
@@ -381,11 +384,15 @@ namespace FargoSeeds.WorldGeneration
 
                 int attempts = 15000;
 
+                int xBase = Main.maxTilesX * i / amt;
+                int xVar = (int)(Main.maxTilesX / amt);
 
 
                 for (int attempt = 0; attempt < attempts; attempt++)
                 {
-                    int x = WorldGen.genRand.Next(200, Main.maxTilesX - 200);
+                    int x = xBase + WorldGen.genRand.Next(-xVar, xVar);
+                    if (x < 200 || x > Main.maxTilesX - 200)
+                        continue;
                     int y = WorldGen.genRand.Next((int)(GenVars.worldSurfaceHigh + 160), Main.maxTilesY - 100);
 
                     Point origin = new(x, y);
