@@ -377,7 +377,7 @@ namespace FargoSeeds.WorldGeneration
         {
             progress.Message = Language.GetTextValue("Mods.FargoSeeds.WorldGenMessages.Mineshafts");
 
-            int amt = 10 + WorldGen.GetWorldSize() * 5;
+            int amt = 12 + WorldGen.GetWorldSize() * 6;
 
             for (int i = 0; i < amt; i++)
             {
