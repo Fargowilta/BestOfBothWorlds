@@ -1,5 +1,6 @@
 ﻿using FargoSeeds.UI.WorldGenMenu;
 using FargoSeeds.WorldGeneration;
+using Iced.Intel;
 using System;
 using System.Collections.Generic;
 using Terraria;
@@ -11,6 +12,7 @@ using Terraria.IO;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.WorldBuilding;
+using static Terraria.GameContent.Animations.Actions.Sprites;
 using static tModPorter.ProgressUpdate;
 
 namespace FargoSeeds
@@ -64,13 +66,13 @@ namespace FargoSeeds
         // testing method
         public override void PostUpdatePlayers()
         {
-            /*
+            
             if (Main.mouseLeft && Main.mouseLeftRelease)
             {
-                Main.NewText("test");
-                NewFeatures.TryPlaceFishingShack(Main.MouseWorld.ToTileCoordinates());
+                var isShape = new Shapes.Rectangle(1, 10);
+                WorldUtils.Gen(Main.MouseWorld.ToTileCoordinates(), isShape, Actions.Chain(new Modifiers.Blotches(1, 1, 0.1), new Actions.SetTile(TileID.Stone), new Actions.SetFrames(frameNeighbors: true)));
             }
-            */
+            
         }
 
 		public override void ModifyWorldGenTasks(List<GenPass> tasks, ref double totalWeight)

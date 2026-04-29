@@ -1,6 +1,7 @@
 ﻿using Iced.Intel;
 using Microsoft.Xna.Framework;
 using StructureHelper;
+using System;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.DataStructures;
@@ -447,7 +448,7 @@ namespace FargoSeeds.WorldGeneration
             ushort[] checkTypes = [];
 
             int sizeTotal = sizeX * sizeY;
-            float sizeRequirement = sizeTotal * 0.25f;
+            float sizeRequirement = sizeTotal * 0.4f;
 
             if (tileType == TileID.Stone && (tile == TileID.Stone || tile == TileID.Dirt))
             {
@@ -469,7 +470,7 @@ namespace FargoSeeds.WorldGeneration
             if (checkTypes.Length > 0)
             {
                 Point checkPos = origin;
-                int checkSegments = 3;
+                int checkSegments = 5;
                 for (int i = 0; i < checkSegments; i++)
                 {
                     // check for biome
@@ -495,6 +496,41 @@ namespace FargoSeeds.WorldGeneration
                 var genshape = new Shapes.Slime((int)(sizeX / 10f), 1f, 1f);
                 Point pos = center + Main.rand.NextVector2Circular(sizeX / 2, sizeY / 2).ToPoint();
                 WorldUtils.Gen(pos, genshape, Actions.Chain(new Modifiers.Blotches(1, 1, 0.8), new Actions.ClearTile(frameNeighbors: true).Output(shape)));
+            }
+
+
+            // stalactites
+            if (tileType != TileID.Mud && tileType != TileID.Sandstone)
+            {
+                int stalac = (int)(WorldGen.genRand.NextFloat(0.5f, 1f) * sizeX / 5f);
+                for (int i = 0; i < stalac; i++)
+                {
+                    int sWidth = WorldGen.genRand.Next(2, 5);
+                    float sHeight = WorldGen.genRand.NextFloat(2.5f, 4.5f) * sWidth;
+                    Point stalPos = new((int)WorldGen.genRand.NextFloat(origin.X + -0.1f * sizeX, origin.X + 1.1f * sizeX), origin.Y + sizeY / 2);
+                    for (int s = 0; s <= sWidth; s++)
+                    {
+                        stalPos.X += 1;
+                        bool valid = true;
+                        for (int up = 0; up < sizeY; up++)
+                        {
+                            if (Main.tile[stalPos].HasTile && Main.tileSolid[Main.tile[stalPos].TileType])
+                            {
+                                break;
+                            }
+                            stalPos.Y -= 1;
+                            if (up > sizeY * 0.9f)
+                                valid = false;
+                        }
+                        if (!valid)
+                            break;
+                        float heightScaler = (s - (sWidth / 2f)) / sWidth;
+                        int thisHeight = (int)(sHeight * (1f - Math.Abs(heightScaler * 1.3f)));
+                        thisHeight += WorldGen.genRand.Next(0, 3);
+                        var stalShape = new Shapes.Rectangle(1, thisHeight);
+                        WorldUtils.Gen(stalPos, stalShape, Actions.Chain(new Modifiers.Blotches(1, 1, 0.1), new Actions.SetTile(tileType), new Actions.SetFrames(frameNeighbors: true)));
+                    }
+                }
             }
 
             // add islands
@@ -539,7 +575,42 @@ namespace FargoSeeds.WorldGeneration
                         var pointShape = new Shapes.Slime(7 - 2 * p, xScale * 1.5f, 1f);
                         WorldUtils.Gen(pointPos, pointShape, Actions.Chain(new Modifiers.Blotches(1, 1, 0.1), new Actions.SetTile(tileType), new Actions.SetFrames(frameNeighbors: true).Output(shape)));
                     }
-                    
+
+                    // stalactites
+                    int stalac = (int)(WorldGen.genRand.NextFloat(0.5f, 1f) * 10f);
+                    for (int st = 0; st < stalac; st++)
+                    {
+                        int sWidth = WorldGen.genRand.Next(1, 3);
+                        float sHeight = WorldGen.genRand.NextFloat(2f, 4f) * sWidth;
+                        float stalX = pos.X - caveSize.X / 2f + caveSize.X * 0.1f;
+                        stalX += caveSize.X * 0.9f * (float)st / stalac;
+                        stalX += WorldGen.genRand.NextFloat(-3f, 3f);
+                        Point stalPos = new((int)stalX, pos.Y);
+                        for (int s = 0; s <= sWidth; s++)
+                        {
+                            stalPos.X += 1;
+                            bool valid = true;
+                            for (int up = 0; up < isSizer; up++)
+                            {
+                                if (!(Main.tile[stalPos].HasTile && Main.tileSolid[Main.tile[stalPos].TileType]))
+                                {
+                                    stalPos.Y -= 1;
+                                    break;
+                                }
+                                stalPos.Y += 1;
+                                if (up > isSizer * 0.6f)
+                                    valid = false;
+                            }
+                            if (!valid)
+                                break;
+                            float heightScaler = (s - (sWidth / 2f)) / sWidth;
+                            int thisHeight = (int)(sHeight * (1f - Math.Abs(heightScaler * 1.3f)));
+                            thisHeight += WorldGen.genRand.Next(0, 3);
+                            var stalShape = new Shapes.Rectangle(1, thisHeight);
+                            WorldUtils.Gen(stalPos, stalShape, Actions.Chain(new Modifiers.Blotches(1, 1, 0.1), new Actions.SetTile(tileType), new Actions.SetFrames(frameNeighbors: true)));
+                        }
+                    }
+
 
                     // remove top half
                     WorldUtils.Gen(pos, genshape, Actions.Chain(new Modifiers.RectangleMask(-(int)(xScale * isSizer * 2f), (int)(xScale * isSizer * 2f), -(int)(isSizer * 2f), 0), new Actions.ClearTile(frameNeighbors: true)));
@@ -547,6 +618,7 @@ namespace FargoSeeds.WorldGeneration
                     break;
                 }
             }
+
 
             // fix walls
             if (tileType == TileID.Sandstone)
