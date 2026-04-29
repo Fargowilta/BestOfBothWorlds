@@ -66,13 +66,13 @@ namespace FargoSeeds
         // testing method
         public override void PostUpdatePlayers()
         {
-            
+            /*
             if (Main.mouseLeft && Main.mouseLeftRelease)
             {
                 var isShape = new Shapes.Rectangle(1, 10);
                 WorldUtils.Gen(Main.MouseWorld.ToTileCoordinates(), isShape, Actions.Chain(new Modifiers.Blotches(1, 1, 0.1), new Actions.SetTile(TileID.Stone), new Actions.SetFrames(frameNeighbors: true)));
             }
-            
+            */
         }
 
 		public override void ModifyWorldGenTasks(List<GenPass> tasks, ref double totalWeight)
