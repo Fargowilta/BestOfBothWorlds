@@ -448,7 +448,7 @@ namespace FargoSeeds.WorldGeneration
             ushort[] checkTypes = [];
 
             int sizeTotal = sizeX * sizeY;
-            float sizeRequirement = sizeTotal * 0.4f;
+            float sizeRequirement = sizeTotal * 0.25f;
 
             if (tileType == TileID.Stone && (tile == TileID.Stone || tile == TileID.Dirt))
             {
