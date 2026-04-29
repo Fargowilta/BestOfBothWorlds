@@ -24,12 +24,12 @@ GrandCaverns: {
 
 BothEvils: {
 	Label: Both Evils
-	Tooltip: Generates both the Corruption and Crimson in the same world, on opposite sides. (Drunk Seed)
+	Tooltip: Generates both the Corruption and Crimson in the same world, on opposite sides. (From Drunk Seed)
 }
 
 BothOres: {
 	Label: Both Ores
-	Tooltip: Generates all pre-Hardmode ore variations in the same world. (Drunk Seed)
+	Tooltip: Generates all pre-Hardmode ore variations in the same world. (From Drunk Seed)
 }
 
 WavyCaves: {
@@ -46,7 +46,7 @@ RemixUnderworld: {
 	Tooltip:
 		'''
 		Generates a large Ashwood Forest in the middle and moves obsidian houses to the outskirts.
-		Well suited for fighting the Wall of Flesh! (Remix Seed)
+		Well suited for fighting the Wall of Flesh! (From Remix Seed)
 		'''
 }
 
@@ -62,17 +62,17 @@ SurfaceMushroom: {
 
 SurfaceMarble: {
 	Label: Surface Marble
-	Tooltip: Generates a few Marble patches with statues on or near the surface. (The Constant Seed)
+	Tooltip: Generates a few Marble patches with statues on or near the surface. (From The Constant Seed)
 }
 
 SurfaceSpiders: {
 	Label: Surface Spider
-	Tooltip: Generates small Spider Nests somewhere on the surface. (The Constant Seed)
+	Tooltip: Generates small Spider Nests somewhere on the surface. (From The Constant Seed)
 }
 
 BigHives: {
 	Label: Big Bee Hives
-	Tooltip: Drastically increases the size of Bee Hives. (Drunk Seed)
+	Tooltip: Drastically increases the size of Bee Hives. (From Drunk Seed)
 }
 
 PyramidEntrance: {
@@ -171,42 +171,42 @@ MicroMultiplier: {
 
 OceanCaves: {
 	Label: Guaranteed Ocean Caves
-	Tooltip: Guarantees that an Ocean Cave generates in one of the oceans. (Drunk Seed)
+	Tooltip: Guarantees that an Ocean Cave generates in one of the oceans. (From Drunk Seed)
 }
 
 SurfaceTemple: {
 	Label: Surface Temple
-	Tooltip: Generates the Temple at the surface instead of underground. (Remix Seed)
+	Tooltip: Generates the Temple at the surface instead of underground. (From Remix Seed)
 }
 
 EvilSurface: {
 	Label: Evil Surface
-	Tooltip: Covers the entire surface in Corruption or Crimson biome. (Remix Seed)
+	Tooltip: Covers the entire surface in Corruption or Crimson biome. (From Remix Seed)
 }
 
 NoTraps: {
 	Label: '''"No" Traps'''
-	Tooltip: Drastically increases the amount of traps throughout the world. (No Traps seed)
+	Tooltip: Drastically increases the amount of traps throughout the world. (From No Traps seed)
 }
 
 MushroomLayer: {
 	Label: Mushroom Layer
-	Tooltip: Generates a layer of the Glowing Mushroom Biome above the Underworld. (Remix Seed)
+	Tooltip: Generates a layer of the Glowing Mushroom Biome above the Underworld. (From Remix Seed)
 }
 
 RainbowCabins: {
 	Label: Rainbow Cabins
-	Tooltip: Paints underground cabins Rainbow with either paint or Rainbow Bricks. (CelebrationMK10 Seed)
+	Tooltip: Paints underground cabins Rainbow with either paint or Rainbow Bricks. (From CelebrationMK10 Seed)
 }
 
 PaintEverything: {
 	Label: Paint Everything
-	Tooltip: Paints everything. (CelebrationMK10 Seed)
+	Tooltip: Paints everything. (From CelebrationMK10 Seed)
 }
 
 MahoganyTrees: {
 	Label: Mahogany Anywhere
-	Tooltip: Living Mahogany Trees can spawn anywhere throughout the surface. (Drunk Seed)
+	Tooltip: Living Mahogany Trees can spawn anywhere throughout the surface. (From Drunk Seed)
 }
 
 UndergroundDungeon: {
@@ -214,11 +214,11 @@ UndergroundDungeon: {
 	Tooltip:
 		'''
 		Generates the Dungeon to be accessed through a decayed Living Tree,
-		rather than being on the surface. (Drunk Seed)
+		rather than being on the surface. (From Drunk Seed)
 		'''
 }
 
 MarbleGraniteSwapped: {
 	Label: Marble/Granite Swapped
-	Tooltip: Swaps the positions and shapes of Marble and Granite biomes. (Drunk Seed)
+	Tooltip: Swaps the positions and shapes of Marble and Granite biomes. (From Drunk Seed)
 }
