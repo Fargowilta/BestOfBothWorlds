@@ -466,8 +466,6 @@ namespace FargoSeeds.WorldGeneration
                 checkTypes = [TileID.HardenedSand, TileID.Sandstone];
             }
 
-            bool a = checkTypes.Length > 0;
-
             if (checkTypes.Length > 0)
             {
                 Point checkPos = origin;
@@ -505,13 +503,13 @@ namespace FargoSeeds.WorldGeneration
             {
                 for (int attempt = 0; attempt < 50; attempt++)
                 {
-                    int isSizer = 12;
-                    float xScale = WorldGen.genRand.NextFloat(1.2f, 1.6f);
+                    int isSizer = 15;
+                    float xScale = WorldGen.genRand.NextFloat(1f, 2f);
                     var genshape = new Shapes.Slime(isSizer, xScale, 1f);
-                    Point pos = center + Main.rand.NextVector2Circular(sizeX / 1.9f, sizeY / 1.9f).ToPoint();
+                    Point pos = center + Main.rand.NextVector2Circular(sizeX / 2.4f, sizeY / 2.4f).ToPoint();
                     Point caveSize = new((int)(isSizer * xScale * 2), isSizer * 2);
                     Rectangle island = new(pos.X - caveSize.X / 2, pos.Y - caveSize.Y / 2, caveSize.X, caveSize.Y);
-                    island.Inflate(3, 5);
+                    //island.Inflate(0, 1);
                     bool br = false;
                     foreach (var otherIsland in islands)
                     {
@@ -522,18 +520,29 @@ namespace FargoSeeds.WorldGeneration
                         }
                             
                     }
+
                     if (br)
                         continue;
+
                     // island
-                    for (int iz = -1; iz < 2; iz++)
+                    for (int iz = -3; iz < 4; iz++)
                     {
-                        var isShape = new Shapes.Slime(isSizer, xScale * WorldGen.genRand.NextFloat(0.5f, 0.8f), 1f * WorldGen.genRand.NextFloat(0.8f, 1f));
-                        Point isPos = pos + new Point(iz * (int)((float)isSizer / 3), WorldGen.genRand.Next(0, 5));
+                        var isShape = new Shapes.Slime(isSizer, xScale * 1f * 0.5f, 0.8f * WorldGen.genRand.NextFloat(0.5f, 1f));
+                        Point isPos = pos + new Point(iz * (int)((float)isSizer / 5), WorldGen.genRand.Next(0, 6));
                         WorldUtils.Gen(isPos, isShape, Actions.Chain(new Modifiers.Blotches(1, 1, 0.1), new Actions.SetTile(tileType), new Actions.SetFrames(frameNeighbors: true).Output(shape)));
                     }
+                    // point in the middle
+                    int pointX = WorldGen.genRand.Next(-2, 3);
+                    for (int p = 0; p < 3; p++)
+                    {
+                        Point pointPos = pos + new Point(pointX, 5 + 3 * p);
+                        var pointShape = new Shapes.Slime(7 - 2 * p, xScale * 1.5f, 1f);
+                        WorldUtils.Gen(pointPos, pointShape, Actions.Chain(new Modifiers.Blotches(1, 1, 0.1), new Actions.SetTile(tileType), new Actions.SetFrames(frameNeighbors: true).Output(shape)));
+                    }
                     
+
                     // remove top half
-                    WorldUtils.Gen(pos, genshape, Actions.Chain(new Modifiers.RectangleMask(-(int)(xScale * isSizer * 1.25f), (int)(xScale * isSizer * 1.25f), -(int)(isSizer * 1.4f), 0), new Actions.ClearTile(frameNeighbors: true)));
+                    WorldUtils.Gen(pos, genshape, Actions.Chain(new Modifiers.RectangleMask(-(int)(xScale * isSizer * 2f), (int)(xScale * isSizer * 2f), -(int)(isSizer * 2f), 0), new Actions.ClearTile(frameNeighbors: true)));
                     islands.Add(island);
                     break;
                 }
@@ -607,14 +616,14 @@ namespace FargoSeeds.WorldGeneration
                     {
                         
                         x = i * xW;
-                        x += WorldGen.genRand.Next(-(int)(xW * 0.8f), (int)(xW * 0.8f));
+                        x += WorldGen.genRand.Next(-(int)(xW * 0.6f), (int)(xW * 0.6f));
                     }
                     else
                     {
                         x = WorldGen.genRand.Next(500, Main.maxTilesX - 500);
                     }
                          
-                    int y = WorldGen.genRand.Next((int)(GenVars.rockLayerHigh + 200), Main.maxTilesY - 200);
+                    int y = WorldGen.genRand.Next((int)(GenVars.rockLayerHigh), Main.maxTilesY - 400);
 
                     Point origin = new(x, y);
                     if (TryPlaceGrandCavern(origin, type))
