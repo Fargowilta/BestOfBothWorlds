@@ -494,7 +494,7 @@ namespace FargoSeeds.WorldGeneration
             for (int i = 0; i < 210; i++)
             {
                 var genshape = new Shapes.Slime((int)(sizeX / 10f), 1f, 1f);
-                Point pos = center + Main.rand.NextVector2Circular(sizeX / 2, sizeY / 2).ToPoint();
+                Point pos = center + WorldGen.genRand.NextVector2Circular(sizeX / 2, sizeY / 2).ToPoint();
                 WorldUtils.Gen(pos, genshape, Actions.Chain(new Modifiers.Blotches(1, 1, 0.8), new Actions.ClearTile(frameNeighbors: true).Output(shape)));
             }
 
@@ -535,14 +535,14 @@ namespace FargoSeeds.WorldGeneration
 
             // add islands
             List<Rectangle> islands = [];
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < 5; i++)
             {
                 for (int attempt = 0; attempt < 50; attempt++)
                 {
                     int isSizer = 15;
                     float xScale = WorldGen.genRand.NextFloat(1f, 2f);
                     var genshape = new Shapes.Slime(isSizer, xScale, 1f);
-                    Point pos = center + Main.rand.NextVector2Circular(sizeX / 2.4f, sizeY / 2.4f).ToPoint();
+                    Point pos = center + WorldGen.genRand.NextVector2Circular(sizeX / 2.4f, sizeY / 2.4f).ToPoint();
                     Point caveSize = new((int)(isSizer * xScale * 2), isSizer * 2);
                     Rectangle island = new(pos.X - caveSize.X / 2, pos.Y - caveSize.Y / 2, caveSize.X, caveSize.Y);
                     //island.Inflate(0, 1);
@@ -615,6 +615,18 @@ namespace FargoSeeds.WorldGeneration
                     // remove top half
                     WorldUtils.Gen(pos, genshape, Actions.Chain(new Modifiers.RectangleMask(-(int)(xScale * isSizer * 2f), (int)(xScale * isSizer * 2f), -(int)(isSizer * 2f), 0), new Actions.ClearTile(frameNeighbors: true)));
                     islands.Add(island);
+
+                    // random top terrain
+                    int amt = WorldGen.genRand.Next(2, 5);
+                    for (int t = 0; t < amt; t++)
+                    {
+                        int terSize = WorldGen.genRand.Next(1, 5);
+                        int x = (int)WorldGen.genRand.NextFloat(pos.X - caveSize.X / 2.5f, pos.X + caveSize.X / 2.5f);
+                        int y = pos.Y + (int)(terSize / 2f + 1);
+                        var terShape = new Shapes.Slime(terSize, 2f, 1f);
+                        Point terPos = new(x, y);
+                        WorldUtils.Gen(terPos, terShape, Actions.Chain(new Modifiers.Blotches(1, 1, 0.1), new Actions.SetTile(tileType), new Actions.SetFrames(frameNeighbors: true).Output(shape)));
+                    }
                     break;
                 }
             }
@@ -626,7 +638,7 @@ namespace FargoSeeds.WorldGeneration
                 for (int i = 0; i < 210; i++)
                 {
                     var genshape = new Shapes.Slime((int)(sizeX / 10f), 1f, 1f);
-                    Point pos = center + Main.rand.NextVector2Circular(sizeX / 2, sizeY / 2).ToPoint();
+                    Point pos = center + WorldGen.genRand.NextVector2Circular(sizeX / 2, sizeY / 2).ToPoint();
                     WorldUtils.Gen(pos, genshape, Actions.Chain(new Modifiers.Blotches(1, 1, 0.2), new Actions.PlaceWall(type: WallID.Sandstone).Output(shape)));
                 }
             }
