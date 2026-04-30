@@ -1,4 +1,4 @@
-WorldConfig: {
+﻿WorldConfig: {
 	DisplayName: Конфигурация
 	HeaderToggles: Переключатели
 
@@ -28,7 +28,7 @@ WorldConfig: {
 	}
 
 	IceToggle: {
-		Label: "[i:2358] Снега"
+		Label: "[i:2358] Тундра"
 		Tooltip: ""
 	}
 
@@ -38,7 +38,7 @@ WorldConfig: {
 	}
 
 	MushroomToggle: {
-		Label: "[i:183] Грибные пещеры"
+		Label: "[i:183] Поля светящихся грибов"
 		Tooltip: ""
 	}
 
@@ -60,12 +60,12 @@ WorldConfig: {
 	}
 
 	EarlyHardMode: {
-		Label: "[i:3335] Начинать в хардмоде"
+		Label: "[i:3335] Начинать в сложном режиме"
 		Tooltip: ""
 	}
 
 	HardModeOreMulti: {
-		Label: "[i:364] Множитель хардмодных руд"
+		Label: "[i:364] Множитель руд сложного режима"
 		Tooltip: ""
 	}
 
@@ -80,7 +80,7 @@ WorldConfig: {
 	}
 
 	startingNPC: {
-		Label: "[i:267] Первый НИП в мире"
+		Label: "[i:267] Первый поселенец в мире"
 		Tooltip: ""
 	}
 }
@@ -147,37 +147,37 @@ StartingNPC: {
 	Tooltip: ""
 
 	Guide: {
-		Label: Гид
+		Label: гид
 		// Tooltip: ""
 	}
 
 	PartyGirl: {
-		Label: Тусовщица
+		Label: тусовщица
 		// Tooltip: ""
 	}
 
 	Merchant: {
-		Label: Торговец
+		Label: торговец
 		// Tooltip: ""
 	}
 
 	Demolitionist: {
-		Label: Подрывник
+		Label: подрывник
 		// Tooltip: ""
 	}
 
 	PartyGroup: {
-		Label: тусовка НИПов
+		Label: тусовка горожан
 		// Tooltip: ""
 	}
 
 	TaxCollector: {
-		Label: Сборщик налогов
+		Label: сборщик налогов
 		// Tooltip: ""
 	}
 
 	Angler: {
-		Label: Рыбак
+		Label: рыбак
 		// Tooltip: ""
 	}
 }
