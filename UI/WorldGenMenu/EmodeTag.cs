@@ -28,6 +28,10 @@ namespace FargoSeeds.UI.WorldGenMenu
         }
         protected override void DrawSelf(SpriteBatch spriteBatch)
         {
+            if (!ModLoader.TryGetMod("FargowiltasSouls", out Mod SoulsMod))
+            {
+                return;
+            }
             CalculatedStyle dimensions = GetDimensions();
             if (IsMouseHovering)
             {
