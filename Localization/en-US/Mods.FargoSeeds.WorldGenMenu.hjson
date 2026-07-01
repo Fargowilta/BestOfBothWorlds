@@ -6,6 +6,7 @@ HeaderOverhauls: Overhauls
 HeaderVanillaFeatures: Vanilla Features
 HeaderFrequency: Frequency
 HeaderExperimental: Experimental
+Next: Next
 
 FishingShacks: {
 	Label: Fishing Shacks

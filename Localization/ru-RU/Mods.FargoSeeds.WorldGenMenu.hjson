@@ -1,4 +1,4 @@
-﻿StandardSetting: Стандартные настройки мира
+StandardSetting: Стандартные настройки мира
 ModSetting: Модовые настройки мира
 EmodeTag: Рекомендуем для режима Вечность!
 HeaderNewFeatures: Новые особенности
@@ -6,6 +6,7 @@ HeaderOverhauls: Переработки
 HeaderVanillaFeatures: Ванильные особенности
 HeaderFrequency: Частота
 HeaderExperimental: Экспериментальные
+// Next: Next
 
 FishingShacks: {
 	Label: Рыбацкие лачуги

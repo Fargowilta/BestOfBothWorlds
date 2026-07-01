@@ -107,6 +107,8 @@ namespace FargoSeeds.UI.WorldGenMenu
             On_UIWorldCreation.MakeInfoMenu += MakeInfoMenu_Detour;
             On_UIWorldCreation.FinishCreatingWorld += FinishCreatingWorld_Detour;
             On_UIWorldCreation.Click_NamingAndCreating += Click_NamingAndCreating_Detour;
+            On_UIWorldCreation.MakeBackAndCreatebuttons += MakeBackAndCreatebuttons_Detour;
+            On_UIWorldCreation.Click_GoBack += Click_GoBack_Detour;
 
             On_UIElement.Draw += UIElement_Draw_Detour;
             On_UIElement.Update += UIElement_Update_Detour;
@@ -114,6 +116,8 @@ namespace FargoSeeds.UI.WorldGenMenu
         }
 
         UIPanel TogglePanel;
+
+        UITextPanel<LocalizedText> CreateButton;
 
         private void MakeInfoMenu_Detour(On_UIWorldCreation.orig_MakeInfoMenu orig, UIWorldCreation self, UIElement parentContainer)
         {
@@ -327,16 +331,36 @@ namespace FargoSeeds.UI.WorldGenMenu
             }
             orig(self);
         }
-
+        private void Click_GoBack_Detour(On_UIWorldCreation.orig_Click_GoBack orig, UIWorldCreation self, UIMouseEvent evt, UIElement listeningElement)
+        {
+            if (ModdedMenuActive)
+            {
+                ModdedMenuActive = false;
+                return;
+            }
+            orig(self, evt, listeningElement);
+        }
         private void Click_NamingAndCreating_Detour(On_UIWorldCreation.orig_Click_NamingAndCreating orig, UIWorldCreation self, UIMouseEvent evt, UIElement listeningElement)
         {
-            if (!HasClickedMenu)
+            if (!ModdedMenuActive)
             {
                 HasClickedMenu = true;
                 ModdedMenuActive = true;
                 return;
             }
             orig(self, evt, listeningElement);
+        }
+
+        private void MakeBackAndCreatebuttons_Detour(On_UIWorldCreation.orig_MakeBackAndCreatebuttons orig, UIWorldCreation self, UIElement outerContainer)
+        {
+            orig(self, outerContainer);
+            foreach (var element in outerContainer.Children)
+            {
+                if (element is UITextPanel<LocalizedText> panel && panel.Text.Equals(Language.GetTextValue("UI.Create")))
+                {
+                    CreateButton = panel;
+                }
+            }
         }
 
         private void HotbarScrollFix(UIScrollWheelEvent evt, UIElement listeningElement) => Main.LocalPlayer.ScrollHotbar(PlayerInput.ScrollWheelDelta / 120);
@@ -349,6 +373,13 @@ namespace FargoSeeds.UI.WorldGenMenu
                 return;
             if (!ModdedMenuActive && self == TogglePanel)
                 return;
+            if (self == CreateButton)
+            {
+                if (ModdedMenuActive)
+                    CreateButton.SetText(Language.GetText("UI.Create"));
+                else
+                    CreateButton.SetText(Language.GetText("Mods.FargoSeeds.WorldGenMenu.Next"));
+            }
             orig(self, spriteBatch);
         }
         private void UIElement_Update_Detour(On_UIElement.orig_Update orig, UIElement self, GameTime gameTime)
