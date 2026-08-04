@@ -54,7 +54,8 @@ namespace FargoSeeds
                                 if (args.Length > 10)
                                 {
                                     if (args[10].GetType() != typeof(float)) // Priority
-                                        priority = 1f;
+                                        break;
+                                    priority = 1f;
                                 }
                             }
                             WorldGenUIManager.AddToggle(ModLoader.GetMod((string)args[1]), Language.GetText((string)args[2]), Language.GetText((string)args[3]), Language.GetText((string)args[4]), (Color)args[5], (string)args[6], (bool)args[7], (Action<bool>)args[8], emode, priority);
