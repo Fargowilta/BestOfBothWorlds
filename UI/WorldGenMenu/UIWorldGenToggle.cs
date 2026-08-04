@@ -50,6 +50,8 @@ namespace FargoSeeds.UI.WorldGenMenu
 
         private readonly Action<bool> _action;
 
+        public float Priority;
+
 
         public bool IsSelected
         {
@@ -59,7 +61,7 @@ namespace FargoSeeds.UI.WorldGenMenu
             }
         }
 
-        public UIWorldGenToggle(Mod mod, LocalizedText title, LocalizedText description, Color textColor, string iconTexturePath, bool defaultValue, Action<bool> action, bool emode = false)
+        public UIWorldGenToggle(Mod mod, LocalizedText title, LocalizedText description, Color textColor, string iconTexturePath, bool defaultValue, Action<bool> action, bool emode = false, float priority = 1f)
         {
             Mod = mod;
             _borderColor = Color.White;
@@ -100,6 +102,8 @@ namespace FargoSeeds.UI.WorldGenMenu
                 };
                 Append(emodeTag);
             }
+
+            Priority = priority;
         }
         protected override void DrawSelf(SpriteBatch spriteBatch)
         {
