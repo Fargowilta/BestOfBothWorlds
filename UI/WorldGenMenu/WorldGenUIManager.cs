@@ -369,7 +369,7 @@ namespace FargoSeeds.UI.WorldGenMenu
         // This exists to make the Info Menu dissappear when the modded tab is selected
         private void UIElement_Draw_Detour(On_UIElement.orig_Draw orig, UIElement self, SpriteBatch spriteBatch)
         {
-            if (ModdedMenuActive && self == InfoMenuParent?.Parent)
+            if (InfoMenuParent != null && ModdedMenuActive && self == InfoMenuParent?.Parent)
                 return;
             if (!ModdedMenuActive && self == TogglePanel)
                 return;
@@ -384,7 +384,7 @@ namespace FargoSeeds.UI.WorldGenMenu
         }
         private void UIElement_Update_Detour(On_UIElement.orig_Update orig, UIElement self, GameTime gameTime)
         {
-            if (ModdedMenuActive && self == InfoMenuParent?.Parent)
+            if (InfoMenuParent != null && ModdedMenuActive && self == InfoMenuParent?.Parent)
                 return;
             if (!ModdedMenuActive && self == TogglePanel)
                 return;
@@ -392,7 +392,7 @@ namespace FargoSeeds.UI.WorldGenMenu
         }
         private bool UIElement_ContainsPoint_Detour(On_UIElement.orig_ContainsPoint orig, UIElement self, Vector2 point)
         {
-            if (ModdedMenuActive && self == InfoMenuParent?.Parent)
+            if (InfoMenuParent != null && ModdedMenuActive && self == InfoMenuParent?.Parent)
                 return false;
             if (!ModdedMenuActive && self == TogglePanel)
                 return false;
