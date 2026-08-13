@@ -430,7 +430,7 @@ namespace FargoSeeds.WorldGeneration
             origin.X -= sizeX / 2;
             origin.Y -= sizeY / 2;
 
-            if (!WorldGen.InWorld(origin.X, origin.Y, 8))
+            if (!WorldGen.InWorld(origin.X, origin.Y, 8) || !WorldGen.InWorld(origin.X + sizeX, origin.Y + sizeY, 8))
                 return false;
 
             if (!WorldGen.InWorld(center.X, center.Y, 8))
