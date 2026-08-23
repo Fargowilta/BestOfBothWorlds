@@ -83,6 +83,11 @@ WorldConfig: {
 		Label: "[i:267] Первый поселенец в мире"
 		Tooltip: ""
 	}
+
+	BothEvilsSpawnSafety: {
+		// Label: Keep Spawn safe from both evils
+		// Tooltip: ""
+	}
 }
 
 LiquidReplace: {
