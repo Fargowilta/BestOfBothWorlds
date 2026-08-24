@@ -92,6 +92,10 @@ namespace FargoSeeds
         [Slider]
         public SpawnLocation spawnLocation;
 
+        [Label("Keep Spawn safe from both evils")] // Idk I don't have a good description rn change this later
+        [DefaultValue(true)]
+        public bool BothEvilsSpawnSafety;
+
         [Label("[i:267] Starting NPC")]
         [DefaultValue(StartingNPC.Guide)]
         [Slider]

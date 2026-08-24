@@ -75,13 +75,18 @@ WorldConfig: {
 	}
 
 	spawnLocation: {
-		Label: "[i:267] Точка возрождения"
+		Label: "[i:267] Точка появления"
 		Tooltip: ""
 	}
 
 	startingNPC: {
 		Label: "[i:267] Первый поселенец в мире"
 		Tooltip: ""
+	}
+
+	BothEvilsSpawnSafety: {
+		Label: Защитить точку появления от мирового зла
+		// Tooltip: ""
 	}
 }
 

@@ -83,6 +83,11 @@ WorldConfig: {
 		Label: "[i:267] Starting NPC"
 		Tooltip: ""
 	}
+
+	BothEvilsSpawnSafety: {
+		Label: Keep Spawn safe from both evils
+		Tooltip: ""
+	}
 }
 
 LiquidReplace: {
