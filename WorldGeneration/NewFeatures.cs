@@ -408,7 +408,7 @@ namespace FargoSeeds.WorldGeneration
         {
             progress.Message = Language.GetTextValue("Mods.FargoSeeds.WorldGenMessages.Mineshafts");
 
-            int amt = 12 + WorldGen.GetWorldSize() * 6;
+            int amt = 15 + WorldGen.GetWorldSize() * 8;
 
             for (int i = 0; i < amt; i++)
             {
@@ -694,15 +694,15 @@ namespace FargoSeeds.WorldGeneration
         {
             progress.Message = Language.GetTextValue("Mods.FargoSeeds.WorldGenMessages.GrandCaverns");
 
-            int normalAmt = 2 + WorldGen.GetWorldSize() * 1;
+            int normalAmt = 4 + WorldGen.GetWorldSize() * 2;
 
             int xW = (int)((float)Main.maxTilesX / normalAmt);
 
             int jglAmt = 1;
 
-            int tundraAmt = 1;
+            int tundraAmt = 2;
 
-            int desertAmt = 1;
+            int desertAmt = 2;
 
             int totalAmt = normalAmt + jglAmt + tundraAmt + desertAmt;
 

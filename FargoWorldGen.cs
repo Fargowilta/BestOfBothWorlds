@@ -68,13 +68,13 @@ namespace FargoSeeds
         // testing method
         public override void PostUpdatePlayers()
         {
-            
+            /*
             if (Main.mouseLeft && Main.mouseLeftRelease)
             {
                 Point gravePointer = Main.MouseWorld.ToTileCoordinates();
                 NewFeatures.TryPlaceGraveyard(gravePointer);
             }
-            
+            */
         }
 
 		public override void ModifyWorldGenTasks(List<GenPass> tasks, ref double totalWeight)
