@@ -75,7 +75,7 @@ WorldConfig: {
 	}
 
 	spawnLocation: {
-		Label: "[i:267] Точка возрождения"
+		Label: "[i:267] Точка появления"
 		Tooltip: ""
 	}
 
@@ -85,7 +85,7 @@ WorldConfig: {
 	}
 
 	BothEvilsSpawnSafety: {
-		// Label: Keep Spawn safe from both evils
+		Label: Защитить точку появления от мирового зла
 		// Tooltip: ""
 	}
 }
