@@ -91,6 +91,7 @@ namespace FargoSeeds.UI.WorldGenMenu
             AddToggle(header, "FishingShacks", color, ItemID.FishingBobber, souls, (value) => { FishingShacks = value; }, emode: true);
             AddToggle(header, "GrandCaverns", color, ItemID.Boulder, souls, (value) => { GrandCaverns = value; }, emode: true);
             AddToggle(header, "Mineshafts", color, ItemID.Rope, souls, (value) => { Mineshafts = value; }, emode: true);
+            AddToggle(header, "Graveyard", color, ItemID.Tombstone, souls, (value) => { Graveyard = value;  }, emode: true);
 
             // OVERHAULS
             header = Language.GetText(headerPath + "Overhauls");
@@ -145,6 +146,7 @@ namespace FargoSeeds.UI.WorldGenMenu
         public static bool Mineshafts;
         public static bool GrandCaverns;
         public static bool FishingShacks;
+        public static bool Graveyard;
         #endregion
 
         #region Features and Overhauls

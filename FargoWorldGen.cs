@@ -1,6 +1,7 @@
 ﻿using FargoSeeds.UI.WorldGenMenu;
 using FargoSeeds.WorldGeneration;
 using Iced.Intel;
+using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using Terraria;
@@ -12,6 +13,7 @@ using Terraria.IO;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.WorldBuilding;
+using static System.Net.Mime.MediaTypeNames;
 using static Terraria.GameContent.Animations.Actions.Sprites;
 using static tModPorter.ProgressUpdate;
 
@@ -66,13 +68,13 @@ namespace FargoSeeds
         // testing method
         public override void PostUpdatePlayers()
         {
-            /*
+            
             if (Main.mouseLeft && Main.mouseLeftRelease)
             {
-                var isShape = new Shapes.Rectangle(1, 10);
-                WorldUtils.Gen(Main.MouseWorld.ToTileCoordinates(), isShape, Actions.Chain(new Modifiers.Blotches(1, 1, 0.1), new Actions.SetTile(TileID.Stone), new Actions.SetFrames(frameNeighbors: true)));
+                Point gravePointer = Main.MouseWorld.ToTileCoordinates();
+                NewFeatures.TryPlaceGraveyard(gravePointer);
             }
-            */
+            
         }
 
 		public override void ModifyWorldGenTasks(List<GenPass> tasks, ref double totalWeight)
@@ -280,6 +282,11 @@ namespace FargoSeeds
             if (WorldGenOptions.GrandCaverns)
             {
                 tasks.Insert(getStepIndex(tasks, "Hives") + 1, new PassLegacy("GrandCaverns", NewFeatures.GrandCaverns));
+            }
+
+            if (WorldGenOptions.Graveyard)
+            {
+                tasks.Insert(getStepIndex(tasks, "Sunflowers") + 1, new PassLegacy("Graveyard", NewFeatures.Graveyard));
             }
 
             int statueIndex = getStepIndex(tasks, "Statues");

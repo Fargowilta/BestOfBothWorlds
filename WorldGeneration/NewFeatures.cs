@@ -4,6 +4,7 @@ using StructureHelper;
 using System;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.GameContent.Biomes.CaveHouse;
 using Terraria.GameContent.Tile_Entities;
@@ -18,6 +19,36 @@ namespace FargoSeeds.WorldGeneration
 {
     public static class NewFeatures
     {
+        public static Point FindGround(Point p, bool allowPlatforms = false)
+        {
+            bool solid(Point po)
+            {
+                Tile tile = Main.tile[po];
+                return WorldGen.SolidTile(po) || allowPlatforms && tile.HasUnactuatedTile && (Main.tileSolid[tile.TileType] || Main.tileSolidTop[tile.TileType]);
+            }
+            if (p.X > 0 && p.Y > 0 && WorldGen.InWorld(p.X, p.Y, 2))
+            {
+                Point result = p;
+                if (solid(result))
+                {
+                    while (solid(new(result.X, result.Y - 1)) && result.Y >= 1)
+                    {
+                        result.Y--;
+                    }
+                }
+                else
+                {
+                    while (!solid(new(result.X, result.Y + 1)) && result.Y < Main.maxTilesY)
+                    {
+                        result.Y++;
+                    }
+                }
+                if (result.X > 0 && result.Y > 0 && WorldGen.InWorld(result.X, result.Y, 2))
+                    return result;
+            }
+            return p;
+        }
+
         private static readonly bool[] BlacklistedTiles = TileID.Sets.Factory.CreateBoolSet(true, 225, 41, 43, 44, 226, 203, 112, 25, 151, 21, 467);
 
         public static Point16 FishingShackSize;
@@ -715,6 +746,167 @@ namespace FargoSeeds.WorldGeneration
 
                 }
             }
+        }
+        public static Point16 GraveyardSize;
+        public static void Graveyard(GenerationProgress progress, GameConfiguration configuration)
+        {
+            progress.Message = Language.GetTextValue("Mods.FargoSeeds.WorldGenMessages.Graveyard");
+
+            string path = "WorldGeneration/Graveyard";
+            Mod mod = FargoSeeds.Mod;
+            if (GraveyardSize == Point16.Zero)
+                GraveyardSize = StructureHelper.API.Generator.GetStructureDimensions(path, mod);
+
+            int attempts = 15000;
+
+            for (int attempt = 0; attempt < attempts; attempt++)
+            {
+                int deadzone = 400;
+                int x = WorldGen.genRand.NextBool() ? WorldGen.genRand.Next(200, Main.maxTilesX / 2 - deadzone) : WorldGen.genRand.Next(Main.maxTilesX / 2 + deadzone, Main.maxTilesX - 200);
+                if (x < 200 || x > Main.maxTilesX - 200)
+                    continue;
+                int checkHeight = 40;
+                int y = WorldGen.genRand.Next((int)GenVars.worldSurface - checkHeight, (int)GenVars.worldSurface + checkHeight);
+
+                Point origin = new(x, y);
+                if (TryPlaceGraveyard(origin))
+                    break;
+            }
+        }
+        private static readonly bool[] GraveyardTiles = TileID.Sets.Factory.CreateBoolSet(false, TileID.Grass, TileID.Dirt, TileID.Stone);
+        public static bool TryPlaceGraveyard(Point origin)
+        {
+            int sizeX = GraveyardSize.X;
+            int sizeY = GraveyardSize.Y;
+
+            Point left = origin;
+            Point right = origin;
+            left.X -= sizeX / 2;
+            right.X += sizeX / 2;
+
+            // initial check
+            if (!WorldGen.InWorld(left.X, left.Y, 8) || !WorldGen.InWorld(right.X, right.Y, 8))
+                return false;
+
+            // find ground on both corners; if both match, continue
+            left = FindGround(left);
+            right = FindGround(right);
+
+            if (!WorldGen.InWorld(left.X, left.Y, 8) || !WorldGen.InWorld(right.X, right.Y, 8))
+                return false;
+
+            if (Math.Abs(left.Y - right.Y) > 3)
+                return false;
+
+            if (Main.tile[left.X, left.Y + 1].TileType is not TileID.Dirt or TileID.Grass || Main.tile[right.X, right.Y + 1].TileType is not TileID.Dirt or TileID.Grass)
+                return false;
+
+            left.Y += 4;
+            right.Y += 4;
+
+            // get final rect
+            Point16 topLeft = new(left.X, left.Y - sizeY);
+            Rectangle rect = new(topLeft.X, topLeft.Y, sizeX, sizeY);
+
+            // other basic checks
+            if (GenVars.structures != null && !GenVars.structures.CanPlace(rect, TileID.Sets.GeneralPlacementTiles, 2))
+                return false;
+
+            // make sure there's enough graveyard to the left
+            int graveyardLength = 30;
+            Point pointer = left;
+            pointer = FindGround(pointer);
+            for (int i = 0; i < graveyardLength; i++)
+            {
+                int yOld = pointer.Y;
+                pointer.X -= 1;
+                pointer = FindGround(pointer);
+                bool breaker = false;
+                if (Math.Abs(yOld - pointer.Y) > 3)
+                {
+                    if (i < graveyardLength * 0.75f)
+                        return false;
+                    breaker = true;
+                }
+                if (i == graveyardLength - 1 || breaker)
+                {
+                    if (Main.tile[pointer.X + 1, yOld + 1].TileType is not TileID.Dirt or TileID.Grass)
+                        return false;
+                }
+                if (breaker)
+                {
+                    break;
+                }
+            }
+
+
+            string path = "WorldGeneration/Graveyard";
+            Mod mod = FargoSeeds.Mod;
+            StructureHelper.API.Generator.GenerateStructure(path, topLeft, mod);
+            GenVars.structures?.AddProtectedStructure(rect, 2);
+
+            // fix grass
+            /*
+            for (int i = topLeft.X - 2; i < topLeft.X + sizeX + 2; i++)
+            {
+                for (int j = topLeft.Y - 2; j < topLeft.Y + sizeY + 2; j++)
+                {
+                    WorldGen.SpreadGrass(i, j, TileID.Dirt, TileID.Grass);
+                }
+            }
+            */
+            pointer = left;
+            pointer = FindGround(pointer);
+            int graveNext = Main.rand.Next(3, 6);
+            int wall = WallID.MetalFence;
+
+            for (int i = 0; i < graveyardLength; i++)
+            {
+                int yOld = pointer.Y;
+                pointer.X -= 1;
+                pointer = FindGround(pointer);
+                if (Math.Abs(yOld - pointer.Y) > 3)
+                    break;
+                graveNext--;
+                if (graveNext <= 0)
+                {
+                    graveNext = Main.rand.Next(3, 6);
+                    var gravePointer = pointer;
+                    gravePointer.Y = Math.Max(FindGround(gravePointer).Y, FindGround(new Point(gravePointer.X - 1, gravePointer.Y)).Y);
+                    for (int a = 0; a < 2; a++)
+                    {
+                        for (int b = -1; b < 2; b++)
+                        {
+                            WorldGen.KillTile(gravePointer.X - a, gravePointer.Y + b, noItem: true);
+                        }
+                    }
+                    
+                    WorldGen.PlaceTile(gravePointer.X, gravePointer.Y + 1, TileID.Stone, mute: true);
+                    WorldGen.PlaceTile(gravePointer.X - 1, gravePointer.Y + 1, TileID.Stone, mute: true);
+
+                    int x = gravePointer.X - 1;
+                    int y = gravePointer.Y;
+                    WorldGen.PlaceTile(x, y, TileID.Tombstones, true, true, style: WorldGen.genRand.Next(5));
+
+                    if (Main.tile[x, y - 1].TileType == TileID.Tombstones)
+                    {
+                        Sign.TextSign(Sign.ReadSign(x, y - 1), "");
+                    }
+                }
+                WorldGen.PlaceWall(pointer.X, pointer.Y, wall, true);
+                WorldGen.PlaceWall(pointer.X, pointer.Y + 1, wall, true);
+                if (WorldGen.genRand.NextBool(2))
+                {
+                    WorldGen.PlaceWall(pointer.X, pointer.Y - 1, wall, true);
+                    if (WorldGen.genRand.NextBool(2))
+                    {
+                        WorldGen.PlaceWall(pointer.X, pointer.Y - 2, wall, true);
+                    }
+                }
+                    
+            }
+
+            return true;
         }
     }
 }

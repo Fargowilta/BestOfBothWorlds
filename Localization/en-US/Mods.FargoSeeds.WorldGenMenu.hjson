@@ -23,6 +23,11 @@ GrandCaverns: {
 	Tooltip: Adds new grand cavern structures throughout the underground. Great for farming and fighting!
 }
 
+Graveyard: {
+	Label: Graveyard
+	Tooltip: Adds a new graveyard structure somewhere on the surface.
+}
+
 BothEvils: {
 	Label: Both Evils
 	Tooltip: Generates both the Corruption and Crimson in the same world, on opposite sides. (From Drunk Seed)
