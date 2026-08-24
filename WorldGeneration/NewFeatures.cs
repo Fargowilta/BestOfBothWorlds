@@ -698,11 +698,13 @@ namespace FargoSeeds.WorldGeneration
 
             int xW = (int)((float)Main.maxTilesX / normalAmt);
 
-            int jglAmt = 1;
+            bool several = WorldGen.GetWorldSize() >= 1;
 
-            int tundraAmt = 2;
+            int jglAmt = several ? 2 : 1;
 
-            int desertAmt = 2;
+            int tundraAmt = several ? 2 : 1;
+
+            int desertAmt = several ? 2 : 1;
 
             int totalAmt = normalAmt + jglAmt + tundraAmt + desertAmt;
 
