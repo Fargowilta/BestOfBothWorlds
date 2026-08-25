@@ -10,22 +10,22 @@ Next: След.
 
 FishingShacks: {
 	Label: Рыбацкие лачуги
-	Tooltip: Генерирует новые рыбацкие лачуги по подземелью.
+	Tooltip: Генерирует рыбацкие лачуги по подземелью.
 }
 
 Mineshafts: {
 	Label: Овраги
-	Tooltip: Генерирует новые овраги по подземелью.
+	Tooltip: Генерирует овраги по подземелью.
 }
 
 GrandCaverns: {
 	Label: Великие пещеры
-	Tooltip: Генерирует новые великие пещеры по подземелью. Идеальны для фарма и битв!
+	Tooltip: Генерирует великие пещеры по подземелью. Идеальны для фарма и битв!
 }
 
 Graveyard: {
-	// Label: Graveyard
-	// Tooltip: Adds a new graveyard structure somewhere on the surface.
+	Label: Кладбище
+	Tooltip: Генерирует кладбище где-то на поверхности.
 }
 
 BothEvils: {
