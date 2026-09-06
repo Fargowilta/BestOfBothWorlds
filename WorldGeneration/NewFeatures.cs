@@ -469,6 +469,9 @@ namespace FargoSeeds.WorldGeneration
 
             Rectangle rect = new(origin.X, origin.Y, sizeX, sizeY);
 
+            if (rect.X < 50 || rect.Right > Main.maxTilesX - 50 || rect.Y < 50 || rect.Y > Main.maxTilesY - 50)
+                return false;
+
             if (WorldUtils.Find(new Point(rect.X - 2, rect.Y - 2), Searches.Chain(new Searches.Rectangle(rect.Width + 4, rect.Height + 4).RequireAll(mode: false), new Conditions.HasLava()), out var _))
                 return false;
 
